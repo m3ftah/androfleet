@@ -17,6 +17,9 @@ RUN unzip androfleet-node-1.0.zip && rm androfleet-node-1.0.zip
 RUN unzip androfleet-servicediscovery-1.0.zip && rm androfleet-servicediscovery-1.0.zip
 RUN unzip androfleet-ui-1.0.zip && rm androfleet-ui-1.0.zip
 
+RUN mkdir /scenarii
+COPY scenarii /scenarii
+
 COPY entrypoint.sh /
 
-ENTRYPOINT ["/entrypoint.sh"]
+# ENTRYPOINT ["/entrypoint.sh"]
