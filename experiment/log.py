@@ -2,6 +2,7 @@
 
 import os
 import sys
+import shutil
 import subprocess
 
 print('Reading androfleet.info file....')
@@ -38,7 +39,7 @@ for lf in logs:
     if lf.startswith('Node'):
         with open('log/' + lf, 'r') as f:
             for line in f:
-                if line.startswith('IP'):
+                if line.startswith('WEAVE_IP'):
                     ip = line.split()[1]
                     break
 

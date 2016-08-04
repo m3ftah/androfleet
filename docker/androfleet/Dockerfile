@@ -22,4 +22,4 @@ COPY scenarii /scenarii
 
 COPY entrypoint.sh /
 
-# ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

@@ -14,7 +14,7 @@ import android.util.Log;
 // WARNING; TESTED WITH EMULATOR API22, DOESN'T WORK WITH EMULATOR API19.
 public class MainActivity extends AppCompatActivity {
 
-    public static final String TAG = "GPSLocation";
+    public static final String TAG = "gpslocation";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
