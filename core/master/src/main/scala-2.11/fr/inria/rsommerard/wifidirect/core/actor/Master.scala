@@ -16,18 +16,28 @@ class Master(val nbNodes: Int) extends Actor {
   var tickValue: Int = -1
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   val interval = 2
+  var nbReadyNodes: Int = 0
 
-  override def receive: Receive = initialize(0)
+  override def receive: Receive = initialize()
 
   def process(): Receive = {
     case Tick => tick()
+    case State => state("Process")
     case u: Any => dealWithUnknown("process", u.getClass.getSimpleName)
   }
 
-  def initialize(nbReadyNodes: Int): Receive = {
+  def initialize(): Receive = {
     case h: Hello => hello(h)
-    case Ready => ready(nbReadyNodes)
+    case State => state("Initialize")
+    case Ready => ready()
     case u: Any => dealWithUnknown("initialize", u.getClass.getSimpleName)
+  }
+
+  private def state(s: String): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] $s mode")
+    if (s == "Initialize") {
+      println(s"[${Calendar.getInstance().getTime}] Waiting ${nbNodes - nbReadyNodes} nodes")
+    }
   }
 
   private def hello(h: Hello): Unit = {
@@ -41,17 +51,17 @@ class Master(val nbNodes: Int) extends Actor {
     }
   }
 
-  private def ready(nbReadyNodes: Int): Unit = {
+  private def ready(): Unit = {
     //println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
 
-    val nbReady = nbReadyNodes + 1
-    if (nbReady == nbNodes) {
-      context.become(process())
-      println(s"[${Calendar.getInstance().getTime}] Starting process with $interval minutes between each tick")
-      context.system.scheduler.schedule(0 seconds, interval minutes, self, Tick)
-    } else {
-      context.become(initialize(nbReady))
+    nbReadyNodes += 1
+    if (nbReadyNodes != nbNodes) {
+      return
     }
+
+    context.become(process())
+    println(s"[${Calendar.getInstance().getTime}] Starting process with $interval minutes between each tick")
+    context.system.scheduler.schedule(0 seconds, interval minutes, self, Tick)
   }
 
   private def tick(): Unit = {

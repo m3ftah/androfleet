@@ -9,7 +9,7 @@ import fr.inria.rsommerard.wifidirect.core.message._
 import org.apache.commons.net.telnet.TelnetClient
 import play.api.libs.json.{JsValue, Json}
 
-import scala.sys.process.Process
+import scala.sys.process.{Process, ProcessLogger}
 
 object Emulator {
   val adbPath = "/android-sdk-linux/platform-tools/adb"
@@ -17,7 +17,7 @@ object Emulator {
   def isApplicationStarted(packageName: String): Boolean = {
     val isEmulatorStarted: Boolean = Process(s"$adbPath devices").!!.trim.contains("emulator-5554")
 
-    if (Process(s"$adbPath -e shell ps").! != 0)
+    if (Process(s"$adbPath -e shell ps").!(ProcessLogger(out => ())) != 0)
       return false
 
     val isApplicationInPS = Process(s"$adbPath -e shell ps").!!.trim.contains(packageName)

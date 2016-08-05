@@ -20,6 +20,8 @@ RUN unzip androfleet-ui-1.0.zip && rm androfleet-ui-1.0.zip
 RUN mkdir /scenarii
 COPY scenarii /scenarii
 
+COPY app-debug.apk /app-debug.apk
+
 COPY entrypoint.sh /
 
 ENTRYPOINT ["/entrypoint.sh"]

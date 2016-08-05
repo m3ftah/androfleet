@@ -5,7 +5,7 @@ import java.util.Calendar
 import akka.actor.{ActorSystem, Props}
 import com.typesafe.config.ConfigFactory
 import fr.inria.rsommerard.wifidirect.core.actor.Master
-import fr.inria.rsommerard.wifidirect.core.message.Tick
+import fr.inria.rsommerard.wifidirect.core.message.{State, Tick}
 
 import scala.io.Source
 
@@ -18,13 +18,15 @@ object Main extends App {
 
   println(s"[${Calendar.getInstance().getTime}] Master actor started...")
 
-  println("Commands available [quit (q) | exit (e), tick (t)]")
+  println("Commands available [exit (e) | quit (q), state (s), tick (t)]")
   for (ln <- Source.stdin.getLines()) {
     val input = ln.toLowerCase
     if (input == "quit" || input == "q" || input == "exit" || input == "e") {
       System.exit(0)
     } else if (input == "tick" || input == "t") {
       master ! Tick
+    } else if (input == "state" || input == "s") {
+      master ! State
     }
   }
 }

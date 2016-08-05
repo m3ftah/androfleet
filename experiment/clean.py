@@ -2,13 +2,12 @@
 
 import os
 import subprocess
-import shutil
 
 print('Cleaning info file and log folder....')
 if os.path.exists('log'):
-    shutil.rmtree('log')
-
-os.mkdir('log')
+    filelist = [ f for f in os.listdir('log') if f.endswith('.log') ]
+    for f in filelist:
+        os.remove(f)
 
 if os.path.exists('log.zip'):
     os.remove('log.zip')
