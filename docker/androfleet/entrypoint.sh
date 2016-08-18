@@ -74,6 +74,11 @@ case $MODE in
     redir --laddr=$IP --lport=8080 --caddr=127.0.0.1 --cport=8080 &
 
     ./androfleet-ui-1.0/bin/androfleet-ui ;;
+  'social' )
+      echo "Configuring redir for $IP..."
+      redir --laddr=$IP --lport=8080 --caddr=127.0.0.1 --cport=8080 &
+
+      ./androfleet-social-1.0/bin/androfleet-social ;;
   * )
     echo "$MODE is not recognized as ContainerType"
     exit ;;
