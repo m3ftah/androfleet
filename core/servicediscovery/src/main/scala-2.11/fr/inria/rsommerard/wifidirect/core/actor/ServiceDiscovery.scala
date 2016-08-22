@@ -126,8 +126,8 @@ class ServiceDiscovery extends Actor {
 
     val distance = R * c
 
-    // current range 200m, it seems that WiFi-direct has a range up to 250m
-    distance <= 200
+    // current range 100m, it seems that WiFi-direct has a range up to 250 meters in discover area.
+    distance <= 100
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {
