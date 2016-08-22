@@ -12,7 +12,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Master(val nbNodes: Int) extends Actor {
 
   var nodes: Set[ActorRef] = Set()
-  val scenarii: List[Scenario] = TestScenarii.getDefaultScenarii
+  val scenarii: List[Scenario] = TestScenarii.get
   var tickValue: Int = -1
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   val interval = 2

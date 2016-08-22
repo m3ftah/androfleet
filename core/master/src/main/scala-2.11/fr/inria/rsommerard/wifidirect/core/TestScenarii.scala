@@ -6,7 +6,7 @@ object TestScenarii {
 
   val dataFilePath = "/scenarii/Test.txt"
 
-  val getDefaultScenarii: List[Scenario] = {
+  val get: List[Scenario] = {
 
     val brutLines = scala.io.Source.fromFile(dataFilePath).mkString
 
