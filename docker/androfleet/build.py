@@ -16,6 +16,7 @@ NODE = CORE + '/node'
 SERVDISC = CORE + '/servicediscovery'
 UI = CORE + '/ui'
 SOCIAL = CORE + '/social'
+CONTEXTUAL = CORE + '/contextual'
 ANDROID = THIS + '/../../android/' + APP
 
 parser = argparse.ArgumentParser(prog='build.py', description='Docker androfleet container builder')
@@ -64,6 +65,13 @@ if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
     os.remove(THIS + '/androfleet-social-1.0.zip')
 shutil.copy(UI + '/target/universal/androfleet-social-1.0.zip', THIS)
 
+# CONTEXTUAL
+os.chdir(CONTEXTUAL)
+subprocess.call(['sbt', 'clean', 'universal:packageBin'])
+if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+    os.remove(THIS + '/androfleet-contextual-1.0.zip')
+shutil.copy(UI + '/target/universal/androfleet-contextual-1.0.zip', THIS)
+
 os.chdir(THIS)
 subprocess.call(['docker', 'build', '-t', 'rsommerard/androfleet', '.'])
 
@@ -91,3 +99,5 @@ if os.path.exists(THIS + '/androfleet-ui-1.0.zip'):
     os.remove(THIS + '/androfleet-ui-1.0.zip')
 if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
     os.remove(THIS + '/androfleet-social-1.0.zip')
+if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+    os.remove(THIS + '/androfleet-contextual-1.0.zip')

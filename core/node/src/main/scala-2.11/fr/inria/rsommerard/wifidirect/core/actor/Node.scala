@@ -11,6 +11,8 @@ import scala.util.Random
 class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
+  val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
+  val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
 
   var neighbors: List[Neighbor] = List()
   var scenario: Scenario = _
@@ -19,6 +21,8 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   override def preStart() {
     master ! Hello("Node")
     serviceDiscovery ! IP(weaveIp)
+    social ! IP(weaveIp)
+    contextual ! IP(weaveIp)
   }
 
   override def receive: Receive = {
