@@ -7,14 +7,12 @@ print('Cleaning info file and log folder....')
 if os.path.exists('log'):
     filelist = [ f for f in os.listdir('log') if f.endswith('.log') ]
     for f in filelist:
-        os.remove(f)
+        os.remove('log/' + f)
 
 if os.path.exists('log.zip'):
     os.remove('log.zip')
-
-filelist = [ f for f in os.listdir() if f.endswith('.log') or f.endswith('.info') ]
-for f in filelist:
-    os.remove(f)
+if os.path.exists('androfleet.info'):
+    os.remove('androfleet.info')
 
 print('Stopping running containers...')
 process = subprocess.Popen(['docker', 'ps', '-a'], stdout=subprocess.PIPE)
