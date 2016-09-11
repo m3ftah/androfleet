@@ -7,16 +7,16 @@ import json
 import shutil
 
 APP = 'gpslocation'
-SCENARII = 'Test.txt'
 
 THIS = "/".join(os.path.realpath(__file__).split('/')[:-1])
 CORE = THIS + '/../../core'
 MASTER = CORE + '/master'
+SCENARIOS = MASTER + '/res/scenarios.txt'
 NODE = CORE + '/node'
 SERVDISC = CORE + '/servicediscovery'
 UI = CORE + '/ui'
-SOCIAL = CORE + '/social'
-CONTEXTUAL = CORE + '/contextual'
+# SOCIAL = CORE + '/social'
+# CONTEXTUAL = CORE + '/contextual'
 ANDROID = THIS + '/../../android/' + APP
 
 parser = argparse.ArgumentParser(prog='build.py', description='Docker androfleet container builder')
@@ -36,6 +36,9 @@ subprocess.call(['sbt', 'clean', 'universal:packageBin'])
 if os.path.exists(THIS + '/androfleet-master-1.0.zip'):
     os.remove(THIS + '/androfleet-master-1.0.zip')
 shutil.copy(MASTER + '/target/universal/androfleet-master-1.0.zip', THIS)
+if os.path.exists(THIS + '/scenarios.txt'):
+    os.remove(THIS + '/scenarios.txt')
+shutil.copy(SCENARIOS, THIS)
 
 # Node
 os.chdir(NODE)
@@ -58,20 +61,22 @@ if os.path.exists(THIS + '/androfleet-ui-1.0.zip'):
     os.remove(THIS + '/androfleet-ui-1.0.zip')
 shutil.copy(UI + '/target/universal/androfleet-ui-1.0.zip', THIS)
 
-# SOCIAL
-os.chdir(SOCIAL)
-subprocess.call(['sbt', 'clean', 'universal:packageBin'])
-if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
-    os.remove(THIS + '/androfleet-social-1.0.zip')
-shutil.copy(UI + '/target/universal/androfleet-social-1.0.zip', THIS)
+# # SOCIAL
+# os.chdir(SOCIAL)
+# subprocess.call(['sbt', 'clean', 'universal:packageBin'])
+# if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
+#     os.remove(THIS + '/androfleet-social-1.0.zip')
+# shutil.copy(UI + '/target/universal/androfleet-social-1.0.zip', THIS)
 
-# CONTEXTUAL
-os.chdir(CONTEXTUAL)
-subprocess.call(['sbt', 'clean', 'universal:packageBin'])
-if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
-    os.remove(THIS + '/androfleet-contextual-1.0.zip')
-shutil.copy(UI + '/target/universal/androfleet-contextual-1.0.zip', THIS)
+# # CONTEXTUAL
+# os.chdir(CONTEXTUAL)
+# subprocess.call(['sbt', 'clean', 'universal:packageBin'])
+# if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+#     os.remove(THIS + '/androfleet-contextual-1.0.zip')
+# shutil.copy(UI + '/target/universal/androfleet-contextual-1.0.zip', THIS)
 
+
+# Build AndroFleet Docker image
 os.chdir(THIS)
 subprocess.call(['docker', 'build', '-t', 'rsommerard/androfleet', '.'])
 
@@ -83,6 +88,8 @@ if args.push:
             data = json.load(jsf)
             if len(data['auths']) == 0:
                 subprocess.call(['docker', 'login'])
+    else:
+        subprocess.call(['docker', 'login'])
 
     subprocess.call(['docker', 'push', 'rsommerard/androfleet'])
 
@@ -91,13 +98,15 @@ if os.path.exists(THIS + '/app-debug.apk'):
     os.remove(THIS + '/app-debug.apk')
 if os.path.exists(THIS + '/androfleet-master-1.0.zip'):
     os.remove(THIS + '/androfleet-master-1.0.zip')
+if os.path.exists(THIS + '/scenarios.txt'):
+    os.remove(THIS + '/scenarios.txt')
 if os.path.exists(THIS + '/androfleet-node-1.0.zip'):
     os.remove(THIS + '/androfleet-node-1.0.zip')
 if os.path.exists(THIS + '/androfleet-servicediscovery-1.0.zip'):
     os.remove(THIS + '/androfleet-servicediscovery-1.0.zip')
 if os.path.exists(THIS + '/androfleet-ui-1.0.zip'):
     os.remove(THIS + '/androfleet-ui-1.0.zip')
-if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
-    os.remove(THIS + '/androfleet-social-1.0.zip')
-if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
-    os.remove(THIS + '/androfleet-contextual-1.0.zip')
+# if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
+#     os.remove(THIS + '/androfleet-social-1.0.zip')
+# if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+#     os.remove(THIS + '/androfleet-contextual-1.0.zip')

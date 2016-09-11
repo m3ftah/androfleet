@@ -30,5 +30,7 @@ if args.push:
             data = json.load(jsf)
             if len(data['auths']) == 0:
                 subprocess.call(['docker', 'login'])
+    else:
+        subprocess.call(['docker', 'login'])
 
     subprocess.call(['docker', 'push', 'rsommerard/android-emulator-api' + args.api_version])
