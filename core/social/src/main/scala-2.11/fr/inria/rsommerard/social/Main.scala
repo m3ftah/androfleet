@@ -9,7 +9,8 @@ import akka.pattern.ask
 import akka.util.Timeout
 import com.typesafe.config.ConfigFactory
 import fr.inria.rsommerard.social.core.actor.Social
-import fr.inria.rsommerard.social.core.message.{Persons, Request}
+import fr.inria.rsommerard.social.core.data.SocialData
+import fr.inria.rsommerard.social.core.message.{Data, DataList, User, UserList}
 
 import scala.concurrent.duration._
 import org.json4s._
@@ -27,10 +28,11 @@ object Main extends App with SimpleRoutingApp {
   implicit val timeout = Timeout(3.second)
 
   lazy val defaultRoute = {
+    path("users") {
       get {
-        onComplete(social ? Request) {
+        onComplete(social ? UserList) {
           case Success(value) =>
-            val ipNodes: List[String] = value.asInstanceOf[Persons].values
+            val ipNodes: List[String] = value.asInstanceOf[User].values
 
             implicit val formats = Serialization.formats(NoTypeHints)
             complete(write(ipNodes))
@@ -40,6 +42,22 @@ object Main extends App with SimpleRoutingApp {
               s"[${Calendar.getInstance().getTime}] An error occurred: ${ex.getMessage}")
         }
       }
+    } ~
+    path("data") {
+      get {
+        onComplete(social ? DataList) {
+          case Success(value) =>
+            val data: List[SocialData] = value.asInstanceOf[Data].values
+
+            implicit val formats = Serialization.formats(NoTypeHints)
+            complete(write(data))
+
+          case Failure(ex) =>
+            complete(StatusCodes.InternalServerError,
+              s"[${Calendar.getInstance().getTime}] An error occurred: ${ex.getMessage}")
+        }
+      }
+    }
   }
 
   startServer(interface = "localhost", port = 8080) {

@@ -18,12 +18,12 @@ class Social extends Actor {
   override def receive: Receive = {
     case h: Hello => hello(h)
     case i: IP => ip(i)
-    case Request => request()
+    case UserList => request()
     case u: Any => dealWithUnknown("receive", u.getClass.getSimpleName)
   }
 
   private def request(): Unit = {
-    sender ! Persons(ipNodes.values.toList)
+    sender ! User(ipNodes.values.toList)
   }
 
   private def ip(i: IP): Unit = {
