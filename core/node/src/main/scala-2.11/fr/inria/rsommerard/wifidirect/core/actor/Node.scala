@@ -11,18 +11,18 @@ import scala.util.Random
 class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
-  val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
-  val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
+  //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
+  //val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
 
   var neighbors: List[Neighbor] = List()
   var scenario: Scenario = _
-  var currentScenarioIndex = -1
+  var ownLocation: Location = _
 
   override def preStart() {
     master ! Hello("Node")
     serviceDiscovery ! IP(weaveIp)
-    social ! IP(weaveIp)
-    contextual ! IP(weaveIp)
+    //social ! IP(weaveIp)
+    //contextual ! IP(weaveIp)
   }
 
   override def receive: Receive = {
@@ -55,7 +55,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def tick(t: Tick): Unit = {
     println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
 
-    updateLocation()
+    updateLocation(t.value)
   }
 
   private def disconnect(d: Disconnect): Unit = {
@@ -85,15 +85,26 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
     }
   }
 
-  private def updateLocation(): Unit = {
-    currentScenarioIndex += 1
-    if (currentScenarioIndex >= scenario.locations.size) {
-      println(s"[${Calendar.getInstance().getTime}] Warning: No more locations to set")
+  private def getMinLocationTimestamp(): Int = {
+    val timestamps: List[Int] = scenario.locations.map(l => l.timestamp)
+    timestamps.min
+  }
 
+  private def updateLocation(timestamp: Int): Unit = {
+    if (ownLocation == null) {
+      ownLocation = scenario.locations.filter(l => l.timestamp == getMinLocationTimestamp()).head
+      Emulator.setGPSLocation(ownLocation.lat, ownLocation.lon)
+      serviceDiscovery ! ownLocation
       return
     }
 
-    val ownLocation: Location = scenario.locations(currentScenarioIndex)
+    val newLocation = scenario.locations.filter(l => l.timestamp == timestamp)
+
+    if (newLocation.isEmpty) {
+      return
+    }
+
+    ownLocation = newLocation.head
     Emulator.setGPSLocation(ownLocation.lat, ownLocation.lon)
     serviceDiscovery ! ownLocation
   }
@@ -112,7 +123,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   }
 
   private def hello(h: Hello): Unit =  {
-    //println(s"[${Calendar.getInstance().getTime}] Received Hello: $h")
+    println(s"[${Calendar.getInstance().getTime}] Received Hello: $h")
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {
