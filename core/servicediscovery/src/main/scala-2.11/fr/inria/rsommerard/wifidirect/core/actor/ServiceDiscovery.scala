@@ -112,7 +112,7 @@ class ServiceDiscovery extends Actor {
   }
 
   private def hello(h: Hello): Unit = {
-    //println(s"[${Calendar.getInstance().getTime}] Received Hello(${h.name}) from ${sender.path.address.host.get}")
+    println(s"[${Calendar.getInstance().getTime}] Received Hello(${h.name}) from ${sender.path.address.host.get}")
   }
 
   private def areInRange(l1: Location, l2: Location): Boolean = {
