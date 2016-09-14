@@ -20,7 +20,7 @@ for e in env:
 
 # start ui container
 print("Launching androfleet as ui container...")
-process = subprocess.Popen(['docker', 'run', '-d', '-p', '3012:8080', 'rsommerard/androfleet', 'ui'], stdout=subprocess.PIPE)
+process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-ui', '-d', '-p', '3012:8080', 'rsommerard/androfleet', 'ui'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 
 with open('androfleet.info', 'a+') as f:

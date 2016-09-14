@@ -47,15 +47,20 @@ class Emulator(val weaveIp: String) {
   var connectedTo: String = ""
   val serverPort: Int = 54421
   val serverSocket: ServerSocket = new ServerSocket(serverPort)
-  val name: String = s"N${weaveIp.replace(".","")}"
+  var name: String = _
   var node: ActorRef = _
 
-  val device: Device = Device(name, weaveIp)
+  var device: Device = _
   var devices: List[Device] = List()
 
   var dnsSdServiceResponse: DnsSdServiceResponse = _
   var dnsSdTxtRecord: DnsSdTxtRecord = _
   var wifiP2pConfig: WifiP2pConfig = _
+
+  def setName(nm: String):Unit = {
+    name = nm
+    device = Device(nm, weaveIp)
+  }
 
   def updateNeighbors(nghbrs: List[Neighbor]) = {
     neighbors = nghbrs.filterNot(n => n.weaveIp == weaveIp)
@@ -69,6 +74,10 @@ class Emulator(val weaveIp: String) {
 
   def sendStateChangedIntent(): Unit = {
     Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
+  }
+
+  def sendThisDeviceChangedIntent(): Unit = {
+    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
   }
 
   def sendPeersChangedIntent(): Unit = {
@@ -88,10 +97,6 @@ class Emulator(val weaveIp: String) {
     Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
   }
 
-  def sendThisDeviceChangedIntent(): Unit = {
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION}").run()
-  }
-
   def start(nd: ActorRef): Unit = {
     node = nd
     node.tell(Hello("Emulator"), ActorRef.noSender)
@@ -102,6 +107,7 @@ class Emulator(val weaveIp: String) {
           val socket = serverSocket.accept
           new Thread(new Runnable {
             override def run(): Unit = {
+              // Warning: Order is important! First create output for the header!
               implicit val oOStream: ObjectOutputStream = new ObjectOutputStream(socket.getOutputStream)
               implicit val oIStream: ObjectInputStream = new ObjectInputStream(socket.getInputStream)
               val message: String  = receive()

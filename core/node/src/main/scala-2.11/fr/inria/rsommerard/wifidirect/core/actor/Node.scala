@@ -17,9 +17,11 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   var neighbors: List[Neighbor] = List()
   var scenario: Scenario = _
   var ownLocation: Location = _
+  var name: String = _
 
   override def preStart() {
     master ! Hello("Node")
+    master ! IP(weaveIp)
     serviceDiscovery ! IP(weaveIp)
     //social ! IP(weaveIp)
     //contextual ! IP(weaveIp)
@@ -46,6 +48,8 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
 
   private def scenario(s: Scenario): Unit = {
     scenario = s
+    name = s.name
+    emulator.setName(name)
   }
 
   private def services(s: Services): Unit = {

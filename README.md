@@ -7,6 +7,13 @@ AndroFleet is a large-scale emulation platform that supports WiFi-Direct interac
 - Docker (https://docs.docker.com/engine/installation/)
 - Weave network (https://www.weave.works/install-weave-net/)
 
+## Default static Weave IP
+
+- DB: 10.32.0.41
+- Master: 10.32.0.42
+- ServiceDiscovery: 10.32.0.43
+- Social: 10.32.0.44
+
 ## Build
 
 ### 1. Build android-emulator

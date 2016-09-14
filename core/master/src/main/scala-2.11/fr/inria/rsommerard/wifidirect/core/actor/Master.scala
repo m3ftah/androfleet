@@ -5,6 +5,8 @@ import java.util.Calendar
 import akka.actor.{Actor, ActorRef}
 import fr.inria.rsommerard.wifidirect.core.Scenarios
 import fr.inria.rsommerard.wifidirect.core.message._
+import org.mongodb.scala.bson.collection.immutable.Document
+import org.mongodb.scala.{Completed, MongoClient, MongoCollection, MongoDatabase, Observer}
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -17,8 +19,13 @@ class Master(val nbNodes: Int) extends Actor {
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
+  val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
+  val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
   val interval = 1
   var nbReadyNodes: Int = 0
+
+  val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
+  val database: MongoDatabase = mongoClient.getDatabase("androfleet")
 
   override def receive: Receive = initialize()
 
@@ -30,9 +37,37 @@ class Master(val nbNodes: Int) extends Actor {
 
   def initialize(): Receive = {
     case h: Hello => hello(h)
+    case i: IP => ip(i)
     case State => state("Initialize")
     case Ready => ready()
     case u: Any => dealWithUnknown("initialize", u.getClass.getSimpleName)
+  }
+
+  private def ip(i: IP): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] Received IP(${i.value}) from ${sender.path.address.host.get}")
+
+    val collection: MongoCollection[Document] = database.getCollection("node")
+
+    val scenar: Scenario = scenarios(nodes.size)
+    val name = scenar.name
+
+    nodes += sender
+
+    val node: Document = Document("name" -> name, "ip" -> i.value)
+    collection.insertOne(node).subscribe(new Observer[Completed] {
+      override def onNext(result: Completed): Unit = {
+        println("Node inserted")
+        if (nbNodes != nodes.size) {
+          return
+        }
+        social ! Initialize
+        contextual ! Initialize
+      }
+      override def onError(e: Throwable): Unit = println("Failed to insert node")
+      override def onComplete(): Unit = println("Completed node insertion")
+    })
+
+    sender ! scenar
   }
 
   private def state(s: String): Unit = {
@@ -46,11 +81,6 @@ class Master(val nbNodes: Int) extends Actor {
     println(s"[${Calendar.getInstance().getTime}] Received Hello(${h.name}) from ${sender.path.address.host.get}")
 
     sender ! Hello("Master")
-
-    if (h.name == "Node") {
-      sender ! scenarios(nodes.size)
-      nodes += sender
-    }
   }
 
   private def ready(): Unit = {

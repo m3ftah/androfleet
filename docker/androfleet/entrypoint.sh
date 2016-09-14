@@ -66,13 +66,9 @@ case $MODE in
     ./androfleet-ui-1.0/bin/androfleet-ui ;;
 
   'social' )
-      echo "Configuring redir for $IP..."
-      redir --laddr=$IP --lport=8080 --caddr=127.0.0.1 --cport=8080 &
-      ./androfleet-social-1.0/bin/androfleet-social ;;
+    ./androfleet-social-1.0/bin/androfleet-social ;;
 
   'contextual' )
-      echo "Configuring redir for $IP..."
-      redir --laddr=$IP --lport=8080 --caddr=127.0.0.1 --cport=8080 &
       ./androfleet-contextual-1.0/bin/androfleet-contextual ;;
 
   * )

@@ -8,8 +8,6 @@ lazy val root = (project in file(".")).
     libraryDependencies := Seq(
       "com.typesafe.akka" %% "akka-actor" % "2.4.7",
       "com.typesafe.akka" %% "akka-remote" % "2.4.7",
-      "io.spray" %% "spray-routing" % "1.3.3",
-      "io.spray" %% "spray-can" % "1.3.3",
-      "org.json4s" %% "json4s-jackson" % "3.4.0"
+      "org.mongodb.scala" %% "mongo-scala-driver" % "1.1.1"
     )
   )

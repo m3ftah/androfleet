@@ -24,11 +24,14 @@ public class CartonThread extends Thread implements Runnable {
     public void run() {
         try {
             mSocket.connect(new InetSocketAddress(WiDi.SERVER_ADDRESS, WiDi.SERVER_PORT), WiDi.SOCKET_TIMEOUT);
+
+            // Warning: Order is important! First create output for the header!
             ObjectOutputStream oOStream = new ObjectOutputStream(mSocket.getOutputStream());
+            ObjectInputStream oIStream = new ObjectInputStream(mSocket.getInputStream());
+            
             oOStream.writeObject(Protocol.CARTON);
             oOStream.flush();
 
-            ObjectInputStream oIStream = new ObjectInputStream(mSocket.getInputStream());
             String ack = (String) oIStream.readObject();
 
             if (Protocol.ACK.equals(ack)) {

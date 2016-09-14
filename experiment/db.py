@@ -4,7 +4,11 @@ import subprocess
 import os
 import time
 
-print('ServiceDiscovery')
+print('DB')
+
+# launch weave
+print("Launching weave...")
+subprocess.call(['weave', 'launch'])
 
 # set weave env before launching containers
 print("Setting weave env...")
@@ -16,12 +20,9 @@ for e in env:
     if not value.isspace():
         os.environ[name] = value
 
-# start servicediscovery container
-print("Launching androfleet as servicediscovery container...")
-process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-servicediscovery', '-d', '-e', 'WEAVE_CIDR=10.32.0.43/12', 'rsommerard/androfleet', 'servicediscovery'], stdout=subprocess.PIPE)
+# start mongo container
+print("Launching mongo container...")
+process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-db', '-d', '-e', 'WEAVE_CIDR=10.32.0.41/12', 'mongo', '--rest'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
-
-with open('androfleet.info', 'a+') as f:
-    f.write("ServiceDiscovery=" + output)
 
 time.sleep(3)

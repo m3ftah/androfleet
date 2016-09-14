@@ -32,17 +32,18 @@ object Scenarios {
     val head: String = splittedLines.head
 
     val lines: List[String] = splittedLines.filterNot(l => l == head)
-    val name: Set[String] = lines.map(l => l.split(',')(0)).toSet
+    val names: Set[String] = lines.map(l => l.split(',')(0)).toSet
 
     var scenarios: List[Scenario] = List()
-    for (n <- name) {
+    for (name <- names) {
       var locations: List[Location] = List()
-      val sel = lines.filter(l => l.split(',')(0) == n)
+      val sel = lines.filter(l => l.split(',')(0) == name)
       sel.foreach(s => {
         locations = locations :+ Location(s.split(',')(1).toDouble, s.split(',')(2).toDouble, s.split(',')(3).toInt)
       })
 
-      scenarios = scenarios :+ Scenario(locations)
+
+      scenarios = scenarios :+ Scenario(name.split('.')(0), locations)
     }
 
     scenarios

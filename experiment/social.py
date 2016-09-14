@@ -20,7 +20,7 @@ for e in env:
 
 # start social container
 print("Launching androfleet as social container...")
-process = subprocess.Popen(['docker', 'run', '-d', '-e', 'WEAVE_CIDR=10.32.0.44/12', 'rsommerard/androfleet', 'social'], stdout=subprocess.PIPE)
+process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-social', '-d', '-e', 'WEAVE_CIDR=10.32.0.44/12', 'rsommerard/androfleet', 'social'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 
 with open('androfleet.info', 'a+') as f:

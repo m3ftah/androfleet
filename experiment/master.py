@@ -3,6 +3,7 @@
 import subprocess
 import os
 import sys
+import time
 
 print('Master')
 
@@ -24,4 +25,4 @@ for e in env:
 
 # start master container
 print("Launching androfleet as master container...")
-subprocess.call(['docker', 'run', '-it', '-e', 'WEAVE_CIDR=10.32.0.42/12', 'rsommerard/androfleet', 'master', NB_NODES])
+subprocess.call(['docker', 'run', '-it', '--name', 'androfleet-master', '-e', 'WEAVE_CIDR=10.32.0.42/12', 'rsommerard/androfleet', 'master', NB_NODES])

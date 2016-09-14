@@ -35,6 +35,16 @@ with open(fpath, 'r+') as f:
             line = line + "    compile project(path: ':widi')\n"
         f.write(line)
 
+fpath = os.path.join(THIS + '/fougere/fougere', 'build.gradle')
+with open(fpath, 'r+') as f:
+    lines = f.readlines()
+    f.seek(0)
+    f.truncate()
+    for line in lines:
+        if "compile fileTree(dir: 'libs', include: ['*.jar'])" in line:
+            line = line + "    compile project(path: ':widi')\n"
+        f.write(line)
+
 # Replace WiFi
 fpath = os.path.join(THIS + '/fougere/fougere/src/main/java/fr/inria/rsommerard/fougere', 'Fougere.java')
 with open(fpath, 'r+') as f:

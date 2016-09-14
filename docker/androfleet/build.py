@@ -15,8 +15,8 @@ SCENARIOS = MASTER + '/res/scenarios.txt'
 NODE = CORE + '/node'
 SERVDISC = CORE + '/servicediscovery'
 UI = CORE + '/ui'
-# SOCIAL = CORE + '/social'
-# CONTEXTUAL = CORE + '/contextual'
+SOCIAL = CORE + '/social'
+CONTEXTUAL = CORE + '/contextual'
 ANDROID = THIS + '/../../android/' + APP
 
 parser = argparse.ArgumentParser(prog='build.py', description='Docker androfleet container builder')
@@ -61,19 +61,19 @@ if os.path.exists(THIS + '/androfleet-ui-1.0.zip'):
     os.remove(THIS + '/androfleet-ui-1.0.zip')
 shutil.copy(UI + '/target/universal/androfleet-ui-1.0.zip', THIS)
 
-# # SOCIAL
-# os.chdir(SOCIAL)
-# subprocess.call(['sbt', 'clean', 'universal:packageBin'])
-# if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
-#     os.remove(THIS + '/androfleet-social-1.0.zip')
-# shutil.copy(UI + '/target/universal/androfleet-social-1.0.zip', THIS)
+# SOCIAL
+os.chdir(SOCIAL)
+subprocess.call(['sbt', 'clean', 'universal:packageBin'])
+if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
+    os.remove(THIS + '/androfleet-social-1.0.zip')
+shutil.copy(SOCIAL + '/target/universal/androfleet-social-1.0.zip', THIS)
 
-# # CONTEXTUAL
-# os.chdir(CONTEXTUAL)
-# subprocess.call(['sbt', 'clean', 'universal:packageBin'])
-# if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
-#     os.remove(THIS + '/androfleet-contextual-1.0.zip')
-# shutil.copy(UI + '/target/universal/androfleet-contextual-1.0.zip', THIS)
+# CONTEXTUAL
+os.chdir(CONTEXTUAL)
+subprocess.call(['sbt', 'clean', 'universal:packageBin'])
+if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+    os.remove(THIS + '/androfleet-contextual-1.0.zip')
+shutil.copy(CONTEXTUAL + '/target/universal/androfleet-contextual-1.0.zip', THIS)
 
 
 # Build AndroFleet Docker image
@@ -106,7 +106,7 @@ if os.path.exists(THIS + '/androfleet-servicediscovery-1.0.zip'):
     os.remove(THIS + '/androfleet-servicediscovery-1.0.zip')
 if os.path.exists(THIS + '/androfleet-ui-1.0.zip'):
     os.remove(THIS + '/androfleet-ui-1.0.zip')
-# if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
-#     os.remove(THIS + '/androfleet-social-1.0.zip')
-# if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
-#     os.remove(THIS + '/androfleet-contextual-1.0.zip')
+if os.path.exists(THIS + '/androfleet-social-1.0.zip'):
+    os.remove(THIS + '/androfleet-social-1.0.zip')
+if os.path.exists(THIS + '/androfleet-contextual-1.0.zip'):
+    os.remove(THIS + '/androfleet-contextual-1.0.zip')
