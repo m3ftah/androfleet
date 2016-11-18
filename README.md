@@ -41,6 +41,11 @@ cd docker/androfleet
 
 ```bash
 cd experiment
+./db.py
+```
+
+```bash
+cd experiment
 ./master.py 2
 ```
 
