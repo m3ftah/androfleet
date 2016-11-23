@@ -88,7 +88,8 @@ class ServiceDiscovery extends Actor {
     }
 
     val loc: Option[Location] = locations.get(sender)
-
+    println("devices ip: " + Locations.keys mkString );
+    println("devices location: " + Locations.values mkString );
     if (loc.isEmpty) {
       println(s"[${Calendar.getInstance().getTime}] Warning: No Location found for ${sender.path.address.host.get}")
       return
