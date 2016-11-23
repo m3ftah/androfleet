@@ -92,7 +92,7 @@ class Master(val nbNodes: Int) extends Actor {
     }
 
     context.become(process())
-    println(s"[${Calendar.getInstance().getTime}] Starting process with $interval second between each tick")
+    println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
     context.system.scheduler.schedule(0 second, interval milliseconds, self, Tick)
   }
 

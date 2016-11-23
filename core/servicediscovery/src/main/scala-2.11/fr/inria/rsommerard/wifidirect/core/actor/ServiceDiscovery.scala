@@ -81,6 +81,7 @@ class ServiceDiscovery extends Actor {
   }
 
   private def neighbors(): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] Checking neighbors")
     if (!discoverables(sender)) {
       println(s"[${Calendar.getInstance().getTime}] Warning: ${sender.path.address.host.get} is not discoverable")
       return
@@ -99,9 +100,11 @@ class ServiceDiscovery extends Actor {
     var nghbrs: List[Neighbor] = List()
     for (a <- selection.keys) {
       val ip: String = ipNodes(a)
+      println(s"[${Calendar.getInstance().getTime}] Warning: Neighbor detected with ip: $ip")
 
       nghbrs = Neighbor(ip) :: nghbrs
     }
+    println(s"[${Calendar.getInstance().getTime}] Check complete")
 
     sender ! Neighbors(nghbrs)
   }
