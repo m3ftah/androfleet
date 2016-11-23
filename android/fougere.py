@@ -113,6 +113,8 @@ with open(fpath, 'r+') as f:
     for line in lines:
         if "android.net.wifi" in line:
             line = line.replace('android', 'fr.inria.rsommerard.widi')
+        if "android.net" in line:
+            line = line.replace('android', 'fr.inria.rsommerard.widi')
         f.write(line)
 
 # Replace Wi-Fi Direct in Active.java
