@@ -11,7 +11,7 @@ NB_NODES = sys.argv[1]
 
 print("NB_NODES = " + str(NB_NODES))
 
-APP = 'fr.inria.rsommerard.gpslocation/.MainActivity'
+APP = 'fr.inria.rsommerard.fougereapp/.MainActivity'
 
 # set weave env before launching containers
 print("Setting weave env...")

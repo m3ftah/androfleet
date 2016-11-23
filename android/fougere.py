@@ -68,7 +68,7 @@ with open(fpath, 'r+') as f:
         if 'android.net.wifi.p2p' in line:
             line = line.replace('android', 'fr.inria.rsommerard.widi')
         if '(WifiP2pManager) activity.getSystemService(Context.WIFI_P2P_SERVICE)' in line:
-            line = line.replace('(WifiP2pManager) this.activity.getSystemService(Context.WIFI_P2P_SERVICE)', 'new WifiP2pManager()')
+            line = line.replace('(WifiP2pManager) activity.getSystemService(Context.WIFI_P2P_SERVICE)', 'new WifiP2pManager()')
         f.write(line)
 
 # Replace Wi-Fi Direct in ServiceDiscovery.java

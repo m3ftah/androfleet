@@ -6,7 +6,7 @@ import argparse
 import json
 import shutil
 
-APP = 'gpslocation'
+APP = 'fougere'
 
 THIS = "/".join(os.path.realpath(__file__).split('/')[:-1])
 CORE = THIS + '/../../core'
