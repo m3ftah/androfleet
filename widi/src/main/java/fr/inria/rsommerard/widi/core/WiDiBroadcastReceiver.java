@@ -19,6 +19,7 @@ public class WiDiBroadcastReceiver extends BroadcastReceiver {
     public void onReceive(final Context context, final Intent intent) {
         String action = intent.getAction();
         Log.d(WiDi.TAG, action);
+        Log.v(WiDi.TAG, action);
 
         if (WiDiIntent.CONNECT.equals(action)) {
             boolean state = intent.getBooleanExtra(WiDiExtra.EXTRA_CONNECT_STATE, false);
@@ -27,19 +28,30 @@ public class WiDiBroadcastReceiver extends BroadcastReceiver {
 
             Intent ntnt = new Intent(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
 
+            Log.v(WiDi.TAG, "Intent created");
+
             NetworkInfo networkInfo = new NetworkInfo(13, 0, "WIFI_P2P", "");
+
+            Log.v(WiDi.TAG, "networkInfo instance created");
+
             if (state) {
                 networkInfo.setDetailedState(NetworkInfo.DetailedState.CONNECTED, null, null);
+                Log.v(WiDi.TAG, "DetailedState for networkInfo is added as CONNECTED");
             }
             ntnt.putExtra(WifiP2pManager.EXTRA_NETWORK_INFO, networkInfo);
+            Log.v(WiDi.TAG, "intent receives networkInfo as EXTRA_NETWORK_INFO");
 
             WifiP2pInfo wifiP2pInfo = new WifiP2pInfo();
+
+            Log.v(WiDi.TAG, "wifiP2pInfo instance created");
 
             if (state) {
                 String groupOwnerAddress = intent.getStringExtra(WiDiExtra.EXTRA_GROUP_OWNER_ADDRESS);
                 boolean isGroupOwner = intent.getBooleanExtra(WiDiExtra.EXTRA_GROUP_OWNER, false);
                 try {
                     wifiP2pInfo = new WifiP2pInfo(InetAddress.getByName(groupOwnerAddress), isGroupOwner);
+
+                    Log.v(WiDi.TAG, "groupOwnerAddress is Added to WifiP2pInfo");
                 } catch (UnknownHostException e) {
                     e.printStackTrace();
                     Log.e(WiDi.TAG, e.getMessage());
@@ -47,8 +59,15 @@ public class WiDiBroadcastReceiver extends BroadcastReceiver {
             }
 
             ntnt.putExtra(WifiP2pManager.EXTRA_WIFI_P2P_INFO, wifiP2pInfo);
+            Log.v(WiDi.TAG, "intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO");
+
+
+            Log.v(WiDi.TAG, "sending Broadcast....");
 
             context.sendBroadcast(ntnt);
+
+            Log.v(WiDi.TAG, "Broadcast sent.");
+
         }
     }
 }

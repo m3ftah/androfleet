@@ -106,11 +106,12 @@ public class DiscoverServicesThread extends Thread implements Runnable {
 
             // Receive DnsSdServiceResponse
             String jsonDnsSdServiceResponses = (String) oIStream.readObject();
+            Log.v(WiDi.TAG, "Receive DnsSdServiceResponse : " + jsonDnsSdServiceResponses);
 
             Type typeDnsSdServiceResponse = new TypeToken<ArrayList<DnsSdServiceResponse>>() {}.getType();
             List<DnsSdServiceResponse> dnsSdServiceResponses = gson.fromJson(jsonDnsSdServiceResponses, typeDnsSdServiceResponse);
 
-            if (dnsSdServiceResponses != null) {
+            if (dnsSdServiceResponses != null && mDnsSdServiceResponseListener != null) {
                 for (DnsSdServiceResponse dssr : dnsSdServiceResponses) {
                     WifiP2pDevice device = new WifiP2pDevice();
                     device.deviceAddress = dssr.srcDevice.deviceAddress;

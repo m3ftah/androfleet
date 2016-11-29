@@ -109,7 +109,7 @@ public class WifiP2pManager {
     }
 
     public void clearServiceRequests(final Channel channel, final ActionListener actionListener) {
-        mDnsSdServiceResponseListener = null;
+        //mDnsSdServiceResponseListener = null;
         mDnsSdTxtRecordListener = null;
         mWifiP2pDnsSdServiceRequest = null;
 

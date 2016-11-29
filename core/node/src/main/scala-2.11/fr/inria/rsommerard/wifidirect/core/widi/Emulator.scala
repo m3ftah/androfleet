@@ -133,12 +133,15 @@ class Emulator(val weaveIp: String) {
   }
 
   def send(message: String)(implicit oOStream: ObjectOutputStream): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] Message to send : " + message)
     oOStream.writeObject(message)
     oOStream.flush()
   }
 
   def receive()(implicit oIStream: ObjectInputStream): String = {
-    oIStream.readObject().toString
+    val message: String = oIStream.readObject().toString
+    println(s"[${Calendar.getInstance().getTime}] Message received : " + message)
+    return message
   }
 
   def hello()(implicit oOStream: ObjectOutputStream): Unit = {
