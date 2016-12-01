@@ -57,7 +57,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   }
 
   private def tick(t: Tick): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
+    //println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
 
     updateLocation(t.value)
   }

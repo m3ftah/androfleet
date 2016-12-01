@@ -27,7 +27,8 @@ for e in env:
 print("Launching androfleet as node containers...")
 for i in range(int(NB_NODES)):
     time.sleep(3)
-    process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-node' + str(i), '-d', '--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
+    #process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-node' + str(i), '-d', '--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
+    process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-node' + str(i), '-d','--log-driver=gelf','--log-opt' ,'gelf-address=udp://172.17.0.3:12201','--log-opt','tag="node"' ,'--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
     output = str(process.communicate()[0], 'UTF-8')
 
     with open('androfleet.info', 'a+') as f:

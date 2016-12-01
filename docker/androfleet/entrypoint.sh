@@ -55,7 +55,7 @@ case $MODE in
     echo 'Launching application...'
     adb -e shell am start -n $2
     echo 'Running...'
-    adb -e logcat | grep WiDi ;;
+    adb -e logcat -v time Fougere:V WiDi:V *:S;;
 
   'servicediscovery' )
     ./androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery ;;
