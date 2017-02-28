@@ -11,21 +11,21 @@ NB_NODES = sys.argv[1]
 
 subprocess.call(['pwd'])
 print("Cleaning...")
-subprocess.call(['./clean.py'])
+subprocess.call(['/home/lakhdar/ilab/androfleet/experiment/clean.py'])
 
 print("Launching database")
-subprocess.call(['./db.py'])
+subprocess.call(['/home/lakhdar/ilab/androfleet/experiment/db.py'])
 
 print("Launching Master")
-subprocess.call(['./master.py', NB_NODES])
+subprocess.call(['/home/lakhdar/ilab/androfleet/experiment/master.py', NB_NODES])
 
 time.sleep(5)
 
 print("Launching Service Discovery")
-subprocess.call(['./servicediscovery.py'])
+subprocess.call(['/home/lakhdar/ilab/androfleet/experiment/servicediscovery.py'])
 
 print("Launching Service Discovery")
-subprocess.call(['./node.py',NB_NODES])
+subprocess.call(['/home/lakhdar/ilab/androfleet/experiment/node.py',NB_NODES])
 
 print("androfleet-master log :")
 subprocess.call(['docker','logs','-f','androfleet-master'])

@@ -101,11 +101,11 @@ class ServiceDiscovery extends Actor {
     var nghbrs: List[Neighbor] = List()
     for (a <- selection.keys) {
       val ip: String = ipNodes(a)
-      println(s"[${Calendar.getInstance().getTime}] Warning: Neighbor detected with ip: $ip")
+      println(s"[${Calendar.getInstance().getTime}] Warning: Neighbor detected with ip: $ip for $sender")
 
       nghbrs = Neighbor(ip) :: nghbrs
     }
-    println(s"[${Calendar.getInstance().getTime}] Check complete")
+    println(s"[${Calendar.getInstance().getTime}] Check complete with $nghbrs")
 
     sender ! Neighbors(nghbrs)
   }
@@ -131,7 +131,7 @@ class ServiceDiscovery extends Actor {
     val distance = R * c
 
     // current range 180m (+-600 feet)
-    distance <= 18000000
+    distance <= 180
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {

@@ -24,7 +24,7 @@ object Scenarios {
     timestamps.max
   }
 
-  val get: List[Scenario] = {
+  val get(val nbNodes: Int): List[Scenario] = {
 
     val brutLines = scala.io.Source.fromFile(dataFilePath).mkString
 
@@ -32,7 +32,7 @@ object Scenarios {
     val head: String = splittedLines.head
 
     val lines: List[String] = splittedLines.filterNot(l => l == head)
-    val names: Set[String] = lines.map(l => l.split(',')(0)).toSet
+    val names: Set[String] = (lines.map(l => l.split(',')(0)).toSet).take(nbNodes)
 
     var scenarios: List[Scenario] = List()
     for (name <- names) {
@@ -44,6 +44,7 @@ object Scenarios {
 
 
       scenarios = scenarios :+ Scenario(name.split('.')(0), locations)
+      println("a name is : " + name)
     }
 
     scenarios

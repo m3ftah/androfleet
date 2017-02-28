@@ -49,7 +49,10 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def scenario(s: Scenario): Unit = {
     scenario = s
     name = s.name
+    println("My name is : " +  name)
+    //println("My scenario is : " + s)
     emulator.setName(name)
+    emulator.sendThisDeviceChangedIntent()
   }
 
   private def services(s: Services): Unit = {
@@ -97,7 +100,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def updateLocation(timestamp: Int): Unit = {
     if (ownLocation == null) {
       ownLocation = scenario.locations.filter(l => l.timestamp == getMinLocationTimestamp()).head
-      Emulator.setGPSLocation(ownLocation.lat, ownLocation.lon)
+      Emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon, timestamp)
       serviceDiscovery ! ownLocation
       return
     }
@@ -109,7 +112,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
     }
 
     ownLocation = newLocation.head
-    Emulator.setGPSLocation(ownLocation.lat, ownLocation.lon)
+    Emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon,timestamp)
     serviceDiscovery ! ownLocation
   }
 

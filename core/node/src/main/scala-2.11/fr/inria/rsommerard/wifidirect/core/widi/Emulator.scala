@@ -1,6 +1,6 @@
 package fr.inria.rsommerard.wifidirect.core.widi
 
-import java.io.{ObjectInputStream, ObjectOutputStream, PrintStream}
+import java.io.{ObjectInputStream, ObjectOutputStream, PrintStream, EOFException}
 import java.net._
 import java.util.Calendar
 
@@ -25,14 +25,14 @@ object Emulator {
     isEmulatorStarted && isApplicationInPS
   }
 
-  def setGPSLocation(lon: Double, lat: Double): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] New GPS location " + lon + " " + lat)
-
+  def setGPSLocation(name: String ,lon: Double, lat: Double, epoch: Int): Unit = {
+    println("[" + epoch + "][" + name + "][New GPS location] " + lon + " " + lat)
+    println(Process(s"$adbPath -e shell date -u $epoch").!!)
     val tn = new TelnetClient
     tn.connect("localhost", 5554)
 
     val out = new PrintStream(tn.getOutputStream)
-    out.println(s"geo fix $lon $lat")
+    out.println(s"geo fix $lat $lon")
     out.flush()
     out.close()
     tn.disconnect()
@@ -59,6 +59,7 @@ class Emulator(val weaveIp: String) {
 
   def setName(nm: String):Unit = {
     name = nm
+    println("My name is " + name)
     device = Device(nm, weaveIp)
   }
 
@@ -77,6 +78,7 @@ class Emulator(val weaveIp: String) {
   }
 
   def sendThisDeviceChangedIntent(): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] Sending Device Address : " + weaveIp + "Device Name: " + name + "")
     Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
   }
 
@@ -139,7 +141,12 @@ class Emulator(val weaveIp: String) {
   }
 
   def receive()(implicit oIStream: ObjectInputStream): String = {
-    val message: String = oIStream.readObject().toString
+    var message: String = ""
+    try{
+      message = oIStream.readObject().toString
+    } catch {
+      case eofex : EOFException => println(s"[${Calendar.getInstance().getTime}] Message received with EOFException " + eofex.getMessage)
+    }
     println(s"[${Calendar.getInstance().getTime}] Message received : " + message)
     return message
   }
@@ -153,7 +160,7 @@ class Emulator(val weaveIp: String) {
 
     sendStateChangedIntent()
     sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
-    sendThisDeviceChangedIntent()
+    
   }
 
   def carton()(implicit oIStream: ObjectInputStream, oOStream: ObjectOutputStream): Unit = {
