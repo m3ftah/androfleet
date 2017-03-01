@@ -14,7 +14,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Master(val nbNodes: Int) extends Actor {
 
   var nodes: Set[ActorRef] = Set()
-  val scenarios: List[Scenario] = Scenarios.get(nbNodes)
+  val scenarios: List[Scenario] = Scenarios.get
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
@@ -84,7 +84,7 @@ class Master(val nbNodes: Int) extends Actor {
   }
 
   private def ready(): Unit = {
-    //println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
+    println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
 
     nbReadyNodes += 1
     if (nbReadyNodes != nbNodes) {
