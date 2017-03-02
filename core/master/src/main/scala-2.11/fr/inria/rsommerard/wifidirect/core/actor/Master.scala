@@ -14,14 +14,14 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Master(val nbNodes: Int) extends Actor {
 
   var nodes: Set[ActorRef] = Set()
-  val scenarios: List[Scenario] = Scenarios.get(nbNodes)
+  val scenarios: List[Scenario] = Scenarios.get
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
-  val interval = 1
+  val interval = 10
   var nbReadyNodes: Int = 0
 
   val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
