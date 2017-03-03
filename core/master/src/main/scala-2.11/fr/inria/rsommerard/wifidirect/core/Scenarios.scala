@@ -42,11 +42,15 @@ object Scenarios {
         locations = locations :+ Location(s.split(',')(1).toDouble, s.split(',')(2).toDouble, s.split(',')(3).toInt)
       })
 
+      
 
       scenarios = scenarios :+ Scenario(name.split('.')(0), locations)
       println("a name is : " + name)
+      println("scenarios : " + Scenario(name.split('.')(0), locations))
     }
-
+    println("Sleeping a minute : ")
+    Thread.sleep(120000)
+    println("Waking")
     scenarios
   }
 }

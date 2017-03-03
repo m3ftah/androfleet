@@ -131,7 +131,7 @@ class ServiceDiscovery extends Actor {
     val distance = R * c
 
     // current range 180m (+-600 feet)
-    distance <= 180000
+    distance <= 180
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {

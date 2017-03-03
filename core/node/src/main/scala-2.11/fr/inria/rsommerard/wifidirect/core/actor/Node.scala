@@ -50,7 +50,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
     scenario = s
     name = s.name
     println("My name is : " +  name)
-    //println("My scenario is : " + s)
+    println("My scenario is : " + s)
     emulator.setName(name)
     emulator.sendThisDeviceChangedIntent()
   }

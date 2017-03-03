@@ -103,8 +103,7 @@ class Master(val nbNodes: Int) extends Actor {
     }
 
     tickValue += 1
-
-    println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue")
+    println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue ")
 
     nodes.foreach(n => n ! Tick(tickValue))
     serviceDiscovery ! Tick(tickValue)

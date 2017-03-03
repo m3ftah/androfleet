@@ -248,6 +248,7 @@ class Emulator(val weaveIp: String) {
       weaveIp == groupOwnerIp
 
     if (isConnected) {
+      
       return
     }
 
