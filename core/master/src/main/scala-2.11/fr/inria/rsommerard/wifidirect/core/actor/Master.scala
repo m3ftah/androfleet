@@ -5,8 +5,8 @@ import java.util.Calendar
 import akka.actor.{Actor, ActorRef}
 import fr.inria.rsommerard.wifidirect.core.Scenarios
 import fr.inria.rsommerard.wifidirect.core.message._
-import org.mongodb.scala.bson.collection.immutable.Document
-import org.mongodb.scala.{Completed, MongoClient, MongoCollection, MongoDatabase, Observer}
+//import org.mongodb.scala.bson.collection.immutable.Document
+//import org.mongodb.scala.{Completed, MongoClient, MongoCollection, MongoDatabase, Observer}
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -24,8 +24,8 @@ class Master(val nbNodes: Int) extends Actor {
   val interval = 10
   var nbReadyNodes: Int = 0
 
-  val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
-  val database: MongoDatabase = mongoClient.getDatabase("androfleet")
+  //val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
+  //val database: MongoDatabase = mongoClient.getDatabase("androfleet")
 
   override def receive: Receive = initialize()
 
@@ -46,26 +46,26 @@ class Master(val nbNodes: Int) extends Actor {
   private def ip(i: IP): Unit = {
     println(s"[${Calendar.getInstance().getTime}] Received IP(${i.value}) from ${sender.path.address.host.get}")
 
-    val collection: MongoCollection[Document] = database.getCollection("node")
+    //val collection: MongoCollection[Document] = database.getCollection("node")
 
     val scenar: Scenario = scenarios(nodes.size)
     val name = scenar.name
 
     nodes += sender
-
-    val node: Document = Document("name" -> name, "ip" -> i.value)
-    collection.insertOne(node).subscribe(new Observer[Completed] {
+    social ! Initialize
+    contextual ! Initialize
+    //val node: Document = Document("name" -> name, "ip" -> i.value)
+    /*collection.insertOne(node).subscribe(new Observer[Completed] {
       override def onNext(result: Completed): Unit = {
         println("Node inserted")
         if (nbNodes != nodes.size) {
           return
         }
-        social ! Initialize
-        contextual ! Initialize
+        
       }
       override def onError(e: Throwable): Unit = println("Failed to insert node")
       override def onComplete(): Unit = println("Completed node insertion")
-    })
+    })*/
 
     sender ! scenar
   }
