@@ -32,7 +32,7 @@ object Scenarios {
     val head: String = splittedLines.head
 
     val lines: List[String] = splittedLines.filterNot(l => l == head)
-    val names: Set[String] = lines.map(l => l.split(',')(0)).toSet
+    val names: Set[String] = (lines.map(l => l.split(',')(0)).toSet)
 
     var scenarios: List[Scenario] = List()
     for (name <- names) {

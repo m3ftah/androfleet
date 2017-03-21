@@ -18,6 +18,7 @@ subprocess.call([home + '/ilab/androfleet/experiment/clean.py'])
 print("Launching database")
 subprocess.call([home + '/ilab/androfleet/experiment/db.py'])
 
+
 print("Launching Service Discovery")
 subprocess.call([home + '/ilab/androfleet/experiment/servicediscovery.py'])
 
@@ -29,6 +30,7 @@ subprocess.call([home + '/ilab/androfleet/experiment/master.py', NB_NODES])
 
 
 print("Launching Nodes")
+
 subprocess.call([home + '/ilab/androfleet/experiment/node.py',NB_NODES])
 
 print("androfleet-master log :")
