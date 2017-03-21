@@ -49,8 +49,8 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def scenario(s: Scenario): Unit = {
     scenario = s
     name = s.name
-    println("My name is : " +  name)
-    println("My scenario is : " + s)
+    //println("My name is : " +  name)
+    //println("My scenario is : " + s)
     emulator.setName(name)
     emulator.sendThisDeviceChangedIntent()
   }
@@ -66,7 +66,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   }
 
   private def disconnect(d: Disconnect): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Received Disconnect: $d")
+    //println(s"[${Calendar.getInstance().getTime}] Received Disconnect: $d")
 
     if (d.weaveIp != weaveIp) {
       serviceDiscovery ! d
@@ -74,7 +74,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   }
 
   private def connect(c: Connect): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Received Connect: $c")
+    //println(s"[${Calendar.getInstance().getTime}] Received Connect: $c")
 
     c.weaveIpTo match {
       case `weaveIp` => emulator.connectExt(c.weaveIpFrom, c.groupOwnerIp)
@@ -119,7 +119,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def neighbors(nghbrs: Neighbors): Unit = {
     neighbors = nghbrs.values.filter(n => n.weaveIp != emulator.weaveIp)
 
-    println(s"[${Calendar.getInstance().getTime}] ${neighbors.size} neighbors: $neighbors")
+    //println(s"[${Calendar.getInstance().getTime}] ${neighbors.size} neighbors: $neighbors")
 
     emulator.updateNeighbors(neighbors)
     emulator.sendPeersChangedIntent()

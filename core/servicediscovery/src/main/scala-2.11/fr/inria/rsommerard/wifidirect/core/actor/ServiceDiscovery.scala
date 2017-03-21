@@ -39,7 +39,7 @@ class ServiceDiscovery extends Actor {
   }
 
   private def tick(t: Tick): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
+    //println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
   }
 
   private def connect(c: Connect): Unit = {

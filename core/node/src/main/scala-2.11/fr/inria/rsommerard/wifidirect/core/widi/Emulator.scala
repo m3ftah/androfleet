@@ -27,7 +27,7 @@ object Emulator {
 
   def setGPSLocation(name: String ,lon: Double, lat: Double, epoch: Int): Unit = {
     println("[" + epoch + "][" + name + "][New GPS location] " + lon + " " + lat)
-    println(Process(s"$adbPath -e shell date -u $epoch").!!)
+    Process(s"$adbPath -e shell date -u $epoch").!!
     val tn = new TelnetClient
     tn.connect("localhost", 5554)
 
@@ -135,7 +135,7 @@ class Emulator(val weaveIp: String) {
   }
 
   def send(message: String)(implicit oOStream: ObjectOutputStream): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Message to send : " + message)
+    //println(s"[${Calendar.getInstance().getTime}] Message to send : " + message)
     oOStream.writeObject(message)
     oOStream.flush()
   }
@@ -147,7 +147,7 @@ class Emulator(val weaveIp: String) {
     } catch {
       case eofex : EOFException => println(s"[${Calendar.getInstance().getTime}] Message received with EOFException " + eofex.getMessage)
     }
-    println(s"[${Calendar.getInstance().getTime}] Message received : " + message)
+    //println(s"[${Calendar.getInstance().getTime}] Message received : " + message)
     return message
   }
 
@@ -264,7 +264,7 @@ class Emulator(val weaveIp: String) {
     implicit val deviceFormat = Json.format[Device]
 
     val json = Json.toJson(devices)
-    println(json)
+    //println(json)
     send(json.toString())
   }
 
@@ -307,7 +307,7 @@ class Emulator(val weaveIp: String) {
     }
 
     val jsonDnsSdServiceResponses: JsValue = Json.toJson(dnsSdServiceResponses)
-    println(jsonDnsSdServiceResponses.toString())
+    //println(jsonDnsSdServiceResponses.toString())
     send(jsonDnsSdServiceResponses.toString())
 
     var ack = receive()
