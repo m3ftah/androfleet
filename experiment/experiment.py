@@ -29,6 +29,7 @@ subprocess.call([home + '/ilab/androfleet/experiment/master.py', NB_NODES])
 
 
 print("Launching Nodes")
+
 subprocess.call([home + '/ilab/androfleet/experiment/node.py',NB_NODES])
 
 print("androfleet-master log :")

@@ -21,7 +21,7 @@ class Master(val nbNodes: Int) extends Actor {
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
-  val interval = 10
+  val interval = 1
   var nbReadyNodes: Int = 0
 
   //val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
@@ -84,7 +84,7 @@ class Master(val nbNodes: Int) extends Actor {
   }
 
   private def ready(): Unit = {
-    //println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
+    println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
 
     nbReadyNodes += 1
     if (nbReadyNodes != nbNodes) {
