@@ -99,11 +99,11 @@ class Master(val nbNodes: Int) extends Actor {
   private def tick(): Unit = {
     if (tickValue == lastTick) {
       println(s"[${Calendar.getInstance().getTime}] Last tick reached: $tickValue")
-      tickValue = firstTick
+      return
     }
 
     tickValue += 1
-    println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue ")
+    //println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue ")
 
     nodes.foreach(n => n ! Tick(tickValue))
     serviceDiscovery ! Tick(tickValue)

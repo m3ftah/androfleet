@@ -46,10 +46,10 @@ object Scenarios {
 
       scenarios = scenarios :+ Scenario(name.split('.')(0), locations)
       println("a name is : " + name)
-      println("scenarios : " + Scenario(name.split('.')(0), locations))
+      //println("scenarios : " + Scenario(name.split('.')(0), locations))
     }
-    println("Sleeping a minute : ")
-    Thread.sleep(120000)
+    println("Sleeping 5 minutes : ")
+    Thread.sleep(300000)
     println("Waking")
     scenarios
   }
