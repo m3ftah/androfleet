@@ -48,8 +48,8 @@ object Scenarios {
       println("a name is : " + name)
       //println("scenarios : " + Scenario(name.split('.')(0), locations))
     }
-    println("Sleeping 5 minutes : ")
-    Thread.sleep(300000)
+    println("Sleeping 1 minute : ")
+    Thread.sleep(60000)
     println("Waking")
     scenarios
   }

@@ -15,17 +15,12 @@ subprocess.call(['pwd'])
 print("Cleaning...")
 subprocess.call([home + '/ilab/androfleet/experiment/clean.py'])
 
-print("Launching database")
-subprocess.call([home + '/ilab/androfleet/experiment/db.py'])
-
-print("Launching Service Discovery")
-subprocess.call([home + '/ilab/androfleet/experiment/servicediscovery.py'])
-
 print("Launching Master")
 subprocess.call([home + '/ilab/androfleet/experiment/master.py', NB_NODES])
 
-#time.sleep(60)
-
+time.sleep(5)
+print("Launching Service Discovery")
+subprocess.call([home + '/ilab/androfleet/experiment/servicediscovery.py'])
 
 
 print("Launching Nodes")

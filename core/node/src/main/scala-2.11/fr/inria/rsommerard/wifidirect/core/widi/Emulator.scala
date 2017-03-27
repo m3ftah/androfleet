@@ -277,6 +277,10 @@ class Emulator(val weaveIp: String) {
 
     // Receive DnsSdServiceResponse from emulator
     var str = receive()
+    if (str == null || str == ""){
+      println("Received empty message from emulator");
+    }
+    println("Received " + str);
     val jsonDnsSdServiceResponse = Json.parse(str)
     implicit val deviceFormat = Json.format[Device]
     implicit val dnsSdServiceResponseFormat = Json.format[DnsSdServiceResponse]
@@ -293,7 +297,11 @@ class Emulator(val weaveIp: String) {
     dnsSdTxtRecord.srcDevice = device
 
     send(Protocol.ACK)
-
+    
+    if ( dnsSdTxtRecord.srcDevice == null){
+      println("Device address and name are null");
+      return;
+    }else println("Calling Service Discovery Actor");
     node.tell(Service(dnsSdServiceResponse.instanceName, dnsSdServiceResponse.registrationType, dnsSdTxtRecord.fullDomainName, dnsSdTxtRecord.txtRecordMap, dnsSdServiceResponse.srcDevice.deviceAddress), ActorRef.noSender)
 
     // Send DnsSdServiceResponse to emulator

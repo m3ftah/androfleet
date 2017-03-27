@@ -21,7 +21,7 @@ class Master(val nbNodes: Int) extends Actor {
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
-  val interval = 1
+  val interval = 1000
   var nbReadyNodes: Int = 0
 
   //val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
@@ -52,20 +52,6 @@ class Master(val nbNodes: Int) extends Actor {
     val name = scenar.name
 
     nodes += sender
-    social ! Initialize
-    contextual ! Initialize
-    //val node: Document = Document("name" -> name, "ip" -> i.value)
-    /*collection.insertOne(node).subscribe(new Observer[Completed] {
-      override def onNext(result: Completed): Unit = {
-        println("Node inserted")
-        if (nbNodes != nodes.size) {
-          return
-        }
-        
-      }
-      override def onError(e: Throwable): Unit = println("Failed to insert node")
-      override def onComplete(): Unit = println("Completed node insertion")
-    })*/
 
     sender ! scenar
   }

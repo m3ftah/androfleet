@@ -150,6 +150,9 @@ public class DiscoverServicesThread extends Thread implements Runnable {
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             error(e.getMessage());
+        } catch (Exception e){
+            e.printStackTrace();
+            error(e.getMessage());
         }
     }
 
