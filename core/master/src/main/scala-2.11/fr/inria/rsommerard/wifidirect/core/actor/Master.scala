@@ -48,12 +48,9 @@ class Master(val nbNodes: Int) extends Actor {
 
     //val collection: MongoCollection[Document] = database.getCollection("node")
 
-    val scenar: Scenario = scenarios(nodes.size)
-    val name = scenar.name
-
+    //val scenar: Scenario = scenarios(nodes.size)
     nodes += sender
-
-    sender ! scenar
+    //sender ! scenar
   }
 
   private def state(s: String): Unit = {

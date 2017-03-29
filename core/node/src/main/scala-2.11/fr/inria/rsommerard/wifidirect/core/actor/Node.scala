@@ -3,12 +3,14 @@ package fr.inria.rsommerard.wifidirect.core.actor
 import java.util.Calendar
 
 import akka.actor.{Actor, ActorRef}
+import fr.inria.rsommerard.wifidirect.core.Scenarios
 import fr.inria.rsommerard.wifidirect.core.message._
 import fr.inria.rsommerard.wifidirect.core.widi.Emulator
 
 import scala.util.Random
 
 class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
+  val scenarios: List[Scenario] = Scenarios.get
   val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
@@ -23,6 +25,8 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
     master ! Hello("Node")
     master ! IP(weaveIp)
     serviceDiscovery ! IP(weaveIp)
+    
+    
     //social ! IP(weaveIp)
     //contextual ! IP(weaveIp)
   }
@@ -49,7 +53,8 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
   private def scenario(s: Scenario): Unit = {
     scenario = s
     name = s.name
-    //println("My name is : " +  name)
+    println("Called scenario function")
+    println("My name is : " +  name)
     //println("My scenario is : " + s)
     emulator.setName(name)
     emulator.sendThisDeviceChangedIntent()
@@ -127,6 +132,9 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
 
   private def ready(): Unit = {
     master ! Ready
+    val nodeNumber = weaveIp.toString.takeRight(1).toInt - 1
+    println("My node Number : " + nodeNumber)
+    scenario(scenarios(nodeNumber))
   }
 
   private def hello(h: Hello): Unit =  {

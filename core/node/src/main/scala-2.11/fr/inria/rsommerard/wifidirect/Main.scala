@@ -18,12 +18,14 @@ object Main extends App {
   val system = ActorSystem("NodeSystem", ConfigFactory.load("node"))
   val node = system.actorOf(Props(classOf[Node], weaveIp, emulator), "node")
   println(s"[${Calendar.getInstance().getTime}] Node actor started...")
+  //println(s"Arg 0 :" + args(0))
+  //println(s"Arg 1 :" + args(1))
 
   emulator.start(node)
 
   while (! Emulator.isApplicationStarted(packageName)) {
     Thread.sleep(3000)
   }
-
+  Thread.sleep(30000)
   node ! Ready
 }
