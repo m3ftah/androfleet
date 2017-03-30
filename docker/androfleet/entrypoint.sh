@@ -27,8 +27,10 @@ case $MODE in
     ME=$(ip route | grep 'src 10.' | awk '{print $NF;exit}')
     echo "WEAVE_IP: $ME"
     echo "Configuring redir for $ME..."
+    echo "Zero Argument $0"
+    echo "First Argument $1"
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
-    ./androfleet-node-1.0/bin/androfleet-node $2 $ME &
+    ./androfleet-node-1.0/bin/androfleet-node $2 $ME $3 &
     echo 'Starting emulator[5554]...'
     emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 &
     echo 'Waiting for emulator to start...'

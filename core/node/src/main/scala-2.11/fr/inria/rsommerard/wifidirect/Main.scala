@@ -12,14 +12,17 @@ object Main extends App {
 
   val packageName: String = args(0).split('/')(0)
   val weaveIp: String = args(1)
+  val nodeNumber : Int = args(2).toInt
 
   val emulator = new Emulator(weaveIp)
 
   val system = ActorSystem("NodeSystem", ConfigFactory.load("node"))
-  val node = system.actorOf(Props(classOf[Node], weaveIp, emulator), "node")
+  val node = system.actorOf(Props(classOf[Node], weaveIp, emulator, nodeNumber), "node")
   println(s"[${Calendar.getInstance().getTime}] Node actor started...")
-  //println(s"Arg 0 :" + args(0))
-  //println(s"Arg 1 :" + args(1))
+  println("Arg 0 :" + args(0))
+  println("Arg 1 :" + args(1))
+  println("Arg 2 :" + args(2))
+  println("nodeNumber :" + nodeNumber)
 
   emulator.start(node)
 

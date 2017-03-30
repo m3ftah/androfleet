@@ -6,11 +6,11 @@ import shutil
 import subprocess
 
 print('Reading androfleet.info file....')
-if not os.path.exists('androfleet.info'):
+if not os.path.exists('/home/lakhdar/ilab/androfleet.info'):
     print('The androfleet.info file does not exist.')
     sys.exit(1)
 
-if not os.path.exists('log'):
+if not os.path.exists('/home/lakhdar/ilab/log'):
     print('The log folder does not exist.')
     sys.exit(1)
 

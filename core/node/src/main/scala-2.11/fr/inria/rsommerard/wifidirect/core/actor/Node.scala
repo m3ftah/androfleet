@@ -9,7 +9,7 @@ import fr.inria.rsommerard.wifidirect.core.widi.Emulator
 
 import scala.util.Random
 
-class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
+class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) extends Actor {
   val scenarios: List[Scenario] = Scenarios.get
   val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
@@ -132,7 +132,7 @@ class Node(val weaveIp: String, val emulator: Emulator) extends Actor {
 
   private def ready(): Unit = {
     master ! Ready
-    val nodeNumber = weaveIp.toString.takeRight(1).toInt - 1
+    //val nodeNumber = weaveIp.toString.substring(weaveIp.toString.lastIndexOf(".")+1).toInt - 1
     println("My node Number : " + nodeNumber)
     scenario(scenarios(nodeNumber))
   }
