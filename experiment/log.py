@@ -6,11 +6,11 @@ import shutil
 import subprocess
 
 print('Reading androfleet.info file....')
-if not os.path.exists('/home/lakhdar/ilab/androfleet.info'):
+if not os.path.exists('/home/lakhdar/ilab/androfleet/experiment/androfleet.info'):
     print('The androfleet.info file does not exist.')
     sys.exit(1)
 
-if not os.path.exists('/home/lakhdar/ilab/log'):
+if not os.path.exists('/home/lakhdar/ilab/androfleet/experiment/log'):
     print('The log folder does not exist.')
     sys.exit(1)
 
@@ -43,7 +43,7 @@ for lf in logs:
                     ip = line.split()[1]
                     break
 
-        name = 'N' + ip.replace('.', '')
+        name = 'N' + ip.replace('.', '') + '.log'
         shutil.move('log/' + lf, 'log/' + name)
 
 print('Done.')

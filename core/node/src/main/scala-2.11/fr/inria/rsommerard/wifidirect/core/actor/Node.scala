@@ -3,21 +3,19 @@ package fr.inria.rsommerard.wifidirect.core.actor
 import java.util.Calendar
 
 import akka.actor.{Actor, ActorRef}
-import fr.inria.rsommerard.wifidirect.core.Scenarios
 import fr.inria.rsommerard.wifidirect.core.message._
 import fr.inria.rsommerard.wifidirect.core.widi.Emulator
 
 import scala.util.Random
 
 class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) extends Actor {
-  val scenarios: List[Scenario] = Scenarios.get
   val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
   //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   //val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
 
   var neighbors: List[Neighbor] = List()
-  var scenario: Scenario = _
+  var scenario: Scenario = getScenarios(nodeNumber)
   var ownLocation: Location = _
   var name: String = _
 
@@ -68,6 +66,32 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     //println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
 
     updateLocation(t.value)
+  }
+  private def getScenarios(nodeNumber : Int): Scenario = {
+    val dataFilePath = "/scenarios.txt"
+    val brutLines = scala.io.Source.fromFile(dataFilePath).mkString
+
+    val splittedLines: List[String] = brutLines.split('\n').filterNot(l => l.isEmpty).toList
+    val head: String = splittedLines.head
+
+    val lines: List[String] = splittedLines.filterNot(l => l == head)
+    val names: Set[String] = (lines.map(l => l.split(',')(0)).toSet)
+
+    var scenarios: List[Scenario] = List()
+    var name: String = ""
+    var i : Int = 0
+    for (s <- names){
+      if (i == nodeNumber) name = s
+      i+=1
+    } 
+    println("My Name is " + name)
+
+    var locations: List[Location] = List()
+    val sel = lines.filter(l => l.split(',')(0) == name)
+    sel.foreach(s => {
+      locations = locations :+ Location(s.split(',')(1).toDouble, s.split(',')(2).toDouble, s.split(',')(3).toInt)
+    })
+    Scenario(name.split('.')(0), locations)
   }
 
   private def disconnect(d: Disconnect): Unit = {
@@ -134,7 +158,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     master ! Ready
     //val nodeNumber = weaveIp.toString.substring(weaveIp.toString.lastIndexOf(".")+1).toInt - 1
     println("My node Number : " + nodeNumber)
-    scenario(scenarios(nodeNumber))
+    scenario(scenario)
   }
 
   private def hello(h: Hello): Unit =  {

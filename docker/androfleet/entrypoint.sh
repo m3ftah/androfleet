@@ -29,10 +29,13 @@ case $MODE in
     echo "Configuring redir for $ME..."
     echo "Zero Argument $0"
     echo "First Argument $1"
+    androidImage=$(ls /tmp/android-unknown)
+    rm /tmp/android-unknown/$androidImage
+    ln -s /android-sdk-linux/system-images/android-22/default/x86/system.img tmp/android-unknown/$androidImage
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
     ./androfleet-node-1.0/bin/androfleet-node $2 $ME $3 &
     echo 'Starting emulator[5554]...'
-    emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 &
+    emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
     echo 'Waiting for emulator to start...'
     BOOT_COMPLETED=''
     FAIL_COUNTER=0

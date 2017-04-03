@@ -5,8 +5,6 @@ import java.util.Calendar
 import akka.actor.{Actor, ActorRef}
 import fr.inria.rsommerard.wifidirect.core.Scenarios
 import fr.inria.rsommerard.wifidirect.core.message._
-//import org.mongodb.scala.bson.collection.immutable.Document
-//import org.mongodb.scala.{Completed, MongoClient, MongoCollection, MongoDatabase, Observer}
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext.Implicits.global
@@ -14,7 +12,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
 class Master(val nbNodes: Int) extends Actor {
 
   var nodes: Set[ActorRef] = Set()
-  val scenarios: List[Scenario] = Scenarios.get
+  //val scenarios: List[Scenario] = Scenarios.get
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
@@ -24,8 +22,6 @@ class Master(val nbNodes: Int) extends Actor {
   val interval = 1000
   var nbReadyNodes: Int = 0
 
-  //val mongoClient: MongoClient = MongoClient("mongodb://10.32.0.41:27017")
-  //val database: MongoDatabase = mongoClient.getDatabase("androfleet")
 
   override def receive: Receive = initialize()
 
@@ -45,8 +41,6 @@ class Master(val nbNodes: Int) extends Actor {
 
   private def ip(i: IP): Unit = {
     println(s"[${Calendar.getInstance().getTime}] Received IP(${i.value}) from ${sender.path.address.host.get}")
-
-    //val collection: MongoCollection[Document] = database.getCollection("node")
 
     //val scenar: Scenario = scenarios(nodes.size)
     nodes += sender
@@ -76,6 +70,7 @@ class Master(val nbNodes: Int) extends Actor {
 
     context.become(process())
     println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
+    println(s"[${Calendar.getInstance().getTime}] firstTick $firstTick, lastTick $lastTick")
     context.system.scheduler.schedule(0 second, interval milliseconds, self, Tick)
   }
 

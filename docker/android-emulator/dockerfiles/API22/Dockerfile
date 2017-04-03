@@ -21,4 +21,5 @@ RUN echo y | android update adb
 
 RUN echo no | android create avd -n Androidx86 -t android-22
 
-RUN sed -i -e 's/hw.ramSize=512/hw.ramSize=2048/g' /root/.android/avd/Androidx86.avd/config.ini
+RUN sed -i -e 's/hw.ramSize=2048/hw.ramSize=512/g' /root/.android/avd/Androidx86.avd/config.ini
+RUN echo "disk.dataPartition.size=223m" >> /root/.android/avd/Androidx86.avd/config.ini

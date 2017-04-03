@@ -4,7 +4,7 @@ import os
 import shutil
 
 THIS = "/".join(os.path.realpath(__file__).split('/')[:-1])
-FOUGERE = THIS + '/../../fougere'
+FOUGERE = THIS + '/../fougere'
 WIDI = THIS + '/../widi'
 
 if os.path.exists(THIS + '/fougere'):
