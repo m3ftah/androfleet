@@ -1,0 +1,1830 @@
+WEAVE_IP: 10.32.0.15
+Configuring redir for 10.32.0.15...
+Starting emulator[5554]...
+Waiting for emulator to start...
+[Mon Mar 27 13:59:38 UTC 2017] Node actor started...
+[Mon Mar 27 13:59:38 UTC 2017] Received Hello: Hello(Emulator)
+[Mon Mar 27 13:59:38 UTC 2017] Received Hello: Hello(Master)
+My name is new_upthin
+[Mon Mar 27 13:59:38 UTC 2017] Sending Device Address : 10.32.0.15Device Name: new_upthin
+Emulator started
+Adding emulator redirections...
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Android Console: type 'help' for a list of commands
+OK
+KO: unknown command, try 'help'
+OK
+Installing the apk...
+[  3%] /data/local/tmp/app-debug.apk
+[  7%] /data/local/tmp/app-debug.apk
+[ 10%] /data/local/tmp/app-debug.apk
+[ 14%] /data/local/tmp/app-debug.apk
+[ 18%] /data/local/tmp/app-debug.apk
+[ 21%] /data/local/tmp/app-debug.apk
+[ 25%] /data/local/tmp/app-debug.apk
+[ 29%] /data/local/tmp/app-debug.apk
+[ 32%] /data/local/tmp/app-debug.apk
+[ 36%] /data/local/tmp/app-debug.apk
+[ 39%] /data/local/tmp/app-debug.apk
+[ 43%] /data/local/tmp/app-debug.apk
+[ 47%] /data/local/tmp/app-debug.apk
+[ 50%] /data/local/tmp/app-debug.apk
+[ 54%] /data/local/tmp/app-debug.apk
+[ 58%] /data/local/tmp/app-debug.apk
+[ 61%] /data/local/tmp/app-debug.apk
+[ 65%] /data/local/tmp/app-debug.apk
+[ 69%] /data/local/tmp/app-debug.apk
+[ 72%] /data/local/tmp/app-debug.apk
+[ 76%] /data/local/tmp/app-debug.apk
+[ 79%] /data/local/tmp/app-debug.apk
+[ 83%] /data/local/tmp/app-debug.apk
+[ 87%] /data/local/tmp/app-debug.apk
+[ 90%] /data/local/tmp/app-debug.apk
+[ 94%] /data/local/tmp/app-debug.apk
+[ 98%] /data/local/tmp/app-debug.apk
+[100%] /data/local/tmp/app-debug.apk
+	pkg: /data/local/tmp/app-debug.apk
+Success
+Launching application...
+Starting: Intent { cmp=fr.inria.rsommerard.fougereapp/.MainActivity }
+Running...
+--------- beginning of main
+--------- beginning of system
+03-27 14:00:12.951 D/Fougere ( 2241): [Fougere] 0 data in the DataPool
+03-27 14:00:12.951 D/Fougere ( 2241): [Fougere] Regroup 0 data from the WiFiDirect module
+03-27 14:00:12.959 E/Fougere ( 2241): [WiFiDirect] Failed to deletePersistentGroup: method NOT found
+03-27 14:00:12.959 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+03-27 14:00:13.005 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+03-27 14:00:13.006 E/WiDi    ( 2241): Error: null
+03-27 14:00:13.006 E/Fougere ( 2241): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.STATE_CHANGED (has extras) }
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+03-27 14:00:13.292 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+03-27 14:00:13.292 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+03-27 14:00:13.292 D/WiDi    ( 2241): connect_state = false
+03-27 14:00:13.292 V/WiDi    ( 2241): Intent created
+03-27 14:00:13.292 V/WiDi    ( 2241): networkInfo instance created
+03-27 14:00:13.292 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+03-27 14:00:13.292 V/WiDi    ( 2241): wifiP2pInfo instance created
+03-27 14:00:13.293 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+03-27 14:00:13.293 V/WiDi    ( 2241): sending Broadcast....
+03-27 14:00:13.294 V/WiDi    ( 2241): Broadcast sent.
+03-27 14:00:13.294 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+03-27 14:00:13.295 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: UNKNOWN/DISCONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+03-27 14:00:13.295 D/Fougere ( 2241): [ConnectionHandler] groupFormed: true isGroupOwner: false groupOwnerAddress: null
+Broadcast completed: result=0Broadcast completed: result=0
+
+03-27 14:00:23.978 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+03-27 14:00:23.993 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+03-27 14:00:24.316 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+03-27 14:00:24.361 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+03-27 14:00:24.372 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+[1212278343][new_upthin][New GPS location] 37.75184 -122.3951
+05-31 23:59:03.050 V/APP     ( 2241): New GPS location: [lat: 37.75184, lon: -122.39509833333335]
+05-31 23:59:03.050 V/APP     ( 2241): onLocationChanged times : 1
+05-31 23:59:03.052 V/APP     ( 2241): New GPS location status changed
+05-31 23:59:03.063 D/APP     ( 2241): pingResult0.062
+05-31 23:59:03.063 D/APP     ( 2241): result : 0.062
+05-31 23:59:03.063 D/APP     ( 2241): finished
+05-31 23:59:03.064 D/Fougere ( 2241): [1212278343][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"ba1680ed-1c46-407c-8f5a-349039ea1bf1","content":{ping:0.062, lon:-122.39509833333335, lat:37.75184, timestamp:1212278343},"ttl":"1","disseminate":"4","sent":"0"}
+05-31 23:59:03.065 D/Fougere ( 2241): [1212278343][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"ba1680ed-1c46-407c-8f5a-349039ea1bf1","content":{ping:0.062, lon:-122.39509833333335, lat:37.75184, timestamp:1212278343},"ttl":"1","disseminate":"4","sent":"0"}
+[1212278436][new_upthin][New GPS location] 37.75184 -122.3951
+06-01 00:00:36.049 V/APP     ( 2241): New GPS location status changed
+[1212278438][new_upthin][New GPS location] 37.75134 -122.39464
+06-01 00:01:12.034 V/APP     ( 2241): New GPS location status changed
+06-01 00:01:12.568 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:01:12.575 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:01:12.578 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:01:12.617 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:01:12.621 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212278497][new_upthin][New GPS location] 37.75178 -122.39521
+[1212278503][new_upthin][New GPS location] 37.75135 -122.39463
+06-01 00:01:48.035 V/APP     ( 2241): New GPS location status changed
+[1212278554][new_upthin][New GPS location] 37.75134 -122.39463
+06-01 00:02:34.016 V/APP     ( 2241): New GPS location status changed
+[1212278557][new_upthin][New GPS location] 37.75166 -122.39533
+06-01 00:03:24.074 V/APP     ( 2241): New GPS location status changed
+[1212278624][new_upthin][New GPS location] 37.75163 -122.39541
+[1212278631][new_upthin][New GPS location] 37.75134 -122.39464
+06-01 00:04:00.083 V/APP     ( 2241): New GPS location status changed
+06-01 00:04:12.562 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:04:12.568 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:04:12.571 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:04:12.610 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:04:12.622 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:04:12.622 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:04:12.622 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:04:12.623 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:04:12.623 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:04:12.623 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:04:12.623 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:04:12.623 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:04:12.623 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:04:12.624 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:04:12.624 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:04:12.647 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:04:12.658 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:04:12.827 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:04:12.827 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:04:12.827 D/WiDi    ( 2241): connect_state = true
+06-01 00:04:12.827 V/WiDi    ( 2241): Intent created
+06-01 00:04:12.827 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:04:12.827 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:04:12.827 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:04:12.827 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:04:12.827 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:04:12.827 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:04:12.827 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:04:12.828 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:04:12.828 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:04:12.829 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:04:12.829 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.8
+06-01 00:04:12.829 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:04:15.841 D/Fougere ( 2241): [Active] Started
+06-01 00:04:15.845 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:04:15.845 D/Fougere ( 2241): [Active] OK
+06-01 00:04:15.851 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:04:15.851 D/Fougere ( 2241): [Active] Release resources
+[1212278685][new_upthin][New GPS location] 37.75129 -122.39467
+06-01 00:04:45.015 V/APP     ( 2241): New GPS location status changed
+[1212278688][new_upthin][New GPS location] 37.75162 -122.39537
+06-01 00:05:12.632 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:05:12.633 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:05:12.633 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:05:12.638 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 00:05:36.119 V/APP     ( 2241): New GPS location status changed
+[1212278743][new_upthin][New GPS location] 37.75166 -122.39532
+[1212278749][new_upthin][New GPS location] 37.75129 -122.39466
+[1212278764][new_upthin][New GPS location] 37.7513 -122.39466
+06-01 00:06:12.125 V/APP     ( 2241): New GPS location status changed
+[1212278799][new_upthin][New GPS location] 37.75165 -122.39532
+06-01 00:06:48.135 V/APP     ( 2241): New GPS location status changed
+06-01 00:07:12.564 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:07:12.570 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:07:12.572 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:07:12.614 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:07:12.620 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:07:12.620 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:07:12.620 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:07:12.620 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:07:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:07:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:07:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:07:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:07:12.621 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:07:12.637 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:07:12.639 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:07:12.819 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:07:12.819 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:07:12.819 D/WiDi    ( 2241): connect_state = true
+06-01 00:07:12.819 V/WiDi    ( 2241): Intent created
+06-01 00:07:12.819 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:07:12.819 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:07:12.819 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:07:12.819 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:07:12.819 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:07:12.819 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:07:12.819 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:07:12.821 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:07:12.821 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:07:12.821 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:07:12.821 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.8
+06-01 00:07:12.821 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:07:15.833 D/Fougere ( 2241): [Active] Started
+06-01 00:07:15.837 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:07:15.837 D/Fougere ( 2241): [Active] OK
+06-01 00:07:15.840 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:07:15.840 D/Fougere ( 2241): [Active] Release resources
+[1212278860][new_upthin][New GPS location] 37.75158 -122.39519
+06-01 00:07:40.016 V/APP     ( 2241): New GPS location status changed
+[1212278885][new_upthin][New GPS location] 37.75133 -122.39465
+06-01 00:08:12.635 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:08:12.635 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:08:12.635 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:08:12.641 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 00:08:16.027 V/APP     ( 2241): New GPS location status changed
+[1212278920][new_upthin][New GPS location] 37.75156 -122.39521
+06-01 00:08:52.039 V/APP     ( 2241): New GPS location status changed
+[1212278941][new_upthin][New GPS location] 37.7513 -122.39465
+[1212278980][new_upthin][New GPS location] 37.75154 -122.39511
+06-01 00:09:40.065 V/APP     ( 2241): New GPS location status changed
+[1212279008][new_upthin][New GPS location] 37.75129 -122.39466
+06-01 00:10:12.567 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:10:12.581 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:10:12.585 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:10:12.625 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}}]
+06-01 00:10:12.630 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:10:12.630 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:10:12.630 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:10:12.630 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:10:12.630 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:10:12.630 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:10:12.630 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:10:12.630 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:10:12.631 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:10:12.650 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:10:12.651 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:10:12.832 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:10:12.832 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:10:12.832 D/WiDi    ( 2241): connect_state = true
+06-01 00:10:12.832 V/WiDi    ( 2241): Intent created
+06-01 00:10:12.832 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:10:12.832 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:10:12.832 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:10:12.832 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:10:12.832 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:10:12.832 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:10:12.832 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:10:12.833 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:10:12.833 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:10:12.833 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:10:12.833 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.8
+06-01 00:10:12.834 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:10:15.846 D/Fougere ( 2241): [Active] Started
+06-01 00:10:15.850 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:10:15.850 D/Fougere ( 2241): [Active] OK
+06-01 00:10:15.855 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:10:15.855 D/Fougere ( 2241): [Active] Release resources
+06-01 00:10:16.078 V/APP     ( 2241): New GPS location status changed
+[1212279040][new_upthin][New GPS location] 37.75148 -122.39513
+06-01 00:10:52.090 V/APP     ( 2241): New GPS location status changed
+[1212279066][new_upthin][New GPS location] 37.75133 -122.39464
+06-01 00:11:12.648 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:11:12.649 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:11:12.649 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:11:12.655 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 00:11:40.104 V/APP     ( 2241): New GPS location status changed
+[1212279101][new_upthin][New GPS location] 37.75125 -122.39489
+[1212279132][new_upthin][New GPS location] 37.75132 -122.39465
+06-01 00:12:16.120 V/APP     ( 2241): New GPS location status changed
+[1212279165][new_upthin][New GPS location] 37.75158 -122.39544
+06-01 00:12:52.133 V/APP     ( 2241): New GPS location status changed
+[1212279181][new_upthin][New GPS location] 37.75131 -122.39466
+06-01 00:13:12.569 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:13:12.576 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:13:12.579 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:13:12.617 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:13:12.628 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:13:12.628 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:13:12.629 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:13:12.629 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:13:12.643 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:13:12.645 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:13:12.822 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:13:12.822 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:13:12.822 D/WiDi    ( 2241): connect_state = true
+06-01 00:13:12.822 V/WiDi    ( 2241): Intent created
+06-01 00:13:12.822 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:13:12.822 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:13:12.822 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:13:12.822 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:13:12.822 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:13:12.822 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:13:12.822 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:13:12.824 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:13:12.824 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:13:12.824 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:13:12.824 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.8
+06-01 00:13:12.824 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:13:15.839 D/Fougere ( 2241): [Active] Started
+06-01 00:13:15.842 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:13:15.842 D/Fougere ( 2241): [Active] OK
+06-01 00:13:15.846 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:13:15.846 D/Fougere ( 2241): [Active] Release resources
+06-01 00:13:28.142 V/APP     ( 2241): New GPS location status changed
+[1212279221][new_upthin][New GPS location] 37.75163 -122.39542
+06-01 00:14:04.154 V/APP     ( 2241): New GPS location status changed
+[1212279246][new_upthin][New GPS location] 37.7513 -122.39466
+06-01 00:14:12.631 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:14:12.632 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:14:12.632 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:14:12.637 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212279283][new_upthin][New GPS location] 37.75138 -122.39478
+06-01 00:14:43.055 V/APP     ( 2241): New GPS location status changed
+[1212279301][new_upthin][New GPS location] 37.75129 -122.39466
+06-01 00:15:19.063 V/APP     ( 2241): New GPS location status changed
+[1212279337][new_upthin][New GPS location] 37.75146 -122.39427
+06-01 00:15:55.075 V/APP     ( 2241): New GPS location status changed
+[1212279361][new_upthin][New GPS location] 37.75129 -122.39466
+06-01 00:16:12.564 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:16:12.570 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:16:12.572 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:16:12.612 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:16:12.617 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:16:12.617 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:16:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:16:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:16:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:16:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:16:12.621 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:16:12.621 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:16:12.638 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:16:12.640 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:16:12.821 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:16:12.821 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:16:12.821 D/WiDi    ( 2241): connect_state = true
+06-01 00:16:12.822 V/WiDi    ( 2241): Intent created
+06-01 00:16:12.822 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:16:12.822 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:16:12.822 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:16:12.822 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:16:12.822 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:16:12.822 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:16:12.822 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:16:12.824 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:16:12.824 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:16:12.824 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:16:12.824 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.8
+06-01 00:16:12.824 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:16:15.833 D/Fougere ( 2241): [Active] Started
+06-01 00:16:15.837 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:16:15.837 D/Fougere ( 2241): [Active] OK
+06-01 00:16:15.840 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:16:15.840 D/Fougere ( 2241): [Active] Release resources
+[1212279397][new_upthin][New GPS location] 37.75143 -122.39425
+06-01 00:16:37.051 V/APP     ( 2241): New GPS location status changed
+06-01 00:17:12.623 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:17:12.623 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:17:12.624 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:17:12.630 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212279457][new_upthin][New GPS location] 37.75144 -122.39426
+06-01 00:17:37.015 V/APP     ( 2241): New GPS location status changed
+[1212279498][new_upthin][New GPS location] 37.7513 -122.39466
+06-01 00:18:18.016 V/APP     ( 2241): New GPS location status changed
+[1212279517][new_upthin][New GPS location] 37.75145 -122.39426
+06-01 00:18:54.028 V/APP     ( 2241): New GPS location status changed
+[1212279545][new_upthin][New GPS location] 37.75129 -122.39467
+06-01 00:19:12.567 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:19:12.573 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:19:12.575 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:19:12.606 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103208","deviceAddress":"10.32.0.8"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:19:12.621 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103208 discovered
+06-01 00:19:12.621 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:19:12.622 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:19:12.622 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:19:12.622 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:19:12.622 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:19:12.622 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:19:12.622 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:19:12.640 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.8","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:19:12.642 E/WiDi    ( 2241): Error: ACK received, the device is maybe already connected
+06-01 00:19:12.642 E/Fougere ( 2241): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:19:12.642 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:19:12.642 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:19:12.660 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:19:30.039 V/APP     ( 2241): New GPS location status changed
+[1212279582][new_upthin][New GPS location] 37.75147 -122.39425
+[1212279606][new_upthin][New GPS location] 37.75129 -122.39467
+06-01 00:20:06.049 V/APP     ( 2241): New GPS location status changed
+06-01 00:20:12.637 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:20:12.637 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:20:12.638 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:20:12.650 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212279638][new_upthin][New GPS location] 37.75148 -122.39425
+06-01 00:20:42.059 V/APP     ( 2241): New GPS location status changed
+[1212279698][new_upthin][New GPS location] 37.75133 -122.39484
+06-01 00:21:38.017 V/APP     ( 2241): New GPS location status changed
+[1212279727][new_upthin][New GPS location] 37.75127 -122.39467
+06-01 00:22:12.568 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:22:12.575 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:22:12.578 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:22:12.619 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:22:12.623 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:22:12.623 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:22:12.624 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:22:12.624 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:22:12.624 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:22:12.624 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:22:12.624 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:22:12.642 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:22:12.644 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:22:12.809 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:22:12.809 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:22:12.809 D/WiDi    ( 2241): connect_state = true
+06-01 00:22:12.809 V/WiDi    ( 2241): Intent created
+06-01 00:22:12.809 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:22:12.809 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:22:12.809 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:22:12.809 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:22:12.809 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:22:12.809 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:22:12.809 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:22:12.811 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:22:12.811 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:22:12.811 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:22:12.811 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.19
+06-01 00:22:12.811 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:22:14.031 V/APP     ( 2241): New GPS location status changed
+06-01 00:22:15.828 D/Fougere ( 2241): [Active] Started
+06-01 00:22:15.832 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:22:15.832 D/Fougere ( 2241): [Active] OK
+06-01 00:22:15.836 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:22:15.836 D/Fougere ( 2241): [Active] Release resources
+[1212279758][new_upthin][New GPS location] 37.7505 -122.39543
+06-01 00:22:50.040 V/APP     ( 2241): New GPS location: [lat: 37.7505, lon: -122.39543]
+06-01 00:22:50.040 V/APP     ( 2241): onLocationChanged times : 2
+06-01 00:22:50.044 V/APP     ( 2241): New GPS location status changed
+06-01 00:22:50.052 D/APP     ( 2241): pingResult0.077
+06-01 00:22:50.052 D/APP     ( 2241): result : 0.077
+06-01 00:22:50.053 D/APP     ( 2241): finished
+06-01 00:22:50.053 D/Fougere ( 2241): [1212279770][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"97e0c916-bf1b-4b97-ac03-e79027c1d765","content":{ping:0.077, lon:-122.39543, lat:37.7505, timestamp:1212279770},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:22:50.053 D/Fougere ( 2241): [1212279770][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"97e0c916-bf1b-4b97-ac03-e79027c1d765","content":{ping:0.077, lon:-122.39543, lat:37.7505, timestamp:1212279770},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:23:12.638 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:23:12.638 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:23:12.638 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:23:12.644 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212279798][new_upthin][New GPS location] 37.75128 -122.39468
+[1212279799][new_upthin][New GPS location] 37.74976 -122.39693
+06-01 00:23:26.051 V/APP     ( 2241): New GPS location: [lat: 37.74976, lon: -122.39692833333332]
+06-01 00:23:26.051 V/APP     ( 2241): onLocationChanged times : 3
+06-01 00:23:26.054 V/APP     ( 2241): New GPS location status changed
+06-01 00:23:26.063 D/APP     ( 2241): pingResult0.065
+06-01 00:23:26.063 D/APP     ( 2241): result : 0.065
+06-01 00:23:26.063 D/APP     ( 2241): finished
+06-01 00:23:26.063 D/Fougere ( 2241): [1212279806][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"43e18e4c-59f6-43ae-9217-b0c5310311b0","content":{ping:0.065, lon:-122.39692833333332, lat:37.74976, timestamp:1212279806},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:23:26.064 D/Fougere ( 2241): [1212279806][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"43e18e4c-59f6-43ae-9217-b0c5310311b0","content":{ping:0.065, lon:-122.39692833333332, lat:37.74976, timestamp:1212279806},"ttl":"1","disseminate":"4","sent":"0"}
+[1212279842][new_upthin][New GPS location] 37.75128 -122.39468
+06-01 00:24:02.071 V/APP     ( 2241): New GPS location: [lat: 37.751279999999994, lon: -122.39467833333335]
+06-01 00:24:02.071 V/APP     ( 2241): onLocationChanged times : 4
+06-01 00:24:02.074 V/APP     ( 2241): New GPS location status changed
+06-01 00:24:02.083 D/APP     ( 2241): pingResult0.074
+06-01 00:24:02.083 D/APP     ( 2241): result : 0.074
+06-01 00:24:02.083 D/APP     ( 2241): finished
+06-01 00:24:02.083 D/Fougere ( 2241): [1212279842][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"664ef16f-5c36-4854-843c-2a5d52b3c333","content":{ping:0.074, lon:-122.39467833333335, lat:37.751279999999994, timestamp:1212279842},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:24:02.084 D/Fougere ( 2241): [1212279842][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"664ef16f-5c36-4854-843c-2a5d52b3c333","content":{ping:0.074, lon:-122.39467833333335, lat:37.751279999999994, timestamp:1212279842},"ttl":"1","disseminate":"4","sent":"0"}
+[1212279859][new_upthin][New GPS location] 37.74956 -122.4034
+06-01 00:24:45.225 V/APP     ( 2241): New GPS location: [lat: 37.749559999999995, lon: -122.40339999999999]
+06-01 00:24:45.225 V/APP     ( 2241): onLocationChanged times : 5
+06-01 00:24:45.228 V/APP     ( 2241): New GPS location status changed
+06-01 00:24:45.237 D/APP     ( 2241): pingResult0.067
+06-01 00:24:45.237 D/APP     ( 2241): result : 0.067
+06-01 00:24:45.237 D/APP     ( 2241): finished
+06-01 00:24:45.237 D/Fougere ( 2241): [1212279885][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"71235449-4eae-472f-98da-d87504f4938f","content":{ping:0.067, lon:-122.40339999999999, lat:37.749559999999995, timestamp:1212279885},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:24:45.238 D/Fougere ( 2241): [1212279885][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"71235449-4eae-472f-98da-d87504f4938f","content":{ping:0.067, lon:-122.40339999999999, lat:37.749559999999995, timestamp:1212279885},"ttl":"1","disseminate":"4","sent":"0"}
+[1212279902][new_upthin][New GPS location] 37.75132 -122.39466
+06-01 00:25:12.561 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:25:12.567 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:25:12.570 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:25:12.611 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032014","deviceAddress":"10.32.0.14"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:25:12.615 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:25:12.615 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:25:12.616 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:25:12.616 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:25:12.616 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:25:12.616 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032014 discovered
+06-01 00:25:12.616 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 00:25:12.616 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:25:12.616 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:25:12.617 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:25:12.617 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:25:12.617 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:25:12.617 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:25:12.617 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:25:12.617 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:25:12.617 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:25:12.641 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:25:12.642 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:25:12.809 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:25:12.809 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 00:25:12.809 D/WiDi    ( 2241): connect_state = true
+06-01 00:25:12.809 V/WiDi    ( 2241): Intent created
+06-01 00:25:12.809 V/WiDi    ( 2241): networkInfo instance created
+06-01 00:25:12.809 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 00:25:12.809 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:25:12.809 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 00:25:12.810 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:25:12.810 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:25:12.810 V/WiDi    ( 2241): sending Broadcast....
+06-01 00:25:12.816 V/WiDi    ( 2241): Broadcast sent.
+06-01 00:25:12.816 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:25:12.816 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:25:12.816 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.19
+06-01 00:25:12.816 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:25:15.821 D/Fougere ( 2241): [Active] Started
+06-01 00:25:15.824 E/Fougere ( 2241): [Active] failCounter: 1
+06-01 00:25:15.824 D/Fougere ( 2241): [Active] OK
+06-01 00:25:15.829 E/Fougere ( 2241): [Active] KO : sendto failed: EPIPE (Broken pipe)
+06-01 00:25:15.829 D/Fougere ( 2241): [Active] Release resources
+06-01 00:25:21.233 V/APP     ( 2241): New GPS location: [lat: 37.75131833333333, lon: -122.39465999999999]
+06-01 00:25:21.233 V/APP     ( 2241): onLocationChanged times : 6
+06-01 00:25:21.236 V/APP     ( 2241): New GPS location status changed
+06-01 00:25:21.243 D/APP     ( 2241): pingResult0.06
+06-01 00:25:21.243 D/APP     ( 2241): result : 0.06
+06-01 00:25:21.243 D/APP     ( 2241): finished
+06-01 00:25:21.243 D/Fougere ( 2241): [1212279921][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"351d05f6-52a0-4159-836c-bebccf503dc3","content":{ping:0.06, lon:-122.39465999999999, lat:37.75131833333333, timestamp:1212279921},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:25:21.244 D/Fougere ( 2241): [1212279921][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"351d05f6-52a0-4159-836c-bebccf503dc3","content":{ping:0.06, lon:-122.39465999999999, lat:37.75131833333333, timestamp:1212279921},"ttl":"1","disseminate":"4","sent":"0"}
+[1212279925][new_upthin][New GPS location] 37.74842 -122.41046
+06-01 00:25:57.245 V/APP     ( 2241): New GPS location: [lat: 37.74842, lon: -122.41046]
+06-01 00:25:57.245 V/APP     ( 2241): onLocationChanged times : 7
+06-01 00:25:57.248 V/APP     ( 2241): New GPS location status changed
+06-01 00:25:57.257 D/APP     ( 2241): pingResult0.068
+06-01 00:25:57.257 D/APP     ( 2241): result : 0.068
+06-01 00:25:57.257 D/APP     ( 2241): finished
+06-01 00:25:57.257 D/Fougere ( 2241): [1212279957][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"bbd72643-47ce-4d7e-b981-f59efded2aed","content":{ping:0.068, lon:-122.41046, lat:37.74842, timestamp:1212279957},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:25:57.258 D/Fougere ( 2241): [1212279957][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"bbd72643-47ce-4d7e-b981-f59efded2aed","content":{ping:0.068, lon:-122.41046, lat:37.74842, timestamp:1212279957},"ttl":"1","disseminate":"4","sent":"0"}
+[1212279967][new_upthin][New GPS location] 37.75128 -122.39467
+06-01 00:26:12.621 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:26:12.622 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:26:12.622 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:26:12.628 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212279979][new_upthin][New GPS location] 37.74835 -122.41304
+06-01 00:26:33.255 V/APP     ( 2241): New GPS location: [lat: 37.748349999999995, lon: -122.41303833333335]
+06-01 00:26:33.255 V/APP     ( 2241): onLocationChanged times : 8
+06-01 00:26:33.258 V/APP     ( 2241): New GPS location status changed
+06-01 00:26:33.267 D/APP     ( 2241): pingResult0.072
+06-01 00:26:33.267 D/APP     ( 2241): result : 0.072
+06-01 00:26:33.267 D/APP     ( 2241): finished
+06-01 00:26:33.267 D/Fougere ( 2241): [1212279993][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"835a7486-8043-4d32-bd3b-6be4b9a07650","content":{ping:0.072, lon:-122.41303833333335, lat:37.748349999999995, timestamp:1212279993},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:26:33.268 D/Fougere ( 2241): [1212279993][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"835a7486-8043-4d32-bd3b-6be4b9a07650","content":{ping:0.072, lon:-122.41303833333335, lat:37.748349999999995, timestamp:1212279993},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280034][new_upthin][New GPS location] 37.75128 -122.39467
+06-01 00:27:14.018 V/APP     ( 2241): New GPS location: [lat: 37.751279999999994, lon: -122.39467]
+06-01 00:27:14.018 V/APP     ( 2241): onLocationChanged times : 9
+06-01 00:27:14.021 V/APP     ( 2241): New GPS location status changed
+06-01 00:27:14.038 D/APP     ( 2241): pingResult0.062
+06-01 00:27:14.038 D/APP     ( 2241): result : 0.062
+06-01 00:27:14.038 D/APP     ( 2241): finished
+06-01 00:27:14.038 D/Fougere ( 2241): [1212280034][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"43e1285c-e2ec-460d-8b1b-6432976f932a","content":{ping:0.062, lon:-122.39467, lat:37.751279999999994, timestamp:1212280034},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:27:14.038 D/Fougere ( 2241): [1212280034][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"43e1285c-e2ec-460d-8b1b-6432976f932a","content":{ping:0.062, lon:-122.39467, lat:37.751279999999994, timestamp:1212280034},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280039][new_upthin][New GPS location] 37.74887 -122.41592
+06-01 00:27:50.033 V/APP     ( 2241): New GPS location: [lat: 37.748868333333334, lon: -122.41591833333332]
+06-01 00:27:50.033 V/APP     ( 2241): onLocationChanged times : 10
+06-01 00:27:50.036 V/APP     ( 2241): New GPS location status changed
+06-01 00:27:50.051 D/APP     ( 2241): pingResult0.069
+06-01 00:27:50.051 D/APP     ( 2241): result : 0.069
+06-01 00:27:50.051 D/APP     ( 2241): finished
+06-01 00:27:50.051 D/Fougere ( 2241): [1212280070][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"097068a0-d1c8-4efa-93b5-add4f4aafe96","content":{ping:0.069, lon:-122.41591833333332, lat:37.748868333333334, timestamp:1212280070},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:27:50.052 D/Fougere ( 2241): [1212280070][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"097068a0-d1c8-4efa-93b5-add4f4aafe96","content":{ping:0.069, lon:-122.41591833333332, lat:37.748868333333334, timestamp:1212280070},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:28:12.562 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:28:12.569 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:28:12.571 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:28:12.613 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032014","deviceAddress":"10.32.0.14"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}}]
+06-01 00:28:12.625 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:28:12.625 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:28:12.627 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:28:12.627 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032014 discovered
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:28:12.627 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:28:12.627 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:28:12.627 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 00:28:12.628 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:28:12.645 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:28:12.647 E/WiDi    ( 2241): Error: ACK received, the device is maybe already connected
+06-01 00:28:12.647 E/Fougere ( 2241): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:28:12.647 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:28:12.647 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:28:12.665 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212280099][new_upthin][New GPS location] 37.75335 -122.41634
+06-01 00:28:26.036 V/APP     ( 2241): New GPS location: [lat: 37.75334833333333, lon: -122.41634]
+06-01 00:28:26.036 V/APP     ( 2241): onLocationChanged times : 11
+06-01 00:28:26.039 V/APP     ( 2241): New GPS location status changed
+06-01 00:28:26.062 D/APP     ( 2241): pingResult0.366
+06-01 00:28:26.062 D/APP     ( 2241): result : 0.366
+06-01 00:28:26.062 D/APP     ( 2241): finished
+06-01 00:28:26.062 D/Fougere ( 2241): [1212280106][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"cf6fadf4-44f6-400f-a03c-11df6a2daa5d","content":{ping:0.366, lon:-122.41634, lat:37.75334833333333, timestamp:1212280106},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:28:26.063 D/Fougere ( 2241): [1212280106][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"cf6fadf4-44f6-400f-a03c-11df6a2daa5d","content":{ping:0.366, lon:-122.41634, lat:37.75334833333333, timestamp:1212280106},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:29:12.633 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:29:12.633 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:29:12.634 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:29:12.640 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212280161][new_upthin][New GPS location] 37.75702 -122.41672
+06-01 00:29:21.018 V/APP     ( 2241): New GPS location: [lat: 37.757018333333335, lon: -122.41671833333334]
+06-01 00:29:21.018 V/APP     ( 2241): onLocationChanged times : 12
+06-01 00:29:21.039 V/APP     ( 2241): New GPS location status changed
+06-01 00:29:21.046 D/APP     ( 2241): pingResult0.0
+06-01 00:29:21.046 D/APP     ( 2241): result : 0.0
+06-01 00:29:21.046 D/APP     ( 2241): finished
+06-01 00:29:21.046 D/Fougere ( 2241): [1212280161][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8c3f1d54-f8f4-4b1f-94c6-83645c1400bc","content":{ping:0.0, lon:-122.41671833333334, lat:37.757018333333335, timestamp:1212280161},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:29:21.046 D/Fougere ( 2241): [1212280161][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8c3f1d54-f8f4-4b1f-94c6-83645c1400bc","content":{ping:0.0, lon:-122.41671833333334, lat:37.757018333333335, timestamp:1212280161},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280221][new_upthin][New GPS location] 37.76028 -122.41703
+06-01 00:30:21.015 V/APP     ( 2241): New GPS location: [lat: 37.760279999999995, lon: -122.41702833333332]
+06-01 00:30:21.015 V/APP     ( 2241): onLocationChanged times : 13
+06-01 00:30:21.041 D/APP     ( 2241): pingResult0.068
+06-01 00:30:21.041 D/APP     ( 2241): result : 0.068
+06-01 00:30:21.041 D/APP     ( 2241): finished
+06-01 00:30:21.041 D/Fougere ( 2241): [1212280221][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"d75b2565-27e2-48cd-99ec-ceb6b8465ea9","content":{ping:0.068, lon:-122.41702833333332, lat:37.760279999999995, timestamp:1212280221},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:30:21.041 D/Fougere ( 2241): [1212280221][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"d75b2565-27e2-48cd-99ec-ceb6b8465ea9","content":{ping:0.068, lon:-122.41702833333332, lat:37.760279999999995, timestamp:1212280221},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:30:21.046 V/APP     ( 2241): New GPS location status changed
+06-01 00:31:12.566 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:31:12.574 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:31:12.585 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:31:12.627 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:31:12.630 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212280282][new_upthin][New GPS location] 37.76368 -122.41737
+06-01 00:31:22.014 V/APP     ( 2241): New GPS location: [lat: 37.76368, lon: -122.41736999999999]
+06-01 00:31:22.014 V/APP     ( 2241): onLocationChanged times : 14
+06-01 00:31:22.035 V/APP     ( 2241): New GPS location status changed
+06-01 00:31:22.040 D/APP     ( 2241): pingResult0.057
+06-01 00:31:22.040 D/APP     ( 2241): result : 0.057
+06-01 00:31:22.040 D/APP     ( 2241): finished
+06-01 00:31:22.040 D/Fougere ( 2241): [1212280282][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"a0a97b92-3281-429b-a8b3-eb8382334c3f","content":{ping:0.057, lon:-122.41736999999999, lat:37.76368, timestamp:1212280282},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:31:22.041 D/Fougere ( 2241): [1212280282][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"a0a97b92-3281-429b-a8b3-eb8382334c3f","content":{ping:0.057, lon:-122.41736999999999, lat:37.76368, timestamp:1212280282},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280342][new_upthin][New GPS location] 37.7667 -122.41763
+06-01 00:32:22.015 V/APP     ( 2241): New GPS location: [lat: 37.7667, lon: -122.41763]
+06-01 00:32:22.015 V/APP     ( 2241): onLocationChanged times : 15
+06-01 00:32:22.041 D/APP     ( 2241): pingResult0.065
+06-01 00:32:22.041 D/APP     ( 2241): result : 0.065
+06-01 00:32:22.041 D/APP     ( 2241): finished
+06-01 00:32:22.041 D/Fougere ( 2241): [1212280342][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"fd92ae47-728c-425f-927a-5ef34da693e1","content":{ping:0.065, lon:-122.41763, lat:37.7667, timestamp:1212280342},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:32:22.041 D/Fougere ( 2241): [1212280342][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"fd92ae47-728c-425f-927a-5ef34da693e1","content":{ping:0.065, lon:-122.41763, lat:37.7667, timestamp:1212280342},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:32:22.045 V/APP     ( 2241): New GPS location status changed
+[1212280403][new_upthin][New GPS location] 37.76677 -122.41968
+06-01 00:33:23.014 V/APP     ( 2241): New GPS location: [lat: 37.766769999999994, lon: -122.41967833333335]
+06-01 00:33:23.014 V/APP     ( 2241): onLocationChanged times : 16
+06-01 00:33:23.037 V/APP     ( 2241): New GPS location status changed
+06-01 00:33:23.040 D/APP     ( 2241): pingResult0.061
+06-01 00:33:23.040 D/APP     ( 2241): result : 0.061
+06-01 00:33:23.040 D/APP     ( 2241): finished
+06-01 00:33:23.040 D/Fougere ( 2241): [1212280403][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"5d68e48d-71d0-4f55-bf14-6d19ffeb356a","content":{ping:0.061, lon:-122.41967833333335, lat:37.766769999999994, timestamp:1212280403},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:33:23.040 D/Fougere ( 2241): [1212280403][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"5d68e48d-71d0-4f55-bf14-6d19ffeb356a","content":{ping:0.061, lon:-122.41967833333335, lat:37.766769999999994, timestamp:1212280403},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280444][new_upthin][New GPS location] 37.76387 -122.39267
+06-01 00:34:04.015 V/APP     ( 2241): New GPS location: [lat: 37.763868333333335, lon: -122.39266833333335]
+06-01 00:34:04.015 V/APP     ( 2241): onLocationChanged times : 17
+06-01 00:34:04.037 V/APP     ( 2241): New GPS location status changed
+06-01 00:34:04.043 D/APP     ( 2241): pingResult0.06
+06-01 00:34:04.043 D/APP     ( 2241): result : 0.06
+06-01 00:34:04.043 D/APP     ( 2241): finished
+06-01 00:34:04.043 D/Fougere ( 2241): [1212280444][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"77a3c81e-3c19-464b-975a-35f4ae7c86aa","content":{ping:0.06, lon:-122.39266833333335, lat:37.763868333333335, timestamp:1212280444},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:34:04.043 D/Fougere ( 2241): [1212280444][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"77a3c81e-3c19-464b-975a-35f4ae7c86aa","content":{ping:0.06, lon:-122.39266833333335, lat:37.763868333333335, timestamp:1212280444},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:34:12.568 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:34:12.581 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:34:12.586 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:34:12.626 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:34:12.629 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212280464][new_upthin][New GPS location] 37.76776 -122.42218
+06-01 00:34:40.024 V/APP     ( 2241): New GPS location: [lat: 37.767759999999996, lon: -122.42217833333333]
+06-01 00:34:40.024 V/APP     ( 2241): onLocationChanged times : 18
+06-01 00:34:40.027 V/APP     ( 2241): New GPS location status changed
+06-01 00:34:40.036 D/APP     ( 2241): pingResult0.071
+06-01 00:34:40.036 D/APP     ( 2241): result : 0.071
+06-01 00:34:40.036 D/APP     ( 2241): finished
+06-01 00:34:40.037 D/Fougere ( 2241): [1212280480][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"abf9d598-f869-4d84-a1c9-ea2e3ed74354","content":{ping:0.071, lon:-122.42217833333333, lat:37.767759999999996, timestamp:1212280480},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:34:40.037 D/Fougere ( 2241): [1212280480][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"abf9d598-f869-4d84-a1c9-ea2e3ed74354","content":{ping:0.071, lon:-122.42217833333333, lat:37.767759999999996, timestamp:1212280480},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280495][new_upthin][New GPS location] 37.775 -122.39551
+06-01 00:35:16.031 V/APP     ( 2241): New GPS location: [lat: 37.77499833333333, lon: -122.39551000000002]
+06-01 00:35:16.031 V/APP     ( 2241): onLocationChanged times : 19
+06-01 00:35:16.034 V/APP     ( 2241): New GPS location status changed
+06-01 00:35:16.043 D/APP     ( 2241): pingResult0.071
+06-01 00:35:16.043 D/APP     ( 2241): result : 0.071
+06-01 00:35:16.043 D/APP     ( 2241): finished
+06-01 00:35:16.043 D/Fougere ( 2241): [1212280516][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"6c3ba867-e26f-4f6c-af8a-4cbe532e1001","content":{ping:0.071, lon:-122.39551000000002, lat:37.77499833333333, timestamp:1212280516},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:35:16.044 D/Fougere ( 2241): [1212280516][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"6c3ba867-e26f-4f6c-af8a-4cbe532e1001","content":{ping:0.071, lon:-122.39551000000002, lat:37.77499833333333, timestamp:1212280516},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280525][new_upthin][New GPS location] 37.76962 -122.42243
+[1212280557][new_upthin][New GPS location] 37.7792 -122.39319
+06-01 00:35:57.037 V/APP     ( 2241): New GPS location: [lat: 37.779199999999996, lon: -122.39318999999999]
+06-01 00:35:57.037 V/APP     ( 2241): onLocationChanged times : 20
+06-01 00:35:57.041 V/APP     ( 2241): New GPS location status changed
+06-01 00:35:57.050 D/APP     ( 2241): pingResult0.073
+06-01 00:35:57.050 D/APP     ( 2241): result : 0.073
+06-01 00:35:57.050 D/APP     ( 2241): finished
+06-01 00:35:57.050 D/Fougere ( 2241): [1212280557][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8db1ff23-18d7-4ec7-8ca5-b543e4563339","content":{ping:0.073, lon:-122.39318999999999, lat:37.779199999999996, timestamp:1212280557},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:35:57.051 D/Fougere ( 2241): [1212280557][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8db1ff23-18d7-4ec7-8ca5-b543e4563339","content":{ping:0.073, lon:-122.39318999999999, lat:37.779199999999996, timestamp:1212280557},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280585][new_upthin][New GPS location] 37.77209 -122.4225
+06-01 00:36:33.044 V/APP     ( 2241): New GPS location: [lat: 37.772088333333336, lon: -122.42249833333332]
+06-01 00:36:33.044 V/APP     ( 2241): onLocationChanged times : 21
+06-01 00:36:33.047 V/APP     ( 2241): New GPS location status changed
+06-01 00:36:33.055 D/APP     ( 2241): pingResult0.071
+06-01 00:36:33.055 D/APP     ( 2241): result : 0.071
+06-01 00:36:33.055 D/APP     ( 2241): finished
+06-01 00:36:33.056 D/Fougere ( 2241): [1212280593][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"5921b6b3-4602-4861-8a61-680ec878eca1","content":{ping:0.071, lon:-122.42249833333332, lat:37.772088333333336, timestamp:1212280593},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:36:33.056 D/Fougere ( 2241): [1212280593][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"5921b6b3-4602-4861-8a61-680ec878eca1","content":{ping:0.071, lon:-122.42249833333332, lat:37.772088333333336, timestamp:1212280593},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280622][new_upthin][New GPS location] 37.78129 -122.39565
+06-01 00:37:09.055 V/APP     ( 2241): New GPS location: [lat: 37.781288333333336, lon: -122.39564999999999]
+06-01 00:37:09.055 V/APP     ( 2241): onLocationChanged times : 22
+06-01 00:37:09.058 V/APP     ( 2241): New GPS location status changed
+06-01 00:37:09.067 D/APP     ( 2241): pingResult0.087
+06-01 00:37:09.067 D/APP     ( 2241): result : 0.087
+06-01 00:37:09.067 D/APP     ( 2241): finished
+06-01 00:37:09.068 D/Fougere ( 2241): [1212280629][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"5cc8cd37-e9db-47a6-8490-0318073aa486","content":{ping:0.087, lon:-122.39564999999999, lat:37.781288333333336, timestamp:1212280629},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:37:09.068 D/Fougere ( 2241): [1212280629][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"5cc8cd37-e9db-47a6-8490-0318073aa486","content":{ping:0.087, lon:-122.39564999999999, lat:37.781288333333336, timestamp:1212280629},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:37:12.562 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:37:12.569 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:37:12.570 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:37:12.611 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:37:12.617 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212280646][new_upthin][New GPS location] 37.77226 -122.42258
+06-01 00:37:45.065 V/APP     ( 2241): New GPS location: [lat: 37.772259999999996, lon: -122.42257833333333]
+06-01 00:37:45.065 V/APP     ( 2241): onLocationChanged times : 23
+06-01 00:37:45.068 V/APP     ( 2241): New GPS location status changed
+06-01 00:37:45.077 D/APP     ( 2241): pingResult0.073
+06-01 00:37:45.077 D/APP     ( 2241): result : 0.073
+06-01 00:37:45.077 D/APP     ( 2241): finished
+06-01 00:37:45.078 D/Fougere ( 2241): [1212280665][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"aa89c046-caaf-4e5b-91b7-aa40e4c8c1b3","content":{ping:0.073, lon:-122.42257833333333, lat:37.772259999999996, timestamp:1212280665},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:37:45.078 D/Fougere ( 2241): [1212280665][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"aa89c046-caaf-4e5b-91b7-aa40e4c8c1b3","content":{ping:0.073, lon:-122.42257833333333, lat:37.772259999999996, timestamp:1212280665},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280668][new_upthin][New GPS location] 37.78488 -122.40025
+06-01 00:38:21.076 V/APP     ( 2241): New GPS location: [lat: 37.78488, lon: -122.40024833333334]
+06-01 00:38:21.076 V/APP     ( 2241): onLocationChanged times : 24
+06-01 00:38:21.079 V/APP     ( 2241): New GPS location status changed
+06-01 00:38:21.088 D/APP     ( 2241): pingResult0.075
+06-01 00:38:21.088 D/APP     ( 2241): result : 0.075
+06-01 00:38:21.088 D/APP     ( 2241): finished
+06-01 00:38:21.089 D/Fougere ( 2241): [1212280701][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"864ad126-ccb2-458f-bf89-abacfc0fb8e3","content":{ping:0.075, lon:-122.40024833333334, lat:37.78488, timestamp:1212280701},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:38:21.089 D/Fougere ( 2241): [1212280701][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"864ad126-ccb2-458f-bf89-abacfc0fb8e3","content":{ping:0.075, lon:-122.40024833333334, lat:37.78488, timestamp:1212280701},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280711][new_upthin][New GPS location] 37.77289 -122.42207
+[1212280716][new_upthin][New GPS location] 37.78603 -122.40224
+06-01 00:39:02.198 V/APP     ( 2241): New GPS location: [lat: 37.786028333333334, lon: -122.40224000000002]
+06-01 00:39:02.199 V/APP     ( 2241): onLocationChanged times : 25
+06-01 00:39:02.202 V/APP     ( 2241): New GPS location status changed
+06-01 00:39:02.219 D/APP     ( 2241): pingResult0.069
+06-01 00:39:02.219 D/APP     ( 2241): result : 0.069
+06-01 00:39:02.219 D/APP     ( 2241): finished
+06-01 00:39:02.219 D/Fougere ( 2241): [1212280742][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"b7d36e2d-1b9a-4322-8b88-6240df8f569b","content":{ping:0.069, lon:-122.40224000000002, lat:37.786028333333334, timestamp:1212280742},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:39:02.220 D/Fougere ( 2241): [1212280742][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"b7d36e2d-1b9a-4322-8b88-6240df8f569b","content":{ping:0.069, lon:-122.40224000000002, lat:37.786028333333334, timestamp:1212280742},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280744][new_upthin][New GPS location] 37.7741 -122.4206
+06-01 00:39:38.206 V/APP     ( 2241): New GPS location: [lat: 37.774098333333335, lon: -122.42059833333333]
+06-01 00:39:38.206 V/APP     ( 2241): onLocationChanged times : 26
+06-01 00:39:38.209 V/APP     ( 2241): New GPS location status changed
+06-01 00:39:38.218 D/APP     ( 2241): pingResult0.074
+06-01 00:39:38.219 D/APP     ( 2241): result : 0.074
+06-01 00:39:38.219 D/APP     ( 2241): finished
+06-01 00:39:38.219 D/Fougere ( 2241): [1212280778][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"ca54fdfd-752f-4648-aac7-619e5f190db7","content":{ping:0.074, lon:-122.42059833333333, lat:37.774098333333335, timestamp:1212280778},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:39:38.220 D/Fougere ( 2241): [1212280778][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"ca54fdfd-752f-4648-aac7-619e5f190db7","content":{ping:0.074, lon:-122.42059833333333, lat:37.774098333333335, timestamp:1212280778},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280787][new_upthin][New GPS location] 37.78754 -122.40033
+[1212280799][new_upthin][New GPS location] 37.77617 -122.41799
+06-01 00:40:12.564 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:40:12.571 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:40:12.572 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:40:12.614 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:40:12.624 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:40:14.216 V/APP     ( 2241): New GPS location: [lat: 37.77617, lon: -122.41799]
+06-01 00:40:14.216 V/APP     ( 2241): onLocationChanged times : 27
+06-01 00:40:14.219 V/APP     ( 2241): New GPS location status changed
+06-01 00:40:14.228 D/APP     ( 2241): pingResult0.101
+06-01 00:40:14.228 D/APP     ( 2241): result : 0.101
+06-01 00:40:14.228 D/APP     ( 2241): finished
+06-01 00:40:14.228 D/Fougere ( 2241): [1212280814][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f798e538-dc34-4639-88f6-f2be0de9e6a2","content":{ping:0.101, lon:-122.41799, lat:37.77617, timestamp:1212280814},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:40:14.229 D/Fougere ( 2241): [1212280814][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f798e538-dc34-4639-88f6-f2be0de9e6a2","content":{ping:0.101, lon:-122.41799, lat:37.77617, timestamp:1212280814},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280839][new_upthin][New GPS location] 37.78577 -122.39704
+06-01 00:40:50.228 V/APP     ( 2241): New GPS location: [lat: 37.78576833333333, lon: -122.39703999999999]
+06-01 00:40:50.228 V/APP     ( 2241): onLocationChanged times : 28
+06-01 00:40:50.231 V/APP     ( 2241): New GPS location status changed
+06-01 00:40:50.241 D/APP     ( 2241): pingResult0.072
+06-01 00:40:50.241 D/APP     ( 2241): result : 0.072
+06-01 00:40:50.241 D/APP     ( 2241): finished
+06-01 00:40:50.241 D/Fougere ( 2241): [1212280850][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f13d88b4-9f03-45d3-8d28-2e5a46d7c12c","content":{ping:0.072, lon:-122.39703999999999, lat:37.78576833333333, timestamp:1212280850},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:40:50.242 D/Fougere ( 2241): [1212280850][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f13d88b4-9f03-45d3-8d28-2e5a46d7c12c","content":{ping:0.072, lon:-122.39703999999999, lat:37.78576833333333, timestamp:1212280850},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280864][new_upthin][New GPS location] 37.77742 -122.41691
+[1212280865][new_upthin][New GPS location] 37.78663 -122.39815
+06-01 00:41:26.239 V/APP     ( 2241): New GPS location: [lat: 37.786629999999995, lon: -122.39814999999999]
+06-01 00:41:26.239 V/APP     ( 2241): onLocationChanged times : 29
+06-01 00:41:26.242 V/APP     ( 2241): New GPS location status changed
+06-01 00:41:26.251 D/APP     ( 2241): pingResult0.07
+06-01 00:41:26.251 D/APP     ( 2241): result : 0.07
+06-01 00:41:26.251 D/APP     ( 2241): finished
+06-01 00:41:26.251 D/Fougere ( 2241): [1212280886][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"54e1c985-d62e-4ced-8d41-27cdab204407","content":{ping:0.07, lon:-122.39814999999999, lat:37.786629999999995, timestamp:1212280886},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:41:26.252 D/Fougere ( 2241): [1212280886][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"54e1c985-d62e-4ced-8d41-27cdab204407","content":{ping:0.07, lon:-122.39814999999999, lat:37.786629999999995, timestamp:1212280886},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280919][new_upthin][New GPS location] 37.78034 -122.41296
+06-01 00:42:02.257 V/APP     ( 2241): New GPS location: [lat: 37.78034, lon: -122.41295833333334]
+06-01 00:42:02.257 V/APP     ( 2241): onLocationChanged times : 30
+06-01 00:42:02.259 V/APP     ( 2241): New GPS location status changed
+06-01 00:42:02.268 D/APP     ( 2241): pingResult0.071
+06-01 00:42:02.268 D/APP     ( 2241): result : 0.071
+06-01 00:42:02.268 D/APP     ( 2241): finished
+06-01 00:42:02.268 D/Fougere ( 2241): [1212280922][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"409335e3-5bb4-4a0e-befb-abf3e82ed834","content":{ping:0.071, lon:-122.41295833333334, lat:37.78034, timestamp:1212280922},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:42:02.269 D/Fougere ( 2241): [1212280922][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"409335e3-5bb4-4a0e-befb-abf3e82ed834","content":{ping:0.071, lon:-122.41295833333334, lat:37.78034, timestamp:1212280922},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280929][new_upthin][New GPS location] 37.78779 -122.40018
+06-01 00:42:38.270 V/APP     ( 2241): New GPS location: [lat: 37.78779, lon: -122.40018]
+06-01 00:42:38.270 V/APP     ( 2241): onLocationChanged times : 31
+06-01 00:42:38.273 V/APP     ( 2241): New GPS location status changed
+06-01 00:42:38.282 D/APP     ( 2241): pingResult0.072
+06-01 00:42:38.282 D/APP     ( 2241): result : 0.072
+06-01 00:42:38.282 D/APP     ( 2241): finished
+06-01 00:42:38.282 D/Fougere ( 2241): [1212280958][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"fb54e3bc-e1ec-4144-b5fa-ef9d418623e3","content":{ping:0.072, lon:-122.40018, lat:37.78779, timestamp:1212280958},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:42:38.283 D/Fougere ( 2241): [1212280958][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"fb54e3bc-e1ec-4144-b5fa-ef9d418623e3","content":{ping:0.072, lon:-122.40018, lat:37.78779, timestamp:1212280958},"ttl":"1","disseminate":"4","sent":"0"}
+[1212280979][new_upthin][New GPS location] 37.78365 -122.4087
+[1212280991][new_upthin][New GPS location] 37.78637 -122.40216
+06-01 00:43:12.576 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:43:12.583 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:43:12.584 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:43:12.625 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:43:12.629 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:43:14.278 V/APP     ( 2241): New GPS location: [lat: 37.786368333333336, lon: -122.40215833333332]
+06-01 00:43:14.278 V/APP     ( 2241): onLocationChanged times : 32
+06-01 00:43:14.281 V/APP     ( 2241): New GPS location status changed
+06-01 00:43:14.290 D/APP     ( 2241): pingResult0.071
+06-01 00:43:14.291 D/APP     ( 2241): result : 0.071
+06-01 00:43:14.291 D/APP     ( 2241): finished
+06-01 00:43:14.291 D/Fougere ( 2241): [1212280994][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"5d837343-dfb8-4819-9e16-faa918296b5e","content":{ping:0.071, lon:-122.40215833333332, lat:37.786368333333336, timestamp:1212280994},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:43:14.292 D/Fougere ( 2241): [1212280994][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"5d837343-dfb8-4819-9e16-faa918296b5e","content":{ping:0.071, lon:-122.40215833333332, lat:37.786368333333336, timestamp:1212280994},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281039][new_upthin][New GPS location] 37.78553 -122.40625
+06-01 00:43:59.052 V/APP     ( 2241): New GPS location: [lat: 37.78553, lon: -122.40625]
+06-01 00:43:59.052 V/APP     ( 2241): onLocationChanged times : 33
+06-01 00:43:59.054 V/APP     ( 2241): New GPS location status changed
+06-01 00:43:59.061 D/APP     ( 2241): pingResult0.059
+06-01 00:43:59.061 D/APP     ( 2241): result : 0.059
+06-01 00:43:59.061 D/APP     ( 2241): finished
+06-01 00:43:59.062 D/Fougere ( 2241): [1212281039][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"13f7ab1e-d481-45b0-ac3d-0e151184aa67","content":{ping:0.059, lon:-122.40625, lat:37.78553, timestamp:1212281039},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:43:59.062 D/Fougere ( 2241): [1212281039][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"13f7ab1e-d481-45b0-ac3d-0e151184aa67","content":{ping:0.059, lon:-122.40625, lat:37.78553, timestamp:1212281039},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281043][new_upthin][New GPS location] 37.78447 -122.40455
+[1212281044][new_upthin][New GPS location] 37.78447 -122.40455
+06-01 00:44:35.059 V/APP     ( 2241): New GPS location: [lat: 37.78446833333333, lon: -122.40454999999999]
+06-01 00:44:35.059 V/APP     ( 2241): onLocationChanged times : 34
+06-01 00:44:35.062 V/APP     ( 2241): New GPS location status changed
+06-01 00:44:35.077 D/APP     ( 2241): pingResult0.0
+06-01 00:44:35.077 D/APP     ( 2241): result : 0.0
+06-01 00:44:35.077 D/APP     ( 2241): finished
+06-01 00:44:35.077 D/Fougere ( 2241): [1212281075][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"9358808f-30b4-43a2-9c1b-37eb263455db","content":{ping:0.0, lon:-122.40454999999999, lat:37.78446833333333, timestamp:1212281075},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:44:35.078 D/Fougere ( 2241): [1212281075][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"9358808f-30b4-43a2-9c1b-37eb263455db","content":{ping:0.0, lon:-122.40454999999999, lat:37.78446833333333, timestamp:1212281075},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281084][new_upthin][New GPS location] 37.78445 -122.40462
+[1212281104][new_upthin][New GPS location] 37.78758 -122.40359
+06-01 00:45:11.073 V/APP     ( 2241): New GPS location: [lat: 37.787578333333336, lon: -122.40358833333333]
+06-01 00:45:11.073 V/APP     ( 2241): onLocationChanged times : 35
+06-01 00:45:11.076 V/APP     ( 2241): New GPS location status changed
+06-01 00:45:11.084 D/APP     ( 2241): pingResult0.07
+06-01 00:45:11.085 D/APP     ( 2241): result : 0.07
+06-01 00:45:11.085 D/APP     ( 2241): finished
+06-01 00:45:11.085 D/Fougere ( 2241): [1212281111][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"bf44fd08-b288-4093-ba68-25a4a63f737d","content":{ping:0.07, lon:-122.40358833333333, lat:37.787578333333336, timestamp:1212281111},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:45:11.085 D/Fougere ( 2241): [1212281111][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"bf44fd08-b288-4093-ba68-25a4a63f737d","content":{ping:0.07, lon:-122.40358833333333, lat:37.787578333333336, timestamp:1212281111},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281159][new_upthin][New GPS location] 37.79031 -122.40018
+06-01 00:45:59.069 V/APP     ( 2241): New GPS location: [lat: 37.790308333333336, lon: -122.40018]
+06-01 00:45:59.069 V/APP     ( 2241): onLocationChanged times : 36
+06-01 00:45:59.071 V/APP     ( 2241): New GPS location status changed
+06-01 00:45:59.077 D/APP     ( 2241): pingResult0.053
+06-01 00:45:59.077 D/APP     ( 2241): result : 0.053
+06-01 00:45:59.077 D/APP     ( 2241): finished
+06-01 00:45:59.077 D/Fougere ( 2241): [1212281159][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"e4b00366-660e-4143-b558-de43927b0a3a","content":{ping:0.053, lon:-122.40018, lat:37.790308333333336, timestamp:1212281159},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:45:59.078 D/Fougere ( 2241): [1212281159][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"e4b00366-660e-4143-b558-de43927b0a3a","content":{ping:0.053, lon:-122.40018, lat:37.790308333333336, timestamp:1212281159},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:46:12.580 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:46:12.587 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:46:12.590 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:46:12.630 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032014","deviceAddress":"10.32.0.14"}}]
+06-01 00:46:12.641 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032014 discovered
+06-01 00:46:12.641 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 00:46:12.651 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 00:46:12.662 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.14","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:46:12.664 E/WiDi    ( 2241): Error: ACK received, the device is maybe already connected
+06-01 00:46:12.664 E/Fougere ( 2241): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:46:12.664 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:46:12.664 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:46:12.682 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212281225][new_upthin][New GPS location] 37.79348 -122.39648
+06-01 00:47:05.016 V/APP     ( 2241): New GPS location: [lat: 37.79348, lon: -122.39647833333332]
+06-01 00:47:05.016 V/APP     ( 2241): onLocationChanged times : 37
+06-01 00:47:05.036 D/APP     ( 2241): pingResult0.077
+06-01 00:47:05.036 D/APP     ( 2241): result : 0.077
+06-01 00:47:05.036 D/APP     ( 2241): finished
+06-01 00:47:05.036 D/Fougere ( 2241): [1212281225][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"29887e59-081a-4501-b83b-898d38d7de77","content":{ping:0.077, lon:-122.39647833333332, lat:37.79348, timestamp:1212281225},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:47:05.038 D/Fougere ( 2241): [1212281225][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"29887e59-081a-4501-b83b-898d38d7de77","content":{ping:0.077, lon:-122.39647833333332, lat:37.79348, timestamp:1212281225},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:47:05.042 V/APP     ( 2241): New GPS location status changed
+06-01 00:47:12.651 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 00:47:12.651 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 00:47:12.651 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 00:47:12.657 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212281244][new_upthin][New GPS location] 37.77647 -122.41453
+06-01 00:47:41.024 V/APP     ( 2241): New GPS location: [lat: 37.77647, lon: -122.41452833333332]
+06-01 00:47:41.024 V/APP     ( 2241): onLocationChanged times : 38
+06-01 00:47:41.026 V/APP     ( 2241): New GPS location status changed
+06-01 00:47:41.035 D/APP     ( 2241): pingResult0.07
+06-01 00:47:41.035 D/APP     ( 2241): result : 0.07
+06-01 00:47:41.035 D/APP     ( 2241): finished
+06-01 00:47:41.035 D/Fougere ( 2241): [1212281261][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"bff8e551-63fa-4a9f-926c-0a73483ce55f","content":{ping:0.07, lon:-122.41452833333332, lat:37.77647, timestamp:1212281261},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:47:41.036 D/Fougere ( 2241): [1212281261][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"bff8e551-63fa-4a9f-926c-0a73483ce55f","content":{ping:0.07, lon:-122.41452833333332, lat:37.77647, timestamp:1212281261},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281279][new_upthin][New GPS location] 37.79452 -122.39441
+[1212281290][new_upthin][New GPS location] 37.77439 -122.41715
+06-01 00:48:17.036 V/APP     ( 2241): New GPS location: [lat: 37.774388333333334, lon: -122.41715]
+06-01 00:48:17.036 V/APP     ( 2241): onLocationChanged times : 39
+06-01 00:48:17.039 V/APP     ( 2241): New GPS location status changed
+06-01 00:48:17.049 D/APP     ( 2241): pingResult0.075
+06-01 00:48:17.049 D/APP     ( 2241): result : 0.075
+06-01 00:48:17.049 D/APP     ( 2241): finished
+06-01 00:48:17.050 D/Fougere ( 2241): [1212281297][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"bc0f1b55-febe-4249-a13d-e7309fdeff7e","content":{ping:0.075, lon:-122.41715, lat:37.774388333333334, timestamp:1212281297},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:48:17.051 D/Fougere ( 2241): [1212281297][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"bc0f1b55-febe-4249-a13d-e7309fdeff7e","content":{ping:0.075, lon:-122.41715, lat:37.774388333333334, timestamp:1212281297},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281339][new_upthin][New GPS location] 37.79399 -122.39247
+06-01 00:48:59.047 V/APP     ( 2241): New GPS location: [lat: 37.79399, lon: -122.39246999999999]
+06-01 00:48:59.047 V/APP     ( 2241): onLocationChanged times : 40
+06-01 00:48:59.049 V/APP     ( 2241): New GPS location status changed
+06-01 00:48:59.055 D/APP     ( 2241): pingResult0.075
+06-01 00:48:59.055 D/APP     ( 2241): result : 0.075
+06-01 00:48:59.055 D/APP     ( 2241): finished
+06-01 00:48:59.056 D/Fougere ( 2241): [1212281339][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8c6c226d-236f-4b24-b8b6-5bdbfa67129f","content":{ping:0.075, lon:-122.39246999999999, lat:37.79399, timestamp:1212281339},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:48:59.056 D/Fougere ( 2241): [1212281339][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8c6c226d-236f-4b24-b8b6-5bdbfa67129f","content":{ping:0.075, lon:-122.39246999999999, lat:37.79399, timestamp:1212281339},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281350][new_upthin][New GPS location] 37.77191 -122.42031
+06-01 00:49:12.572 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:49:12.579 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:49:12.581 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:49:12.622 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:49:12.628 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:49:35.056 V/APP     ( 2241): New GPS location: [lat: 37.771908333333336, lon: -122.42031]
+06-01 00:49:35.056 V/APP     ( 2241): onLocationChanged times : 41
+06-01 00:49:35.058 V/APP     ( 2241): New GPS location status changed
+06-01 00:49:35.066 D/APP     ( 2241): pingResult0.063
+06-01 00:49:35.066 D/APP     ( 2241): result : 0.063
+06-01 00:49:35.066 D/APP     ( 2241): finished
+06-01 00:49:35.066 D/Fougere ( 2241): [1212281375][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"1f2c1c56-455d-4d2b-adc2-e576eee9aaaf","content":{ping:0.063, lon:-122.42031, lat:37.771908333333336, timestamp:1212281375},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:49:35.067 D/Fougere ( 2241): [1212281375][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"1f2c1c56-455d-4d2b-adc2-e576eee9aaaf","content":{ping:0.063, lon:-122.42031, lat:37.771908333333336, timestamp:1212281375},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281400][new_upthin][New GPS location] 37.79736 -122.39582
+06-01 00:50:11.067 V/APP     ( 2241): New GPS location: [lat: 37.797358333333335, lon: -122.39582]
+06-01 00:50:11.067 V/APP     ( 2241): onLocationChanged times : 42
+06-01 00:50:11.070 V/APP     ( 2241): New GPS location status changed
+06-01 00:50:11.079 D/APP     ( 2241): pingResult0.074
+06-01 00:50:11.079 D/APP     ( 2241): result : 0.074
+06-01 00:50:11.079 D/APP     ( 2241): finished
+06-01 00:50:11.079 D/Fougere ( 2241): [1212281411][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"85819e9c-6a0a-4472-8dfc-432b85a09b0e","content":{ping:0.074, lon:-122.39582, lat:37.797358333333335, timestamp:1212281411},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:50:11.080 D/Fougere ( 2241): [1212281411][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"85819e9c-6a0a-4472-8dfc-432b85a09b0e","content":{ping:0.074, lon:-122.39582, lat:37.797358333333335, timestamp:1212281411},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281427][new_upthin][New GPS location] 37.768 -122.42
+06-01 00:50:47.075 V/APP     ( 2241): New GPS location: [lat: 37.768, lon: -122.42000000000002]
+06-01 00:50:47.075 V/APP     ( 2241): onLocationChanged times : 43
+06-01 00:50:47.078 V/APP     ( 2241): New GPS location status changed
+06-01 00:50:47.087 D/APP     ( 2241): pingResult0.068
+06-01 00:50:47.087 D/APP     ( 2241): result : 0.068
+06-01 00:50:47.087 D/APP     ( 2241): finished
+06-01 00:50:47.087 D/Fougere ( 2241): [1212281447][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f97f1ab5-0d22-4825-827b-fd622ae62e26","content":{ping:0.068, lon:-122.42000000000002, lat:37.768, timestamp:1212281447},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:50:47.087 D/Fougere ( 2241): [1212281447][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f97f1ab5-0d22-4825-827b-fd622ae62e26","content":{ping:0.068, lon:-122.42000000000002, lat:37.768, timestamp:1212281447},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281461][new_upthin][New GPS location] 37.80087 -122.39895
+[1212281477][new_upthin][New GPS location] 37.76187 -122.41945
+06-01 00:51:23.088 V/APP     ( 2241): New GPS location: [lat: 37.76187, lon: -122.41944833333334]
+06-01 00:51:23.088 V/APP     ( 2241): onLocationChanged times : 44
+06-01 00:51:23.091 V/APP     ( 2241): New GPS location status changed
+06-01 00:51:23.099 D/APP     ( 2241): pingResult0.067
+06-01 00:51:23.099 D/APP     ( 2241): result : 0.067
+06-01 00:51:23.099 D/APP     ( 2241): finished
+06-01 00:51:23.100 D/Fougere ( 2241): [1212281483][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"69052ee4-6f89-457b-bdab-25ec30680e09","content":{ping:0.067, lon:-122.41944833333334, lat:37.76187, timestamp:1212281483},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:51:23.100 D/Fougere ( 2241): [1212281483][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"69052ee4-6f89-457b-bdab-25ec30680e09","content":{ping:0.067, lon:-122.41944833333334, lat:37.76187, timestamp:1212281483},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281520][new_upthin][New GPS location] 37.80484 -122.4028
+06-01 00:52:00.056 V/APP     ( 2241): New GPS location: [lat: 37.804838333333336, lon: -122.40279833333334]
+06-01 00:52:00.056 V/APP     ( 2241): onLocationChanged times : 45
+06-01 00:52:00.058 V/APP     ( 2241): New GPS location status changed
+06-01 00:52:00.065 D/APP     ( 2241): pingResult0.0
+06-01 00:52:00.065 D/APP     ( 2241): result : 0.0
+06-01 00:52:00.065 D/APP     ( 2241): finished
+06-01 00:52:00.065 D/Fougere ( 2241): [1212281520][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"0e6927af-a077-4144-891b-18dbf5ec95ea","content":{ping:0.0, lon:-122.40279833333334, lat:37.804838333333336, timestamp:1212281520},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:52:00.066 D/Fougere ( 2241): [1212281520][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"0e6927af-a077-4144-891b-18dbf5ec95ea","content":{ping:0.0, lon:-122.40279833333334, lat:37.804838333333336, timestamp:1212281520},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281527][new_upthin][New GPS location] 37.75694 -122.419
+06-01 00:52:12.575 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:52:12.582 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:52:12.584 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:52:12.627 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:52:12.631 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:52:36.068 V/APP     ( 2241): New GPS location: [lat: 37.75694, lon: -122.41899833333333]
+06-01 00:52:36.068 V/APP     ( 2241): onLocationChanged times : 46
+06-01 00:52:36.071 V/APP     ( 2241): New GPS location status changed
+06-01 00:52:36.080 D/APP     ( 2241): pingResult0.078
+06-01 00:52:36.080 D/APP     ( 2241): result : 0.078
+06-01 00:52:36.081 D/APP     ( 2241): finished
+06-01 00:52:36.081 D/Fougere ( 2241): [1212281556][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"fd53a782-f404-439e-95d1-d83faa818f80","content":{ping:0.078, lon:-122.41899833333333, lat:37.75694, timestamp:1212281556},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:52:36.082 D/Fougere ( 2241): [1212281556][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"fd53a782-f404-439e-95d1-d83faa818f80","content":{ping:0.078, lon:-122.41899833333333, lat:37.75694, timestamp:1212281556},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281581][new_upthin][New GPS location] 37.80647 -122.40524
+[1212281587][new_upthin][New GPS location] 37.75238 -122.41851
+06-01 00:53:12.085 V/APP     ( 2241): New GPS location: [lat: 37.75238, lon: -122.41850833333335]
+06-01 00:53:12.085 V/APP     ( 2241): onLocationChanged times : 47
+06-01 00:53:12.088 V/APP     ( 2241): New GPS location status changed
+06-01 00:53:12.097 D/APP     ( 2241): pingResult0.0
+06-01 00:53:12.097 D/APP     ( 2241): result : 0.0
+06-01 00:53:12.097 D/APP     ( 2241): finished
+06-01 00:53:12.097 D/Fougere ( 2241): [1212281592][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"a4c3931e-ee30-4f78-bd7c-8ff34166aa03","content":{ping:0.0, lon:-122.41850833333335, lat:37.75238, timestamp:1212281592},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:53:12.098 D/Fougere ( 2241): [1212281592][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"a4c3931e-ee30-4f78-bd7c-8ff34166aa03","content":{ping:0.0, lon:-122.41850833333335, lat:37.75238, timestamp:1212281592},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281642][new_upthin][New GPS location] 37.80802 -122.40893
+06-01 00:54:02.045 V/APP     ( 2241): New GPS location: [lat: 37.80801833333333, lon: -122.40892833333334]
+06-01 00:54:02.046 V/APP     ( 2241): onLocationChanged times : 48
+06-01 00:54:02.047 V/APP     ( 2241): New GPS location status changed
+06-01 00:54:02.055 D/APP     ( 2241): pingResult0.064
+06-01 00:54:02.055 D/APP     ( 2241): result : 0.064
+06-01 00:54:02.055 D/APP     ( 2241): finished
+06-01 00:54:02.055 D/Fougere ( 2241): [1212281642][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"3ad8d88f-4086-4e58-b6df-922602bab592","content":{ping:0.064, lon:-122.40892833333334, lat:37.80801833333333, timestamp:1212281642},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:54:02.056 D/Fougere ( 2241): [1212281642][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"3ad8d88f-4086-4e58-b6df-922602bab592","content":{ping:0.064, lon:-122.40892833333334, lat:37.80801833333333, timestamp:1212281642},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281701][new_upthin][New GPS location] 37.80835 -122.41112
+06-01 00:55:01.040 V/APP     ( 2241): New GPS location: [lat: 37.808348333333335, lon: -122.41111833333335]
+06-01 00:55:01.040 V/APP     ( 2241): onLocationChanged times : 49
+06-01 00:55:01.044 V/APP     ( 2241): New GPS location status changed
+06-01 00:55:01.054 D/APP     ( 2241): pingResult0.062
+06-01 00:55:01.054 D/APP     ( 2241): result : 0.062
+06-01 00:55:01.054 D/APP     ( 2241): finished
+06-01 00:55:01.054 D/Fougere ( 2241): [1212281701][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8a227fef-26d6-4ec2-8a10-c9a68c34ee88","content":{ping:0.062, lon:-122.41111833333335, lat:37.808348333333335, timestamp:1212281701},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:55:01.056 D/Fougere ( 2241): [1212281701][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8a227fef-26d6-4ec2-8a10-c9a68c34ee88","content":{ping:0.062, lon:-122.41111833333335, lat:37.808348333333335, timestamp:1212281701},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:55:12.577 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:55:12.590 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:55:12.593 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:55:12.634 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:55:12.641 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212281721][new_upthin][New GPS location] 37.74531 -122.42009
+06-01 00:55:37.031 V/APP     ( 2241): New GPS location: [lat: 37.74531, lon: -122.42009000000002]
+06-01 00:55:37.031 V/APP     ( 2241): onLocationChanged times : 50
+06-01 00:55:37.034 V/APP     ( 2241): New GPS location status changed
+06-01 00:55:37.043 D/APP     ( 2241): pingResult0.072
+06-01 00:55:37.043 D/APP     ( 2241): result : 0.072
+06-01 00:55:37.043 D/APP     ( 2241): finished
+06-01 00:55:37.043 D/Fougere ( 2241): [1212281737][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"6a129d32-ae0c-4386-a978-4359f3dc52b3","content":{ping:0.072, lon:-122.42009000000002, lat:37.74531, timestamp:1212281737},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:55:37.044 D/Fougere ( 2241): [1212281737][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"6a129d32-ae0c-4386-a978-4359f3dc52b3","content":{ping:0.072, lon:-122.42009000000002, lat:37.74531, timestamp:1212281737},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281761][new_upthin][New GPS location] 37.80847 -122.41405
+[1212281768][new_upthin][New GPS location] 37.74454 -122.42068
+06-01 00:56:13.037 V/APP     ( 2241): New GPS location: [lat: 37.74454, lon: -122.42067999999999]
+06-01 00:56:13.037 V/APP     ( 2241): onLocationChanged times : 51
+06-01 00:56:13.040 V/APP     ( 2241): New GPS location status changed
+06-01 00:56:13.057 D/APP     ( 2241): pingResult0.073
+06-01 00:56:13.057 D/APP     ( 2241): result : 0.073
+06-01 00:56:13.057 D/APP     ( 2241): finished
+06-01 00:56:13.057 D/Fougere ( 2241): [1212281773][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"95fd5a4b-f248-46d8-af64-6b04cdc60f24","content":{ping:0.073, lon:-122.42067999999999, lat:37.74454, timestamp:1212281773},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:56:13.058 D/Fougere ( 2241): [1212281773][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"95fd5a4b-f248-46d8-af64-6b04cdc60f24","content":{ping:0.073, lon:-122.42067999999999, lat:37.74454, timestamp:1212281773},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281826][new_upthin][New GPS location] 37.80809 -122.41701
+06-01 00:57:06.018 V/APP     ( 2241): New GPS location: [lat: 37.80808833333333, lon: -122.41700999999999]
+06-01 00:57:06.018 V/APP     ( 2241): onLocationChanged times : 52
+06-01 00:57:06.022 V/APP     ( 2241): New GPS location status changed
+06-01 00:57:06.051 D/APP     ( 2241): pingResult0.0
+06-01 00:57:06.051 D/APP     ( 2241): result : 0.0
+06-01 00:57:06.051 D/APP     ( 2241): finished
+06-01 00:57:06.051 D/Fougere ( 2241): [1212281826][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"2590b9a7-f184-48b6-a34a-1a961feca32e","content":{ping:0.0, lon:-122.41700999999999, lat:37.80808833333333, timestamp:1212281826},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:57:06.052 D/Fougere ( 2241): [1212281826][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"2590b9a7-f184-48b6-a34a-1a961feca32e","content":{ping:0.0, lon:-122.41700999999999, lat:37.80808833333333, timestamp:1212281826},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281828][new_upthin][New GPS location] 37.74408 -122.42115
+[1212281882][new_upthin][New GPS location] 37.80765 -122.42061
+06-01 00:58:02.045 V/APP     ( 2241): New GPS location: [lat: 37.807649999999995, lon: -122.42060833333335]
+06-01 00:58:02.045 V/APP     ( 2241): onLocationChanged times : 53
+06-01 00:58:02.047 V/APP     ( 2241): New GPS location status changed
+06-01 00:58:02.055 D/APP     ( 2241): pingResult0.056
+06-01 00:58:02.055 D/APP     ( 2241): result : 0.056
+06-01 00:58:02.055 D/APP     ( 2241): finished
+06-01 00:58:02.056 D/Fougere ( 2241): [1212281882][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8de1a702-88d7-4664-8f24-fca0b122e21d","content":{ping:0.056, lon:-122.42060833333335, lat:37.807649999999995, timestamp:1212281882},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:58:02.056 D/Fougere ( 2241): [1212281882][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8de1a702-88d7-4664-8f24-fca0b122e21d","content":{ping:0.056, lon:-122.42060833333335, lat:37.807649999999995, timestamp:1212281882},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281888][new_upthin][New GPS location] 37.74411 -122.42112
+06-01 00:58:12.571 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:58:12.578 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 00:58:12.581 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 00:58:12.619 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 00:58:12.623 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:58:55.076 V/APP     ( 2241): New GPS location: [lat: 37.74410833333333, lon: -122.42112]
+06-01 00:58:55.076 V/APP     ( 2241): onLocationChanged times : 54
+06-01 00:58:55.079 V/APP     ( 2241): New GPS location status changed
+06-01 00:58:55.107 D/APP     ( 2241): pingResult0.066
+06-01 00:58:55.107 D/APP     ( 2241): result : 0.066
+06-01 00:58:55.107 D/APP     ( 2241): finished
+06-01 00:58:55.107 D/Fougere ( 2241): [1212281935][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"451d9362-5efa-4ac4-a46d-696c91c7ac96","content":{ping:0.066, lon:-122.42112, lat:37.74410833333333, timestamp:1212281935},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:58:55.108 D/Fougere ( 2241): [1212281935][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"451d9362-5efa-4ac4-a46d-696c91c7ac96","content":{ping:0.066, lon:-122.42112, lat:37.74410833333333, timestamp:1212281935},"ttl":"1","disseminate":"4","sent":"0"}
+[1212281944][new_upthin][New GPS location] 37.8065 -122.42214
+[1212281949][new_upthin][New GPS location] 37.7441 -122.42114
+06-01 00:59:31.086 V/APP     ( 2241): New GPS location status changed
+[1212282004][new_upthin][New GPS location] 37.80559 -122.42212
+06-01 01:00:07.095 V/APP     ( 2241): New GPS location: [lat: 37.80559, lon: -122.42211999999999]
+06-01 01:00:07.095 V/APP     ( 2241): onLocationChanged times : 55
+06-01 01:00:07.097 V/APP     ( 2241): New GPS location status changed
+06-01 01:00:07.106 D/APP     ( 2241): pingResult0.086
+06-01 01:00:07.106 D/APP     ( 2241): result : 0.086
+06-01 01:00:07.106 D/APP     ( 2241): finished
+06-01 01:00:07.106 D/Fougere ( 2241): [1212282007][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"2986a6b7-24b5-4b84-a8e7-626a3a6891e3","content":{ping:0.086, lon:-122.42211999999999, lat:37.80559, timestamp:1212282007},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:00:07.107 D/Fougere ( 2241): [1212282007][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"2986a6b7-24b5-4b84-a8e7-626a3a6891e3","content":{ping:0.086, lon:-122.42211999999999, lat:37.80559, timestamp:1212282007},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282010][new_upthin][New GPS location] 37.7441 -122.42127
+06-01 01:00:43.107 V/APP     ( 2241): New GPS location: [lat: 37.7441, lon: -122.42127]
+06-01 01:00:43.107 V/APP     ( 2241): onLocationChanged times : 56
+06-01 01:00:43.109 V/APP     ( 2241): New GPS location status changed
+06-01 01:00:43.119 D/APP     ( 2241): pingResult0.382
+06-01 01:00:43.119 D/APP     ( 2241): result : 0.382
+06-01 01:00:43.119 D/APP     ( 2241): finished
+06-01 01:00:43.119 D/Fougere ( 2241): [1212282043][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"eb1063b9-dec9-404f-8a7a-6e40646687b2","content":{ping:0.382, lon:-122.42127, lat:37.7441, timestamp:1212282043},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:00:43.120 D/Fougere ( 2241): [1212282043][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"eb1063b9-dec9-404f-8a7a-6e40646687b2","content":{ping:0.382, lon:-122.42127, lat:37.7441, timestamp:1212282043},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282053][new_upthin][New GPS location] 37.80521 -122.42458
+[1212282070][new_upthin][New GPS location] 37.80503 -122.42545
+06-01 01:01:12.574 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:01:12.584 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:01:12.591 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:01:12.631 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:01:12.635 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:01:19.117 V/APP     ( 2241): New GPS location: [lat: 37.80503, lon: -122.42544833333335]
+06-01 01:01:19.117 V/APP     ( 2241): onLocationChanged times : 57
+06-01 01:01:19.120 V/APP     ( 2241): New GPS location status changed
+06-01 01:01:19.129 D/APP     ( 2241): pingResult0.073
+06-01 01:01:19.129 D/APP     ( 2241): result : 0.073
+06-01 01:01:19.129 D/APP     ( 2241): finished
+06-01 01:01:19.130 D/Fougere ( 2241): [1212282079][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f8dfa2ca-bf86-459e-b277-a86c55a33a78","content":{ping:0.073, lon:-122.42544833333335, lat:37.80503, timestamp:1212282079},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:01:19.130 D/Fougere ( 2241): [1212282079][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f8dfa2ca-bf86-459e-b277-a86c55a33a78","content":{ping:0.073, lon:-122.42544833333335, lat:37.80503, timestamp:1212282079},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282130][new_upthin][New GPS location] 37.80335 -122.42522
+06-01 01:02:10.016 V/APP     ( 2241): New GPS location: [lat: 37.80335, lon: -122.42521833333333]
+06-01 01:02:10.016 V/APP     ( 2241): onLocationChanged times : 58
+06-01 01:02:10.044 D/APP     ( 2241): pingResult0.066
+06-01 01:02:10.044 D/APP     ( 2241): result : 0.066
+06-01 01:02:10.044 D/APP     ( 2241): finished
+06-01 01:02:10.044 D/Fougere ( 2241): [1212282130][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"459c9d80-f295-4bdf-9f85-8aa8958b0147","content":{ping:0.066, lon:-122.42521833333333, lat:37.80335, timestamp:1212282130},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:02:10.046 D/Fougere ( 2241): [1212282130][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"459c9d80-f295-4bdf-9f85-8aa8958b0147","content":{ping:0.066, lon:-122.42521833333333, lat:37.80335, timestamp:1212282130},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:02:10.050 V/APP     ( 2241): New GPS location status changed
+[1212282132][new_upthin][New GPS location] 37.74402 -122.42131
+06-01 01:03:04.280 V/APP     ( 2241): New GPS location: [lat: 37.74401833333333, lon: -122.42130999999999]
+06-01 01:03:04.280 V/APP     ( 2241): onLocationChanged times : 59
+06-01 01:03:04.283 V/APP     ( 2241): New GPS location status changed
+06-01 01:03:04.299 D/APP     ( 2241): pingResult0.083
+06-01 01:03:04.299 D/APP     ( 2241): result : 0.083
+06-01 01:03:04.299 D/APP     ( 2241): finished
+06-01 01:03:04.299 D/Fougere ( 2241): [1212282184][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"c5c3a4ae-9ba8-4fe3-a14d-8d6ea336a6e3","content":{ping:0.083, lon:-122.42130999999999, lat:37.74401833333333, timestamp:1212282184},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:03:04.299 D/Fougere ( 2241): [1212282184][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"c5c3a4ae-9ba8-4fe3-a14d-8d6ea336a6e3","content":{ping:0.083, lon:-122.42130999999999, lat:37.74401833333333, timestamp:1212282184},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282190][new_upthin][New GPS location] 37.80241 -122.42487
+06-01 01:03:40.289 V/APP     ( 2241): New GPS location: [lat: 37.80241, lon: -122.42486833333332]
+06-01 01:03:40.289 V/APP     ( 2241): onLocationChanged times : 60
+06-01 01:03:40.292 V/APP     ( 2241): New GPS location status changed
+06-01 01:03:40.307 D/APP     ( 2241): pingResult0.081
+06-01 01:03:40.307 D/APP     ( 2241): result : 0.081
+06-01 01:03:40.307 D/APP     ( 2241): finished
+06-01 01:03:40.307 D/Fougere ( 2241): [1212282220][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"2951d733-b0d3-4c68-83ef-95924a376de1","content":{ping:0.081, lon:-122.42486833333332, lat:37.80241, timestamp:1212282220},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:03:40.308 D/Fougere ( 2241): [1212282220][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"2951d733-b0d3-4c68-83ef-95924a376de1","content":{ping:0.081, lon:-122.42486833333332, lat:37.80241, timestamp:1212282220},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282250][new_upthin][New GPS location] 37.80149 -122.42474
+06-01 01:04:12.587 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:04:12.594 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:04:12.597 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:04:12.635 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:04:12.645 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:04:16.299 V/APP     ( 2241): New GPS location: [lat: 37.801489999999994, lon: -122.42473833333334]
+06-01 01:04:16.299 V/APP     ( 2241): onLocationChanged times : 61
+06-01 01:04:16.302 V/APP     ( 2241): New GPS location status changed
+06-01 01:04:16.311 D/APP     ( 2241): pingResult0.076
+06-01 01:04:16.311 D/APP     ( 2241): result : 0.076
+06-01 01:04:16.311 D/APP     ( 2241): finished
+06-01 01:04:16.311 D/Fougere ( 2241): [1212282256][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"cfc65256-6c23-4534-a889-de1087fb0c1e","content":{ping:0.076, lon:-122.42473833333334, lat:37.801489999999994, timestamp:1212282256},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:04:16.312 D/Fougere ( 2241): [1212282256][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"cfc65256-6c23-4534-a889-de1087fb0c1e","content":{ping:0.076, lon:-122.42473833333334, lat:37.801489999999994, timestamp:1212282256},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282272][new_upthin][New GPS location] 37.74413 -122.42129
+06-01 01:04:52.308 V/APP     ( 2241): New GPS location: [lat: 37.744128333333336, lon: -122.42128833333332]
+06-01 01:04:52.308 V/APP     ( 2241): onLocationChanged times : 62
+06-01 01:04:52.311 V/APP     ( 2241): New GPS location status changed
+06-01 01:04:52.320 D/APP     ( 2241): pingResult0.071
+06-01 01:04:52.320 D/APP     ( 2241): result : 0.071
+06-01 01:04:52.320 D/APP     ( 2241): finished
+06-01 01:04:52.321 D/Fougere ( 2241): [1212282292][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"adf2928e-8e96-4cc8-b75b-ac288bf25f2f","content":{ping:0.071, lon:-122.42128833333332, lat:37.744128333333336, timestamp:1212282292},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:04:52.321 D/Fougere ( 2241): [1212282292][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"adf2928e-8e96-4cc8-b75b-ac288bf25f2f","content":{ping:0.071, lon:-122.42128833333332, lat:37.744128333333336, timestamp:1212282292},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282310][new_upthin][New GPS location] 37.79941 -122.42432
+[1212282314][new_upthin][New GPS location] 37.7441 -122.42132
+06-01 01:05:28.321 V/APP     ( 2241): New GPS location status changed
+[1212282381][new_upthin][New GPS location] 37.79579 -122.42233
+06-01 01:06:21.017 V/APP     ( 2241): New GPS location: [lat: 37.795788333333334, lon: -122.42233]
+06-01 01:06:21.017 V/APP     ( 2241): onLocationChanged times : 63
+06-01 01:06:21.039 V/APP     ( 2241): New GPS location status changed
+06-01 01:06:21.044 D/APP     ( 2241): pingResult0.06
+06-01 01:06:21.044 D/APP     ( 2241): result : 0.06
+06-01 01:06:21.044 D/APP     ( 2241): finished
+06-01 01:06:21.044 D/Fougere ( 2241): [1212282381][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"23816ee8-dae5-4fe7-97ae-7c7fda910e7c","content":{ping:0.06, lon:-122.42233, lat:37.795788333333334, timestamp:1212282381},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:06:21.045 D/Fougere ( 2241): [1212282381][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"23816ee8-dae5-4fe7-97ae-7c7fda910e7c","content":{ping:0.06, lon:-122.42233, lat:37.795788333333334, timestamp:1212282381},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282419][new_upthin][New GPS location] 37.79419 -122.42165
+06-01 01:06:59.048 V/APP     ( 2241): New GPS location: [lat: 37.79419, lon: -122.42164833333332]
+06-01 01:06:59.048 V/APP     ( 2241): onLocationChanged times : 64
+06-01 01:06:59.053 V/APP     ( 2241): New GPS location status changed
+06-01 01:06:59.059 D/APP     ( 2241): pingResult0.057
+06-01 01:06:59.059 D/APP     ( 2241): result : 0.057
+06-01 01:06:59.059 D/APP     ( 2241): finished
+06-01 01:06:59.059 D/Fougere ( 2241): [1212282419][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"68c5bb71-978d-4aeb-acde-22cbabe52ee7","content":{ping:0.057, lon:-122.42164833333332, lat:37.79419, timestamp:1212282419},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:06:59.060 D/Fougere ( 2241): [1212282419][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"68c5bb71-978d-4aeb-acde-22cbabe52ee7","content":{ping:0.057, lon:-122.42164833333332, lat:37.79419, timestamp:1212282419},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282420][new_upthin][New GPS location] 37.79419 -122.42165
+06-01 01:07:12.589 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:07:12.596 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:07:12.599 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:07:12.639 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:07:12.650 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:07:35.061 V/APP     ( 2241): New GPS location status changed
+[1212282480][new_upthin][New GPS location] 37.79418 -122.42321
+[1212282482][new_upthin][New GPS location] 37.74528 -122.42707
+06-01 01:08:11.073 V/APP     ( 2241): New GPS location: [lat: 37.74528, lon: -122.42707]
+06-01 01:08:11.073 V/APP     ( 2241): onLocationChanged times : 65
+06-01 01:08:11.076 V/APP     ( 2241): New GPS location status changed
+06-01 01:08:11.086 D/APP     ( 2241): pingResult0.076
+06-01 01:08:11.086 D/APP     ( 2241): result : 0.076
+06-01 01:08:11.086 D/APP     ( 2241): finished
+06-01 01:08:11.086 D/Fougere ( 2241): [1212282491][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"31fb1a82-d6ed-4851-b81b-1f1acfc4f27f","content":{ping:0.076, lon:-122.42707, lat:37.74528, timestamp:1212282491},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:08:11.087 D/Fougere ( 2241): [1212282491][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"31fb1a82-d6ed-4851-b81b-1f1acfc4f27f","content":{ping:0.076, lon:-122.42707, lat:37.74528, timestamp:1212282491},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282541][new_upthin][New GPS location] 37.79868 -122.42247
+06-01 01:09:01.047 V/APP     ( 2241): New GPS location: [lat: 37.798678333333335, lon: -122.42247]
+06-01 01:09:01.047 V/APP     ( 2241): onLocationChanged times : 66
+06-01 01:09:01.048 V/APP     ( 2241): New GPS location status changed
+06-01 01:09:01.056 D/APP     ( 2241): pingResult0.062
+06-01 01:09:01.056 D/APP     ( 2241): result : 0.062
+06-01 01:09:01.056 D/APP     ( 2241): finished
+06-01 01:09:01.056 D/Fougere ( 2241): [1212282541][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"9be33855-0fa9-41c5-bf80-57a9a6f1c53a","content":{ping:0.062, lon:-122.42247, lat:37.798678333333335, timestamp:1212282541},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:09:01.057 D/Fougere ( 2241): [1212282541][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"9be33855-0fa9-41c5-bf80-57a9a6f1c53a","content":{ping:0.062, lon:-122.42247, lat:37.798678333333335, timestamp:1212282541},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282595][new_upthin][New GPS location] 37.74527 -122.42752
+06-01 01:09:55.017 V/APP     ( 2241): New GPS location: [lat: 37.745268333333335, lon: -122.42752]
+06-01 01:09:55.017 V/APP     ( 2241): onLocationChanged times : 67
+06-01 01:09:55.019 V/APP     ( 2241): New GPS location status changed
+06-01 01:09:55.037 D/APP     ( 2241): pingResult0.062
+06-01 01:09:55.037 D/APP     ( 2241): result : 0.062
+06-01 01:09:55.037 D/APP     ( 2241): finished
+06-01 01:09:55.037 D/Fougere ( 2241): [1212282595][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"0a7f75c0-f285-4ecb-9986-b98fc954edfb","content":{ping:0.062, lon:-122.42752, lat:37.745268333333335, timestamp:1212282595},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:09:55.037 D/Fougere ( 2241): [1212282595][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"0a7f75c0-f285-4ecb-9986-b98fc954edfb","content":{ping:0.062, lon:-122.42752, lat:37.745268333333335, timestamp:1212282595},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282601][new_upthin][New GPS location] 37.79771 -122.42357
+06-01 01:10:12.582 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:10:12.595 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:10:12.598 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:10:12.639 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}}]
+06-01 01:10:12.648 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 01:10:12.648 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 01:10:12.649 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 01:10:12.669 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 01:10:12.671 E/WiDi    ( 2241): Error: ACK received, the device is maybe already connected
+06-01 01:10:12.671 E/Fougere ( 2241): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 01:10:12.671 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:10:12.671 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:10:12.692 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:10:31.024 V/APP     ( 2241): New GPS location: [lat: 37.79771, lon: -122.42356833333334]
+06-01 01:10:31.024 V/APP     ( 2241): onLocationChanged times : 68
+06-01 01:10:31.027 V/APP     ( 2241): New GPS location status changed
+06-01 01:10:31.035 D/APP     ( 2241): pingResult0.068
+06-01 01:10:31.035 D/APP     ( 2241): result : 0.068
+06-01 01:10:31.036 D/APP     ( 2241): finished
+06-01 01:10:31.036 D/Fougere ( 2241): [1212282631][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8cec4d94-8db0-43f7-a78a-74b1a03eeb52","content":{ping:0.068, lon:-122.42356833333334, lat:37.79771, timestamp:1212282631},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:10:31.037 D/Fougere ( 2241): [1212282631][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8cec4d94-8db0-43f7-a78a-74b1a03eeb52","content":{ping:0.068, lon:-122.42356833333334, lat:37.79771, timestamp:1212282631},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282661][new_upthin][New GPS location] 37.79744 -122.4254
+06-01 01:11:07.036 V/APP     ( 2241): New GPS location: [lat: 37.79744, lon: -122.42539833333333]
+06-01 01:11:07.036 V/APP     ( 2241): onLocationChanged times : 69
+06-01 01:11:07.038 V/APP     ( 2241): New GPS location status changed
+06-01 01:11:07.047 D/APP     ( 2241): pingResult0.071
+06-01 01:11:07.047 D/APP     ( 2241): result : 0.071
+06-01 01:11:07.047 D/APP     ( 2241): finished
+06-01 01:11:07.048 D/Fougere ( 2241): [1212282667][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"432b85aa-1092-487e-9952-597f5e1560b4","content":{ping:0.071, lon:-122.42539833333333, lat:37.79744, timestamp:1212282667},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:11:07.049 D/Fougere ( 2241): [1212282667][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"432b85aa-1092-487e-9952-597f5e1560b4","content":{ping:0.071, lon:-122.42539833333333, lat:37.79744, timestamp:1212282667},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:11:12.652 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 01:11:12.653 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:11:12.653 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:11:12.659 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+[1212282683][new_upthin][New GPS location] 37.74528 -122.4286
+[1212282703][new_upthin][New GPS location] 37.79823 -122.42668
+06-01 01:11:43.048 V/APP     ( 2241): New GPS location: [lat: 37.798228333333334, lon: -122.42668]
+06-01 01:11:43.048 V/APP     ( 2241): onLocationChanged times : 70
+06-01 01:11:43.050 V/APP     ( 2241): New GPS location status changed
+06-01 01:11:43.057 D/APP     ( 2241): pingResult0.057
+06-01 01:11:43.057 D/APP     ( 2241): result : 0.057
+06-01 01:11:43.057 D/APP     ( 2241): finished
+06-01 01:11:43.057 D/Fougere ( 2241): [1212282703][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"fc2d21ad-6d98-406d-b61a-428553aac470","content":{ping:0.057, lon:-122.42668, lat:37.798228333333334, timestamp:1212282703},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:11:43.060 D/Fougere ( 2241): [1212282703][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"fc2d21ad-6d98-406d-b61a-428553aac470","content":{ping:0.057, lon:-122.42668, lat:37.798228333333334, timestamp:1212282703},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282742][new_upthin][New GPS location] 37.74522 -122.4286
+06-01 01:12:22.028 V/APP     ( 2241): New GPS location: [lat: 37.74522, lon: -122.4286]
+06-01 01:12:22.028 V/APP     ( 2241): onLocationChanged times : 71
+06-01 01:12:22.057 D/APP     ( 2241): pingResult0.076
+06-01 01:12:22.057 D/APP     ( 2241): result : 0.076
+06-01 01:12:22.057 D/APP     ( 2241): finished
+06-01 01:12:22.057 D/Fougere ( 2241): [1212282742][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"da7594dd-6cee-4ed5-a509-2e9cb96e5fcd","content":{ping:0.076, lon:-122.4286, lat:37.74522, timestamp:1212282742},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:12:22.057 D/Fougere ( 2241): [1212282742][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"da7594dd-6cee-4ed5-a509-2e9cb96e5fcd","content":{ping:0.076, lon:-122.4286, lat:37.74522, timestamp:1212282742},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:12:22.061 V/APP     ( 2241): New GPS location status changed
+[1212282763][new_upthin][New GPS location] 37.79919 -122.42645
+06-01 01:12:58.028 V/APP     ( 2241): New GPS location: [lat: 37.799189999999996, lon: -122.42644999999999]
+06-01 01:12:58.028 V/APP     ( 2241): onLocationChanged times : 72
+06-01 01:12:58.031 V/APP     ( 2241): New GPS location status changed
+06-01 01:12:58.040 D/APP     ( 2241): pingResult0.083
+06-01 01:12:58.040 D/APP     ( 2241): result : 0.083
+06-01 01:12:58.040 D/APP     ( 2241): finished
+06-01 01:12:58.041 D/Fougere ( 2241): [1212282778][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"34f5d3a0-3c9e-4be5-bd27-b5d560509fb8","content":{ping:0.083, lon:-122.42644999999999, lat:37.799189999999996, timestamp:1212282778},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:12:58.042 D/Fougere ( 2241): [1212282778][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"34f5d3a0-3c9e-4be5-bd27-b5d560509fb8","content":{ping:0.083, lon:-122.42644999999999, lat:37.799189999999996, timestamp:1212282778},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:13:12.585 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:13:12.591 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:13:12.597 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:13:12.635 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:13:12.643 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212282796][new_upthin][New GPS location] 37.74519 -122.42856
+06-01 01:13:34.042 V/APP     ( 2241): New GPS location: [lat: 37.74519, lon: -122.42855999999999]
+06-01 01:13:34.042 V/APP     ( 2241): onLocationChanged times : 73
+06-01 01:13:34.045 V/APP     ( 2241): New GPS location status changed
+06-01 01:13:34.055 D/APP     ( 2241): pingResult0.073
+06-01 01:13:34.055 D/APP     ( 2241): result : 0.073
+06-01 01:13:34.055 D/APP     ( 2241): finished
+06-01 01:13:34.055 D/Fougere ( 2241): [1212282814][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"5040bd34-a22d-406b-ae09-f1464e8d735e","content":{ping:0.073, lon:-122.42855999999999, lat:37.74519, timestamp:1212282814},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:13:34.056 D/Fougere ( 2241): [1212282814][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"5040bd34-a22d-406b-ae09-f1464e8d735e","content":{ping:0.073, lon:-122.42855999999999, lat:37.74519, timestamp:1212282814},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282824][new_upthin][New GPS location] 37.80095 -122.42613
+[1212282856][new_upthin][New GPS location] 37.7455 -122.42456
+06-01 01:14:16.053 V/APP     ( 2241): New GPS location: [lat: 37.74549833333333, lon: -122.42455833333334]
+06-01 01:14:16.053 V/APP     ( 2241): onLocationChanged times : 74
+06-01 01:14:16.055 V/APP     ( 2241): New GPS location status changed
+06-01 01:14:16.062 D/APP     ( 2241): pingResult0.059
+06-01 01:14:16.062 D/APP     ( 2241): result : 0.059
+06-01 01:14:16.062 D/APP     ( 2241): finished
+06-01 01:14:16.062 D/Fougere ( 2241): [1212282856][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f7a65e50-b07d-478c-9fc5-9df194cfe870","content":{ping:0.059, lon:-122.42455833333334, lat:37.74549833333333, timestamp:1212282856},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:14:16.063 D/Fougere ( 2241): [1212282856][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f7a65e50-b07d-478c-9fc5-9df194cfe870","content":{ping:0.059, lon:-122.42455833333334, lat:37.74549833333333, timestamp:1212282856},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282883][new_upthin][New GPS location] 37.80181 -122.42628
+06-01 01:14:52.071 V/APP     ( 2241): New GPS location: [lat: 37.80181, lon: -122.42628]
+06-01 01:14:52.071 V/APP     ( 2241): onLocationChanged times : 75
+06-01 01:14:52.074 V/APP     ( 2241): New GPS location status changed
+06-01 01:14:52.083 D/APP     ( 2241): pingResult0.075
+06-01 01:14:52.083 D/APP     ( 2241): result : 0.075
+06-01 01:14:52.083 D/APP     ( 2241): finished
+06-01 01:14:52.083 D/Fougere ( 2241): [1212282892][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"19b6ffa8-3f70-433b-81cb-b14b734dbd52","content":{ping:0.075, lon:-122.42628, lat:37.80181, timestamp:1212282892},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:14:52.084 D/Fougere ( 2241): [1212282892][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"19b6ffa8-3f70-433b-81cb-b14b734dbd52","content":{ping:0.075, lon:-122.42628, lat:37.80181, timestamp:1212282892},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282925][new_upthin][New GPS location] 37.74791 -122.42475
+06-01 01:15:28.079 V/APP     ( 2241): New GPS location: [lat: 37.747908333333335, lon: -122.42475]
+06-01 01:15:28.079 V/APP     ( 2241): onLocationChanged times : 76
+06-01 01:15:28.082 V/APP     ( 2241): New GPS location status changed
+06-01 01:15:28.092 D/APP     ( 2241): pingResult0.075
+06-01 01:15:28.092 D/APP     ( 2241): result : 0.075
+06-01 01:15:28.092 D/APP     ( 2241): finished
+06-01 01:15:28.092 D/Fougere ( 2241): [1212282928][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"1644f6a9-15c5-4149-ae2b-f69462dc84c4","content":{ping:0.075, lon:-122.42475, lat:37.747908333333335, timestamp:1212282928},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:15:28.093 D/Fougere ( 2241): [1212282928][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"1644f6a9-15c5-4149-ae2b-f69462dc84c4","content":{ping:0.075, lon:-122.42475, lat:37.747908333333335, timestamp:1212282928},"ttl":"1","disseminate":"4","sent":"0"}
+[1212282943][new_upthin][New GPS location] 37.80419 -122.42344
+06-01 01:16:04.089 V/APP     ( 2241): New GPS location: [lat: 37.80418833333333, lon: -122.42343833333334]
+06-01 01:16:04.089 V/APP     ( 2241): onLocationChanged times : 77
+06-01 01:16:04.092 V/APP     ( 2241): New GPS location status changed
+06-01 01:16:04.101 D/APP     ( 2241): pingResult0.068
+06-01 01:16:04.101 D/APP     ( 2241): result : 0.068
+06-01 01:16:04.101 D/APP     ( 2241): finished
+06-01 01:16:04.101 D/Fougere ( 2241): [1212282964][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f9d498d3-5de9-4719-8d94-9a535d401a62","content":{ping:0.068, lon:-122.42343833333334, lat:37.80418833333333, timestamp:1212282964},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:16:04.102 D/Fougere ( 2241): [1212282964][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f9d498d3-5de9-4719-8d94-9a535d401a62","content":{ping:0.068, lon:-122.42343833333334, lat:37.80418833333333, timestamp:1212282964},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:16:12.586 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:16:12.593 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:16:12.595 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:16:12.634 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:16:12.638 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212282977][new_upthin][New GPS location] 37.75193 -122.42514
+06-01 01:16:40.100 V/APP     ( 2241): New GPS location: [lat: 37.75193, lon: -122.42513833333332]
+06-01 01:16:40.100 V/APP     ( 2241): onLocationChanged times : 78
+06-01 01:16:40.103 V/APP     ( 2241): New GPS location status changed
+06-01 01:16:40.112 D/APP     ( 2241): pingResult0.071
+06-01 01:16:40.112 D/APP     ( 2241): result : 0.071
+06-01 01:16:40.112 D/APP     ( 2241): finished
+06-01 01:16:40.112 D/Fougere ( 2241): [1212283000][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"3e7f8a57-f01f-4590-aebf-f262ba5691ba","content":{ping:0.071, lon:-122.42513833333332, lat:37.75193, timestamp:1212283000},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:16:40.113 D/Fougere ( 2241): [1212283000][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"3e7f8a57-f01f-4590-aebf-f262ba5691ba","content":{ping:0.071, lon:-122.42513833333332, lat:37.75193, timestamp:1212283000},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283004][new_upthin][New GPS location] 37.8061 -122.42389
+[1212283038][new_upthin][New GPS location] 37.75656 -122.42557
+06-01 01:17:18.040 V/APP     ( 2241): New GPS location: [lat: 37.75656, lon: -122.42556833333335]
+06-01 01:17:18.040 V/APP     ( 2241): onLocationChanged times : 79
+06-01 01:17:18.042 V/APP     ( 2241): New GPS location status changed
+06-01 01:17:18.050 D/APP     ( 2241): pingResult0.07
+06-01 01:17:18.050 D/APP     ( 2241): result : 0.07
+06-01 01:17:18.051 D/APP     ( 2241): finished
+06-01 01:17:18.051 D/Fougere ( 2241): [1212283038][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"0698ff4f-fbd2-449c-89cb-2826d6ba6a2f","content":{ping:0.07, lon:-122.42556833333335, lat:37.75656, timestamp:1212283038},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:17:18.051 D/Fougere ( 2241): [1212283038][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"0698ff4f-fbd2-449c-89cb-2826d6ba6a2f","content":{ping:0.07, lon:-122.42556833333335, lat:37.75656, timestamp:1212283038},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283039][new_upthin][New GPS location] 37.80636 -122.4228
+[1212283041][new_upthin][New GPS location] 37.80636 -122.4228
+06-01 01:17:54.051 V/APP     ( 2241): New GPS location: [lat: 37.806358333333336, lon: -122.42279833333332]
+06-01 01:17:54.051 V/APP     ( 2241): onLocationChanged times : 80
+06-01 01:17:54.055 V/APP     ( 2241): New GPS location status changed
+06-01 01:17:54.070 D/APP     ( 2241): pingResult0.068
+06-01 01:17:54.070 D/APP     ( 2241): result : 0.068
+06-01 01:17:54.070 D/APP     ( 2241): finished
+06-01 01:17:54.070 D/Fougere ( 2241): [1212283074][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"d7a26a0a-bec2-496b-8fa9-1efbd8a08cb8","content":{ping:0.068, lon:-122.42279833333332, lat:37.806358333333336, timestamp:1212283074},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:17:54.071 D/Fougere ( 2241): [1212283074][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"d7a26a0a-bec2-496b-8fa9-1efbd8a08cb8","content":{ping:0.068, lon:-122.42279833333332, lat:37.806358333333336, timestamp:1212283074},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283101][new_upthin][New GPS location] 37.80625 -122.4238
+[1212283104][new_upthin][New GPS location] 37.80625 -122.42381
+06-01 01:18:30.061 V/APP     ( 2241): New GPS location status changed
+06-01 01:19:12.589 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:19:12.596 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:19:12.598 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:19:12.638 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:19:12.642 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212283156][new_upthin][New GPS location] 37.8057 -122.42384
+06-01 01:19:16.040 V/APP     ( 2241): New GPS location: [lat: 37.8057, lon: -122.42383833333334]
+06-01 01:19:16.040 V/APP     ( 2241): onLocationChanged times : 81
+06-01 01:19:16.042 V/APP     ( 2241): New GPS location status changed
+06-01 01:19:16.062 D/APP     ( 2241): pingResult0.059
+06-01 01:19:16.062 D/APP     ( 2241): result : 0.059
+06-01 01:19:16.062 D/APP     ( 2241): finished
+06-01 01:19:16.062 D/Fougere ( 2241): [1212283156][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"3e24eea7-6387-436e-b3c3-33eb146aadfd","content":{ping:0.059, lon:-122.42383833333334, lat:37.8057, timestamp:1212283156},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:19:16.063 D/Fougere ( 2241): [1212283156][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"3e24eea7-6387-436e-b3c3-33eb146aadfd","content":{ping:0.059, lon:-122.42383833333334, lat:37.8057, timestamp:1212283156},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283160][new_upthin][New GPS location] 37.76824 -122.4267
+06-01 01:19:52.044 V/APP     ( 2241): New GPS location: [lat: 37.768238333333336, lon: -122.42669833333333]
+06-01 01:19:52.044 V/APP     ( 2241): onLocationChanged times : 82
+06-01 01:19:52.047 V/APP     ( 2241): New GPS location status changed
+06-01 01:19:52.062 D/APP     ( 2241): pingResult0.0
+06-01 01:19:52.062 D/APP     ( 2241): result : 0.0
+06-01 01:19:52.062 D/APP     ( 2241): finished
+06-01 01:19:52.062 D/Fougere ( 2241): [1212283192][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"bcd02056-8446-4615-942c-e3068787c993","content":{ping:0.0, lon:-122.42669833333333, lat:37.768238333333336, timestamp:1212283192},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:19:52.063 D/Fougere ( 2241): [1212283192][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"bcd02056-8446-4615-942c-e3068787c993","content":{ping:0.0, lon:-122.42669833333333, lat:37.768238333333336, timestamp:1212283192},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283223][new_upthin][New GPS location] 37.80148 -122.42345
+06-01 01:20:28.053 V/APP     ( 2241): New GPS location: [lat: 37.80147833333333, lon: -122.42344999999999]
+06-01 01:20:28.053 V/APP     ( 2241): onLocationChanged times : 83
+06-01 01:20:28.055 V/APP     ( 2241): New GPS location status changed
+06-01 01:20:28.064 D/APP     ( 2241): pingResult0.06
+06-01 01:20:28.064 D/APP     ( 2241): result : 0.06
+06-01 01:20:28.064 D/APP     ( 2241): finished
+06-01 01:20:28.064 D/Fougere ( 2241): [1212283228][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"7bec74f7-6180-4991-b9e8-6377b82ae44f","content":{ping:0.06, lon:-122.42344999999999, lat:37.80147833333333, timestamp:1212283228},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:20:28.064 D/Fougere ( 2241): [1212283228][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"7bec74f7-6180-4991-b9e8-6377b82ae44f","content":{ping:0.06, lon:-122.42344999999999, lat:37.80147833333333, timestamp:1212283228},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283277][new_upthin][New GPS location] 37.80117 -122.42645
+06-01 01:21:17.044 V/APP     ( 2241): New GPS location: [lat: 37.80116833333333, lon: -122.42644999999999]
+06-01 01:21:17.044 V/APP     ( 2241): onLocationChanged times : 84
+06-01 01:21:17.045 V/APP     ( 2241): New GPS location status changed
+06-01 01:21:17.052 D/APP     ( 2241): pingResult0.062
+06-01 01:21:17.052 D/APP     ( 2241): result : 0.062
+06-01 01:21:17.052 D/APP     ( 2241): finished
+06-01 01:21:17.052 D/Fougere ( 2241): [1212283277][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"38c24e57-aa35-4c3e-90bd-b4d9a8af51fd","content":{ping:0.062, lon:-122.42644999999999, lat:37.80116833333333, timestamp:1212283277},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:21:17.053 D/Fougere ( 2241): [1212283277][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"38c24e57-aa35-4c3e-90bd-b4d9a8af51fd","content":{ping:0.062, lon:-122.42644999999999, lat:37.80116833333333, timestamp:1212283277},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283331][new_upthin][New GPS location] 37.77431 -122.42077
+06-01 01:22:11.023 V/APP     ( 2241): New GPS location: [lat: 37.77430833333334, lon: -122.42076999999999]
+06-01 01:22:11.023 V/APP     ( 2241): onLocationChanged times : 85
+06-01 01:22:11.031 V/APP     ( 2241): New GPS location status changed
+06-01 01:22:11.038 D/APP     ( 2241): pingResult0.045
+06-01 01:22:11.038 D/APP     ( 2241): result : 0.045
+06-01 01:22:11.039 D/APP     ( 2241): finished
+06-01 01:22:11.039 D/Fougere ( 2241): [1212283331][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"f7360b5f-d1e2-4680-8603-a7345c8c6b6a","content":{ping:0.045, lon:-122.42076999999999, lat:37.77430833333334, timestamp:1212283331},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:22:11.039 D/Fougere ( 2241): [1212283331][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"f7360b5f-d1e2-4680-8603-a7345c8c6b6a","content":{ping:0.045, lon:-122.42076999999999, lat:37.77430833333334, timestamp:1212283331},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:22:12.584 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:22:12.591 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:22:12.594 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:22:12.633 V/WiDi    ( 2241): Receive DnsSdServiceResponse : []
+06-01 01:22:12.637 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+[1212283338][new_upthin][New GPS location] 37.80057 -122.43098
+06-01 01:23:01.048 V/APP     ( 2241): New GPS location: [lat: 37.80057, lon: -122.43098]
+06-01 01:23:01.048 V/APP     ( 2241): onLocationChanged times : 86
+06-01 01:23:01.050 V/APP     ( 2241): New GPS location status changed
+06-01 01:23:01.060 D/APP     ( 2241): pingResult0.075
+06-01 01:23:01.060 D/APP     ( 2241): result : 0.075
+06-01 01:23:01.060 D/APP     ( 2241): finished
+06-01 01:23:01.060 D/Fougere ( 2241): [1212283381][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"2fe70c8f-389a-43bb-abed-0a47f9b67a88","content":{ping:0.075, lon:-122.43098, lat:37.80057, timestamp:1212283381},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:23:01.061 D/Fougere ( 2241): [1212283381][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"2fe70c8f-389a-43bb-abed-0a47f9b67a88","content":{ping:0.075, lon:-122.43098, lat:37.80057, timestamp:1212283381},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283392][new_upthin][New GPS location] 37.77791 -122.42155
+[1212283398][new_upthin][New GPS location] 37.79985 -122.43678
+06-01 01:23:37.055 V/APP     ( 2241): New GPS location: [lat: 37.79984833333333, lon: -122.43677833333335]
+06-01 01:23:37.055 V/APP     ( 2241): onLocationChanged times : 87
+06-01 01:23:37.058 V/APP     ( 2241): New GPS location status changed
+06-01 01:23:37.067 D/APP     ( 2241): pingResult0.072
+06-01 01:23:37.067 D/APP     ( 2241): result : 0.072
+06-01 01:23:37.067 D/APP     ( 2241): finished
+06-01 01:23:37.067 D/Fougere ( 2241): [1212283417][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"8e4c1f3a-9543-48ab-9044-182a319819e8","content":{ping:0.072, lon:-122.43677833333335, lat:37.79984833333333, timestamp:1212283417},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:23:37.067 D/Fougere ( 2241): [1212283417][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"8e4c1f3a-9543-48ab-9044-182a319819e8","content":{ping:0.072, lon:-122.43677833333335, lat:37.79984833333333, timestamp:1212283417},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283452][new_upthin][New GPS location] 37.77985 -122.42193
+06-01 01:24:13.066 V/APP     ( 2241): New GPS location: [lat: 37.77985, lon: -122.42193]
+06-01 01:24:13.066 V/APP     ( 2241): onLocationChanged times : 88
+06-01 01:24:13.069 V/APP     ( 2241): New GPS location status changed
+06-01 01:24:13.079 D/APP     ( 2241): pingResult0.089
+06-01 01:24:13.079 D/APP     ( 2241): result : 0.089
+06-01 01:24:13.079 D/APP     ( 2241): finished
+06-01 01:24:13.079 D/Fougere ( 2241): [1212283453][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"97fb25ca-93a2-48c4-bfb1-353608cd1723","content":{ping:0.089, lon:-122.42193, lat:37.77985, timestamp:1212283453},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:24:13.080 D/Fougere ( 2241): [1212283453][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"97fb25ca-93a2-48c4-bfb1-353608cd1723","content":{ping:0.089, lon:-122.42193, lat:37.77985, timestamp:1212283453},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283464][new_upthin][New GPS location] 37.80065 -122.43688
+06-01 01:24:49.076 V/APP     ( 2241): New GPS location: [lat: 37.800648333333335, lon: -122.43687999999999]
+06-01 01:24:49.077 V/APP     ( 2241): onLocationChanged times : 89
+06-01 01:24:49.079 V/APP     ( 2241): New GPS location status changed
+06-01 01:24:49.088 D/APP     ( 2241): pingResult0.092
+06-01 01:24:49.088 D/APP     ( 2241): result : 0.092
+06-01 01:24:49.088 D/APP     ( 2241): finished
+06-01 01:24:49.088 D/Fougere ( 2241): [1212283489][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"4a81cd38-8c0f-410a-a948-40d5f5b49a2f","content":{ping:0.092, lon:-122.43687999999999, lat:37.800648333333335, timestamp:1212283489},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:24:49.089 D/Fougere ( 2241): [1212283489][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"4a81cd38-8c0f-410a-a948-40d5f5b49a2f","content":{ping:0.092, lon:-122.43687999999999, lat:37.800648333333335, timestamp:1212283489},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283512][new_upthin][New GPS location] 37.784 -122.42272
+06-01 01:25:12.584 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:25:12.591 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:25:12.594 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:25:12.634 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103203","deviceAddress":"10.32.0.3"}}]
+06-01 01:25:12.638 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103203 discovered
+06-01 01:25:12.638 D/Fougere ( 2241): [FougereDistance] Adding user to the Map
+06-01 01:25:12.638 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 01:25:12.639 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 01:25:12.658 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.3","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 01:25:12.664 D/Fougere ( 2241): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 01:25:12.836 D/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 01:25:12.836 V/WiDi    ( 2241): fr.inria.rsommerard.widi.CONNECT
+06-01 01:25:12.836 D/WiDi    ( 2241): connect_state = true
+06-01 01:25:12.836 V/WiDi    ( 2241): Intent created
+06-01 01:25:12.836 V/WiDi    ( 2241): networkInfo instance created
+06-01 01:25:12.836 V/WiDi    ( 2241): DetailedState for networkInfo is added as CONNECTED
+06-01 01:25:12.836 V/WiDi    ( 2241): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 01:25:12.836 V/WiDi    ( 2241): wifiP2pInfo instance created
+06-01 01:25:12.836 V/WiDi    ( 2241): groupOwnerAddress is Added to WifiP2pInfo
+06-01 01:25:12.836 V/WiDi    ( 2241): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 01:25:12.836 V/WiDi    ( 2241): sending Broadcast....
+06-01 01:25:12.838 V/WiDi    ( 2241): Broadcast sent.
+06-01 01:25:12.838 D/Fougere ( 2241): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 01:25:12.838 D/Fougere ( 2241): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 01:25:12.838 D/Fougere ( 2241): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.3
+06-01 01:25:12.838 D/Fougere ( 2241): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 01:25:15.855 D/Fougere ( 2241): [Active] Started
+06-01 01:25:15.860 D/Fougere ( 2241): [Active] OK
+06-01 01:25:15.868 D/Fougere ( 2241): [1212283515][37.800648333333335 -122.43687999999999][Android SDK built for x86][Active] Sent: HELLO
+06-01 01:25:15.942 D/Fougere ( 2241): [1212283515][37.800648333333335 -122.43687999999999][Android SDK built for x86][Active] Received : HELLO
+06-01 01:25:15.942 D/Fougere ( 2241): [Active] Release resources
+--------- beginning of crash
+06-01 01:25:16.354 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:25:16.354 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:25:16.371 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 01:25:16.372 E/WiDi    ( 2241): Error: null
+06-01 01:25:16.372 E/Fougere ( 2241): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+[1212283519][new_upthin][New GPS location] 37.80062 -122.43789
+06-01 01:25:25.088 V/APP     ( 2241): New GPS location status changed
+[1212283531][new_upthin][New GPS location] 37.80033 -122.43789
+[1212283558][new_upthin][New GPS location] 37.79989 -122.43784
+06-01 01:26:01.098 V/APP     ( 2241): New GPS location: [lat: 37.799888333333335, lon: -122.43783833333333]
+06-01 01:26:01.098 V/APP     ( 2241): onLocationChanged times : 90
+06-01 01:26:01.101 V/APP     ( 2241): New GPS location status changed
+06-01 01:26:01.110 D/APP     ( 2241): pingResult0.095
+06-01 01:26:01.110 D/APP     ( 2241): result : 0.095
+06-01 01:26:01.110 D/APP     ( 2241): finished
+06-01 01:26:01.110 D/Fougere ( 2241): [1212283561][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"b9086811-51c9-4e5c-af15-159bdec8869e","content":{ping:0.095, lon:-122.43783833333333, lat:37.799888333333335, timestamp:1212283561},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:26:01.111 D/Fougere ( 2241): [1212283561][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"b9086811-51c9-4e5c-af15-159bdec8869e","content":{ping:0.095, lon:-122.43783833333333, lat:37.799888333333335, timestamp:1212283561},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283572][new_upthin][New GPS location] 37.78834 -122.42308
+06-01 01:26:12.686 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 01:26:12.686 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:26:12.686 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:26:12.692 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 01:26:37.108 V/APP     ( 2241): New GPS location: [lat: 37.78833833333333, lon: -122.42307833333334]
+06-01 01:26:37.109 V/APP     ( 2241): onLocationChanged times : 91
+06-01 01:26:37.111 V/APP     ( 2241): New GPS location status changed
+06-01 01:26:37.121 D/APP     ( 2241): pingResult0.073
+06-01 01:26:37.121 D/APP     ( 2241): result : 0.073
+06-01 01:26:37.121 D/APP     ( 2241): finished
+06-01 01:26:37.121 D/Fougere ( 2241): [1212283597][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"c6fc69d8-0210-4a9c-a77f-77e9ba74bf7e","content":{ping:0.073, lon:-122.42307833333334, lat:37.78833833333333, timestamp:1212283597},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:26:37.122 D/Fougere ( 2241): [1212283597][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"c6fc69d8-0210-4a9c-a77f-77e9ba74bf7e","content":{ping:0.073, lon:-122.42307833333334, lat:37.78833833333333, timestamp:1212283597},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283617][new_upthin][New GPS location] 37.79964 -122.43819
+[1212283632][new_upthin][New GPS location] 37.78868 -122.42212
+06-01 01:27:13.120 V/APP     ( 2241): New GPS location status changed
+[1212283677][new_upthin][New GPS location] 37.79924 -122.44117
+06-01 01:27:57.023 V/APP     ( 2241): New GPS location: [lat: 37.79923833333333, lon: -122.44116833333334]
+06-01 01:27:57.023 V/APP     ( 2241): onLocationChanged times : 92
+06-01 01:27:57.046 V/APP     ( 2241): New GPS location status changed
+06-01 01:27:57.060 D/APP     ( 2241): pingResult0.08
+06-01 01:27:57.060 D/APP     ( 2241): result : 0.08
+06-01 01:27:57.060 D/APP     ( 2241): finished
+06-01 01:27:57.060 D/Fougere ( 2241): [1212283677][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"04e662c0-ded5-483c-94d0-7e91c270db45","content":{ping:0.08, lon:-122.44116833333334, lat:37.79923833333333, timestamp:1212283677},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:27:57.061 D/Fougere ( 2241): [1212283677][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"04e662c0-ded5-483c-94d0-7e91c270db45","content":{ping:0.08, lon:-122.44116833333334, lat:37.79923833333333, timestamp:1212283677},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283692][new_upthin][New GPS location] 37.78888 -122.41798
+06-01 01:28:12.587 D/WiDi    ( 2241): DiscoverServicesThread
+06-01 01:28:12.593 E/WiDi    ( 2241): Error: Attempt to invoke virtual method 'java.lang.String fr.inria.rsommerard.widi.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo.getServiceName()' on a null object reference
+06-01 01:28:12.593 E/Fougere ( 2241): [FougereActionListener] Discovery failed: The operation failed due to an internal error. (0, ERROR)
+[Mon Mar 27 15:30:26 UTC 2017] Message received with EOFException null
+Received empty message from emulator
+Received 
+06-01 01:28:12.647 E/WiDi    ( 2241): Error: null
+06-01 01:28:12.647 E/Fougere ( 2241): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+06-01 01:28:12.667 E/WiDi    ( 2241): Error: null
+06-01 01:28:12.667 E/Fougere ( 2241): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:28:23.647 D/WiDi    ( 2241): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 01:28:23.653 D/WiDi    ( 2241): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+Calling Service Discovery Actor
+06-01 01:28:23.656 D/WiDi    ( 2241): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+06-01 01:28:23.697 V/WiDi    ( 2241): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032010","deviceAddress":"10.32.0.10"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103203","deviceAddress":"10.32.0.3"}}]
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 01:28:23.794 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N1032010 discovered
+06-01 01:28:23.794 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 01:28:23.794 D/Fougere ( 2241): [FougereDnsSdTxtRecordListener] N103203 discovered
+06-01 01:28:23.794 D/Fougere ( 2241): [ConnectionHandler] Call connect
+06-01 01:28:23.794 D/Fougere ( 2241): [ConnectionHandler] Connecting or already connected
+06-01 01:28:23.794 D/Fougere ( 2241): [FougereActionListener] Discover call succeeded
+06-01 01:28:23.798 D/WiDi    ( 2241): {"deviceAddress":"10.32.0.10","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 01:28:23.800 E/WiDi    ( 2241): Error: ACK received, the device is maybe already connected
+06-01 01:28:23.800 E/Fougere ( 2241): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 01:28:23.800 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:28:23.800 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:28:23.803 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 01:28:33.040 V/APP     ( 2241): New GPS location: [lat: 37.78887833333333, lon: -122.41797999999999]
+06-01 01:28:33.040 V/APP     ( 2241): onLocationChanged times : 93
+06-01 01:28:33.043 V/APP     ( 2241): New GPS location status changed
+06-01 01:28:33.053 D/APP     ( 2241): pingResult0.078
+06-01 01:28:33.053 D/APP     ( 2241): result : 0.078
+06-01 01:28:33.053 D/APP     ( 2241): finished
+06-01 01:28:33.053 D/Fougere ( 2241): [1212283713][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"b55291cd-2a18-4bb3-a0cf-6e934ec0e12b","content":{ping:0.078, lon:-122.41797999999999, lat:37.78887833333333, timestamp:1212283713},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:28:33.054 D/Fougere ( 2241): [1212283713][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"b55291cd-2a18-4bb3-a0cf-6e934ec0e12b","content":{ping:0.078, lon:-122.41797999999999, lat:37.78887833333333, timestamp:1212283713},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283737][new_upthin][New GPS location] 37.79875 -122.4453
+06-01 01:29:09.051 V/APP     ( 2241): New GPS location: [lat: 37.798748333333336, lon: -122.44530000000002]
+06-01 01:29:09.051 V/APP     ( 2241): onLocationChanged times : 94
+06-01 01:29:09.054 V/APP     ( 2241): New GPS location status changed
+06-01 01:29:09.084 D/APP     ( 2241): pingResult0.069
+06-01 01:29:09.084 D/APP     ( 2241): result : 0.069
+06-01 01:29:09.084 D/APP     ( 2241): finished
+06-01 01:29:09.084 D/Fougere ( 2241): [1212283749][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"12c70824-a15e-4a85-ae09-336b0fae8e88","content":{ping:0.069, lon:-122.44530000000002, lat:37.798748333333336, timestamp:1212283749},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:29:09.085 D/Fougere ( 2241): [1212283749][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"12c70824-a15e-4a85-ae09-336b0fae8e88","content":{ping:0.069, lon:-122.44530000000002, lat:37.798748333333336, timestamp:1212283749},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283754][new_upthin][New GPS location] 37.78813 -122.41768
+06-01 01:29:23.849 D/Fougere ( 2241): [ConnectionHandler] TIMEOUT
+06-01 01:29:23.849 D/Fougere ( 2241): [ConnectionHandler] Call disconnect
+06-01 01:29:23.850 D/Fougere ( 2241): [FougereActionListener] Remove group succeeded
+06-01 01:29:23.856 D/Fougere ( 2241): [FougereActionListener] Cancel connect succeeded
+06-01 01:29:45.061 V/APP     ( 2241): New GPS location: [lat: 37.78813, lon: -122.41767999999999]
+06-01 01:29:45.062 V/APP     ( 2241): onLocationChanged times : 95
+06-01 01:29:45.065 V/APP     ( 2241): New GPS location status changed
+06-01 01:29:45.074 D/APP     ( 2241): pingResult0.07
+06-01 01:29:45.074 D/APP     ( 2241): result : 0.07
+06-01 01:29:45.074 D/APP     ( 2241): finished
+06-01 01:29:45.074 D/Fougere ( 2241): [1212283785][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"b31c58b7-0d6e-4fa6-9f3f-13b9e3f5074b","content":{ping:0.07, lon:-122.41767999999999, lat:37.78813, timestamp:1212283785},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 01:29:45.075 D/Fougere ( 2241): [1212283785][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"b31c58b7-0d6e-4fa6-9f3f-13b9e3f5074b","content":{ping:0.07, lon:-122.41767999999999, lat:37.78813, timestamp:1212283785},"ttl":"1","disseminate":"4","sent":"0"}
+[1212283797][new_upthin][New GPS location] 37.7985 -122.44725
+[1212283815][new_upthin][New GPS location] 37.78698 -122.41999
+[1212283858][new_upthin][New GPS location] 37.79766 -122.45119
+[1212283883][new_upthin][New GPS location] 37.78498 -122.41952
+[1212283895][new_upthin][New GPS location] 37.78508 -122.41837
+[1212283919][new_upthin][New GPS location] 37.79321 -122.44803
+[1212283951][new_upthin][New GPS location] 37.78568 -122.41399
+[1212283979][new_upthin][New GPS location] 37.79064 -122.45461
+[1212284023][new_upthin][New GPS location] 37.7865 -122.41007
+[1212284051][new_upthin][New GPS location] 37.78867 -122.45947
+[1212284111][new_upthin][New GPS location] 37.78711 -122.45932
+[1212284131][new_upthin][New GPS location] 37.78459 -122.40847
+[1212284160][new_upthin][New GPS location] 37.78468 -122.45919
+[1212284197][new_upthin][New GPS location] 37.78456 -122.4086
+[1212284229][new_upthin][New GPS location] 37.7815 -122.45896
+[1212284251][new_upthin][New GPS location] 37.78451 -122.40896
+[1212284290][new_upthin][New GPS location] 37.7812 -122.46167
+[1212284312][new_upthin][New GPS location] 37.78443 -122.4092
+[1212284339][new_upthin][New GPS location] 37.78096 -122.46873
+[1212284345][new_upthin][New GPS location] 37.78096 -122.46872
+[1212284372][new_upthin][New GPS location] 37.78463 -122.40891
+[1212284402][new_upthin][New GPS location] 37.78056 -122.47533
+[1212284430][new_upthin][New GPS location] 37.78469 -122.40891
+[1212284465][new_upthin][New GPS location] 37.78045 -122.47714
+[1212284469][new_upthin][New GPS location] 37.78533 -122.41137
+[1212284524][new_upthin][New GPS location] 37.78037 -122.47643
+[1212284530][new_upthin][New GPS location] 37.78687 -122.41246
+[1212284585][new_upthin][New GPS location] 37.78041 -122.47523
+[1212284598][new_upthin][New GPS location] 37.788 -122.41069
+[1212284657][new_upthin][New GPS location] 37.78788 -122.4108
+[1212284701][new_upthin][New GPS location] 37.78041 -122.47526
+[1212284717][new_upthin][New GPS location] 37.78783 -122.41078
+[1212284762][new_upthin][New GPS location] 37.78043 -122.47529
+[1212284781][new_upthin][New GPS location] 37.78742 -122.40983
+[1212284823][new_upthin][New GPS location] 37.7804 -122.47524
+[1212284843][new_upthin][New GPS location] 37.78708 -122.41032
+[1212284852][new_upthin][New GPS location] 37.78055 -122.4726
+[1212284889][new_upthin][New GPS location] 37.78662 -122.41301
+[1212284911][new_upthin][New GPS location] 37.78065 -122.47112
+[1212284960][new_upthin][New GPS location] 37.78622 -122.417
+[1212285014][new_upthin][New GPS location] 37.78574 -122.42108
+[1212285032][new_upthin][New GPS location] 37.78119 -122.45906
+[1212285069][new_upthin][New GPS location] 37.78152 -122.4543
+[1212285078][new_upthin][New GPS location] 37.78826 -122.42182
+[1212285125][new_upthin][New GPS location] 37.79116 -122.42238
+[1212285129][new_upthin][New GPS location] 37.78271 -122.44714
+[1212285185][new_upthin][New GPS location] 37.79317 -122.42276
+[1212285189][new_upthin][New GPS location] 37.7858 -122.44646
+[1212285253][new_upthin][New GPS location] 37.78771 -122.44686
+[1212285257][new_upthin][New GPS location] 37.79306 -122.42273
+[1212285292][new_upthin][New GPS location] 37.78878 -122.44716
+[1212285317][new_upthin][New GPS location] 37.79306 -122.42273
+[1212285352][new_upthin][New GPS location] 37.79152 -122.44764
+[1212285367][new_upthin][New GPS location] 37.79352 -122.42284
+[1212285374][new_upthin][New GPS location] 37.79389 -122.42335
+[1212285418][new_upthin][New GPS location] 37.79542 -122.45087
+[1212285448][new_upthin][New GPS location] 37.79566 -122.42334
+[1212285478][new_upthin][New GPS location] 37.7975 -122.44915
+[1212285499][new_upthin][New GPS location] 37.79945 -122.42412
+[1212285500][new_upthin][New GPS location] 37.79743 -122.44806
+[1212285502][new_upthin][New GPS location] 37.79741 -122.44805
+[1212285534][new_upthin][New GPS location] 37.80122 -122.42457
+[1212285562][new_upthin][New GPS location] 37.79847 -122.44723
+[1212285586][new_upthin][New GPS location] 37.79859 -122.4462
+[1212285618][new_upthin][New GPS location] 37.80219 -122.42537
+[1212285623][new_upthin][New GPS location] 37.80142 -122.42462
+[1212285646][new_upthin][New GPS location] 37.79769 -122.44718
+[1212285715][new_upthin][New GPS location] 37.79769 -122.44716
+[1212285766][new_upthin][New GPS location] 37.79763 -122.44715
+[1212285813][new_upthin][New GPS location] 37.79568 -122.42494
+[1212285827][new_upthin][New GPS location] 37.79871 -122.44522
+[1212285887][new_upthin][New GPS location] 37.79865 -122.44456
+[1212285923][new_upthin][New GPS location] 37.79328 -122.42627
+[1212285949][new_upthin][New GPS location] 37.7976 -122.44727
+[1212285961][new_upthin][New GPS location] 37.79131 -122.42594
+[1212286007][new_upthin][New GPS location] 37.79756 -122.44724
+[1212286067][new_upthin][New GPS location] 37.79584 -122.44532
+[1212286093][new_upthin][New GPS location] 37.79605 -122.44375
+[1212286142][new_upthin][New GPS location] 37.77851 -122.42331
+[1212286161][new_upthin][New GPS location] 37.79461 -122.44175

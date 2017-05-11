@@ -4,7 +4,7 @@ import fr.inria.rsommerard.wifidirect.core.message.{Location, Scenario}
 
 object Scenarios {
 
-  val dataFilePath = "/scenarios.txt"
+  val dataFilePath = "/build/scenarios.txt"
 
 
   val get: List[Scenario] = {

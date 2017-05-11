@@ -1,0 +1,376 @@
+WEAVE_IP: 10.32.0.10
+Configuring redir for 10.32.0.10...
+Starting emulator[5554]...
+Waiting for emulator to start...
+[Mon Mar 27 13:58:37 UTC 2017] Node actor started...
+[Mon Mar 27 13:58:37 UTC 2017] Received Hello: Hello(Emulator)
+[Mon Mar 27 13:58:52 UTC 2017] Received Hello: Hello(Master)
+My name is new_ibpijda
+[Mon Mar 27 13:58:53 UTC 2017] Sending Device Address : 10.32.0.10Device Name: new_ibpijda
+Emulator started
+Adding emulator redirections...
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+Android Console: type 'help' for a list of commands
+OK
+KO: unknown command, try 'help'
+OK
+Installing the apk...
+[  3%] /data/local/tmp/app-debug.apk
+[  7%] /data/local/tmp/app-debug.apk
+[ 10%] /data/local/tmp/app-debug.apk
+[ 14%] /data/local/tmp/app-debug.apk
+[ 18%] /data/local/tmp/app-debug.apk
+[ 21%] /data/local/tmp/app-debug.apk
+[ 25%] /data/local/tmp/app-debug.apk
+[ 29%] /data/local/tmp/app-debug.apk
+[ 32%] /data/local/tmp/app-debug.apk
+[ 36%] /data/local/tmp/app-debug.apk
+[ 39%] /data/local/tmp/app-debug.apk
+[ 43%] /data/local/tmp/app-debug.apk
+[ 47%] /data/local/tmp/app-debug.apk
+[ 50%] /data/local/tmp/app-debug.apk
+[ 54%] /data/local/tmp/app-debug.apk
+[ 58%] /data/local/tmp/app-debug.apk
+[ 61%] /data/local/tmp/app-debug.apk
+[ 65%] /data/local/tmp/app-debug.apk
+[ 69%] /data/local/tmp/app-debug.apk
+[ 72%] /data/local/tmp/app-debug.apk
+[ 76%] /data/local/tmp/app-debug.apk
+[ 79%] /data/local/tmp/app-debug.apk
+[ 83%] /data/local/tmp/app-debug.apk
+[ 87%] /data/local/tmp/app-debug.apk
+[ 90%] /data/local/tmp/app-debug.apk
+[ 94%] /data/local/tmp/app-debug.apk
+[ 98%] /data/local/tmp/app-debug.apk
+[100%] /data/local/tmp/app-debug.apk
+	pkg: /data/local/tmp/app-debug.apk
+Success
+Launching application...
+Starting: Intent { cmp=fr.inria.rsommerard.fougereapp/.MainActivity }
+Running...
+--------- beginning of main
+--------- beginning of system
+03-27 13:59:06.209 D/Fougere ( 2237): [Fougere] 0 data in the DataPool
+03-27 13:59:06.209 D/Fougere ( 2237): [Fougere] Regroup 0 data from the WiFiDirect module
+03-27 13:59:06.211 E/Fougere ( 2237): [WiFiDirect] Failed to deletePersistentGroup: method NOT found
+03-27 13:59:06.212 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+03-27 13:59:06.259 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+03-27 13:59:06.261 E/WiDi    ( 2237): Error: null
+03-27 13:59:06.261 E/Fougere ( 2237): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.STATE_CHANGED (has extras) }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+03-27 13:59:06.597 D/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+03-27 13:59:06.597 V/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+03-27 13:59:06.597 D/WiDi    ( 2237): connect_state = false
+03-27 13:59:06.597 V/WiDi    ( 2237): Intent created
+03-27 13:59:06.597 V/WiDi    ( 2237): networkInfo instance created
+03-27 13:59:06.601 V/WiDi    ( 2237): intent receives networkInfo as EXTRA_NETWORK_INFO
+03-27 13:59:06.601 V/WiDi    ( 2237): wifiP2pInfo instance created
+03-27 13:59:06.601 V/WiDi    ( 2237): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+03-27 13:59:06.601 V/WiDi    ( 2237): sending Broadcast....
+03-27 13:59:06.607 V/WiDi    ( 2237): Broadcast sent.
+03-27 13:59:06.607 D/Fougere ( 2237): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+03-27 13:59:06.609 D/Fougere ( 2237): [ConnectionHandler] [type: WIFI_P2P[], state: UNKNOWN/DISCONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+03-27 13:59:06.609 D/Fougere ( 2237): [ConnectionHandler] groupFormed: true isGroupOwner: false groupOwnerAddress: null
+Broadcast completed: result=0
+03-27 13:59:17.228 D/WiDi    ( 2237): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+03-27 13:59:17.244 D/WiDi    ( 2237): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+03-27 13:59:17.582 D/WiDi    ( 2237): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+03-27 13:59:17.624 V/WiDi    ( 2237): Receive DnsSdServiceResponse : []
+03-27 13:59:17.628 D/Fougere ( 2237): [FougereActionListener] Discover call succeeded
+[1212278343][new_ibpijda][New GPS location] 37.75037 -122.3934
+05-31 23:59:03.020 V/APP     ( 2237): New GPS location: [lat: 37.750368333333334, lon: -122.39339833333334]
+05-31 23:59:03.020 V/APP     ( 2237): onLocationChanged times : 1
+05-31 23:59:03.027 V/APP     ( 2237): New GPS location status changed
+05-31 23:59:03.042 D/APP     ( 2237): pingResult0.073
+05-31 23:59:03.042 D/APP     ( 2237): result : 0.073
+05-31 23:59:03.042 D/APP     ( 2237): finished
+05-31 23:59:03.043 D/Fougere ( 2237): [1212278343][Android SDK built for x86][DataProducer][Data produced]: {"id":"null","identifier":"90e6096c-7bbd-4326-a2f8-1b204a510be4","content":{ping:0.073, lon:-122.39339833333334, lat:37.750368333333334, timestamp:1212278343},"ttl":"1","disseminate":"4","sent":"0"}
+05-31 23:59:03.044 D/Fougere ( 2237): [1212278343][Android SDK built for x86][WiFiDirectDataPool][Insert]: {"id":"null","identifier":"90e6096c-7bbd-4326-a2f8-1b204a510be4","content":{ping:0.073, lon:-122.39339833333334, lat:37.750368333333334, timestamp:1212278343},"ttl":"1","disseminate":"4","sent":"0"}
+06-01 00:00:03.515 D/WiDi    ( 2237): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:00:03.530 D/WiDi    ( 2237): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:00:03.533 D/WiDi    ( 2237): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:00:03.573 V/WiDi    ( 2237): Receive DnsSdServiceResponse : []
+06-01 00:00:03.577 D/Fougere ( 2237): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:03:03.518 D/WiDi    ( 2237): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:03:03.525 D/WiDi    ( 2237): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:03:03.528 D/WiDi    ( 2237): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:03:03.569 V/WiDi    ( 2237): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}}]
+06-01 00:03:03.580 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:03:03.580 D/Fougere ( 2237): [FougereDistance] Adding user to the Map
+06-01 00:03:03.580 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:03:03.581 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:03:03.581 D/Fougere ( 2237): [FougereDistance] Adding user to the Map
+06-01 00:03:03.581 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:03:03.581 D/Fougere ( 2237): [ConnectionHandler] Connecting or already connected
+06-01 00:03:03.581 D/Fougere ( 2237): [FougereActionListener] Discover call succeeded
+06-01 00:03:03.598 D/WiDi    ( 2237): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:03:03.612 E/WiDi    ( 2237): Error: ACK received, the device is maybe already connected
+06-01 00:03:03.612 E/Fougere ( 2237): [FougereActionListener] Connect call failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:03:03.612 D/Fougere ( 2237): [ConnectionHandler] Call disconnect
+06-01 00:03:03.612 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+06-01 00:03:03.631 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:04:03.589 D/Fougere ( 2237): [ConnectionHandler] TIMEOUT
+06-01 00:04:03.589 D/Fougere ( 2237): [ConnectionHandler] Call disconnect
+06-01 00:04:03.589 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+06-01 00:04:03.595 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+06-01 00:06:03.521 D/WiDi    ( 2237): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:06:03.527 D/WiDi    ( 2237): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:06:03.530 D/WiDi    ( 2237): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:06:03.570 V/WiDi    ( 2237): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}}]
+06-01 00:06:03.577 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:06:03.577 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:06:03.584 D/Fougere ( 2237): [FougereActionListener] Discover call succeeded
+06-01 00:06:03.604 D/WiDi    ( 2237): {"deviceAddress":"10.32.0.6","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:06:03.607 D/Fougere ( 2237): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:06:03.787 D/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+06-01 00:06:03.787 V/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+06-01 00:06:03.787 D/WiDi    ( 2237): connect_state = true
+06-01 00:06:03.787 V/WiDi    ( 2237): Intent created
+06-01 00:06:03.787 V/WiDi    ( 2237): networkInfo instance created
+06-01 00:06:03.787 V/WiDi    ( 2237): DetailedState for networkInfo is added as CONNECTED
+06-01 00:06:03.787 V/WiDi    ( 2237): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:06:03.787 V/WiDi    ( 2237): wifiP2pInfo instance created
+06-01 00:06:03.787 V/WiDi    ( 2237): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:06:03.787 V/WiDi    ( 2237): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:06:03.787 V/WiDi    ( 2237): sending Broadcast....
+06-01 00:06:03.789 V/WiDi    ( 2237): Broadcast sent.
+06-01 00:06:03.789 D/Fougere ( 2237): [ConnectionHandler] fr.inria.rsommerard.widi.CONNECTION_STATE_CHANGE
+06-01 00:06:03.789 D/Fougere ( 2237): [ConnectionHandler] [type: WIFI_P2P[], state: CONNECTED/CONNECTED, reason: (unspecified), extra: (none), roaming: false, failover: false, isAvailable: true]
+06-01 00:06:03.789 D/Fougere ( 2237): [ConnectionHandler] groupFormed: false isGroupOwner: false groupOwnerAddress: /10.32.0.6
+06-01 00:06:03.789 D/Fougere ( 2237): [ConnectionHandler] Devices connected
+Broadcast completed: result=0
+06-01 00:06:06.801 D/Fougere ( 2237): [Active] Started
+06-01 00:06:06.805 D/Fougere ( 2237): [Active] OK
+06-01 00:06:06.811 D/Fougere ( 2237): [1212278766][37.750368333333334 -122.39339833333334][Android SDK built for x86][Active] Sent: HELLO
+06-01 00:06:06.886 D/Fougere ( 2237): [1212278766][37.750368333333334 -122.39339833333334][Android SDK built for x86][Active] Received : HELLO
+06-01 00:06:06.886 D/Fougere ( 2237): [Active] Release resources
+--------- beginning of crash
+06-01 00:06:07.262 D/Fougere ( 2237): [ConnectionHandler] Call disconnect
+06-01 00:06:07.262 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+06-01 00:06:07.276 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+06-01 00:06:07.279 E/WiDi    ( 2237): Error: null
+06-01 00:06:07.279 E/Fougere ( 2237): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:07:03.632 D/Fougere ( 2237): [ConnectionHandler] TIMEOUT
+06-01 00:07:03.632 D/Fougere ( 2237): [ConnectionHandler] Call disconnect
+06-01 00:07:03.632 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+06-01 00:07:03.638 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+06-01 00:09:03.514 D/WiDi    ( 2237): DiscoverServicesThread
+06-01 00:09:03.520 E/WiDi    ( 2237): Error: Attempt to invoke virtual method 'java.lang.String fr.inria.rsommerard.widi.net.wifi.p2p.nsd.WifiP2pDnsSdServiceInfo.getServiceName()' on a null object reference
+06-01 00:09:03.520 E/Fougere ( 2237): [FougereActionListener] Discovery failed: The operation failed due to an internal error. (0, ERROR)
+[Mon Mar 27 14:11:19 UTC 2017] Message received with EOFException null
+Received empty message from emulator
+Received 
+06-01 00:09:03.544 E/WiDi    ( 2237): Error: null
+06-01 00:09:03.544 E/Fougere ( 2237): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+06-01 00:09:03.564 E/WiDi    ( 2237): Error: null
+06-01 00:09:03.564 E/Fougere ( 2237): [FougereActionListener] Stop peer discovery failed: The operation failed due to an internal error. (0, ERROR)
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:09:14.574 D/WiDi    ( 2237): DiscoverServicesThread
+Received {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:09:14.580 D/WiDi    ( 2237): {"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceAddress":"","deviceName":""}}
+06-01 00:09:14.582 D/WiDi    ( 2237): {"fullDomainName":"_fougere._tcp","srcDevice":{"deviceAddress":"","deviceName":""},"txtRecordMap":{}}
+Calling Service Discovery Actor
+06-01 00:09:14.624 V/WiDi    ( 2237): Receive DnsSdServiceResponse : [{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032019","deviceAddress":"10.32.0.19"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N103206","deviceAddress":"10.32.0.6"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032015","deviceAddress":"10.32.0.15"}},{"instanceName":"_fougere","registrationType":"_tcp","srcDevice":{"deviceName":"N1032013","deviceAddress":"10.32.0.13"}}]
+06-01 00:09:14.664 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N1032019 discovered
+06-01 00:09:14.664 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N103206 discovered
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Connecting or already connected
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N1032015 discovered
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereDistance] Adding user to the Map
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Connecting or already connected
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereDnsSdTxtRecordListener] N1032013 discovered
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereDistance] Adding user to the Map
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Call connect
+06-01 00:09:14.665 D/Fougere ( 2237): [ConnectionHandler] Connecting or already connected
+06-01 00:09:14.665 D/Fougere ( 2237): [FougereActionListener] Discover call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.PEERS_CHANGED }
+Broadcast completed: result=0
+06-01 00:09:14.735 D/WiDi    ( 2237): {"deviceAddress":"10.32.0.19","groupOwnerIntent":15,"netId":0,"wps":{"BSSID":"","pin":"","setup":0}}
+06-01 00:09:14.737 D/Fougere ( 2237): [FougereActionListener] Connect call succeeded
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:09:14.869 D/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+06-01 00:09:14.869 V/WiDi    ( 2237): fr.inria.rsommerard.widi.CONNECT
+06-01 00:09:14.869 D/WiDi    ( 2237): connect_state = true
+06-01 00:09:14.869 V/WiDi    ( 2237): Intent created
+06-01 00:09:14.869 V/WiDi    ( 2237): networkInfo instance created
+06-01 00:09:14.869 V/WiDi    ( 2237): DetailedState for networkInfo is added as CONNECTED
+06-01 00:09:14.869 V/WiDi    ( 2237): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:09:14.869 V/WiDi    ( 2237): wifiP2pInfo instance created
+06-01 00:09:14.869 V/WiDi    ( 2237): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:09:14.869 V/WiDi    ( 2237): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:09:14.869 V/WiDi    ( 2237): sending Broadcast....
+06-01 00:09:14.871 V/WiDi    ( 2237): Broadcast sent.
+Broadcast completed: result=0
+06-01 00:10:14.715 D/Fougere ( 2237): [ConnectionHandler] TIMEOUT
+06-01 00:10:14.715 D/Fougere ( 2237): [ConnectionHandler] Call disconnect
+06-01 00:10:14.715 D/Fougere ( 2237): [FougereActionListener] Remove group succeeded
+06-01 00:10:14.721 D/Fougere ( 2237): [FougereActionListener] Cancel connect succeeded
+[1212280436][new_ibpijda][New GPS location] 37.75037 -122.3934
+[1212280440][new_ibpijda][New GPS location] 37.7506 -122.39435
+[1212280485][new_ibpijda][New GPS location] 37.74982 -122.39615
+[1212280539][new_ibpijda][New GPS location] 37.7495 -122.40321
+[1212280630][new_ibpijda][New GPS location] 37.74829 -122.41309
+[1212280646][new_ibpijda][New GPS location] 37.74829 -122.41309
+[1212280684][new_ibpijda][New GPS location] 37.74823 -122.41777
+[1212280712][new_ibpijda][New GPS location] 37.74883 -122.4181
+[1212280773][new_ibpijda][New GPS location] 37.75124 -122.41833
+[1212280800][new_ibpijda][New GPS location] 37.75403 -122.41863
+[1212280816][new_ibpijda][New GPS location] 37.75403 -122.41863
+[1212280861][new_ibpijda][New GPS location] 37.75808 -122.41901
+[1212280875][new_ibpijda][New GPS location] 37.75808 -122.41901
+[1212280921][new_ibpijda][New GPS location] 37.76177 -122.41942
+[1212280982][new_ibpijda][New GPS location] 37.76467 -122.4197
+[1212281014][new_ibpijda][New GPS location] 37.76526 -122.41974
+[1212281074][new_ibpijda][New GPS location] 37.76662 -122.421
+[1212281114][new_ibpijda][New GPS location] 37.76662 -122.421
+[1212281176][new_ibpijda][New GPS location] 37.76716 -122.4266
+[1212281395][new_ibpijda][New GPS location] 37.76807 -122.42657
+[1212281397][new_ibpijda][New GPS location] 37.76893 -122.42674
+[1212281451][new_ibpijda][New GPS location] 37.77002 -122.4257
+[1212281474][new_ibpijda][New GPS location] 37.77002 -122.4257
+[1212281511][new_ibpijda][New GPS location] 37.77157 -122.42374
+[1212281527][new_ibpijda][New GPS location] 37.77157 -122.42374
+[1212281571][new_ibpijda][New GPS location] 37.7748 -122.4209
+[1212281605][new_ibpijda][New GPS location] 37.7748 -122.4209
+[1212281632][new_ibpijda][New GPS location] 37.77642 -122.42121
+[1212281649][new_ibpijda][New GPS location] 37.77642 -122.42121
+[1212281705][new_ibpijda][New GPS location] 37.77793 -122.42148
+[1212281765][new_ibpijda][New GPS location] 37.78094 -122.4205
+[1212281792][new_ibpijda][New GPS location] 37.78094 -122.4205
+[1212281838][new_ibpijda][New GPS location] 37.78094 -122.4205
+[1212281855][new_ibpijda][New GPS location] 37.78302 -122.42073
+[1212281887][new_ibpijda][New GPS location] 37.78302 -122.42073
+[1212281924][new_ibpijda][New GPS location] 37.78302 -122.42073
+[1212281942][new_ibpijda][New GPS location] 37.78302 -122.42073
+Broadcasting: Intent { act=fr.inria.rsommerard.widi.CONNECT (has extras) }
+06-01 00:59:06.064 D/WiDi    ( 2547): fr.inria.rsommerard.widi.CONNECT
+06-01 00:59:06.064 V/WiDi    ( 2547): fr.inria.rsommerard.widi.CONNECT
+06-01 00:59:06.064 D/WiDi    ( 2547): connect_state = true
+06-01 00:59:06.064 V/WiDi    ( 2547): Intent created
+06-01 00:59:06.065 V/WiDi    ( 2547): networkInfo instance created
+06-01 00:59:06.065 V/WiDi    ( 2547): DetailedState for networkInfo is added as CONNECTED
+06-01 00:59:06.065 V/WiDi    ( 2547): intent receives networkInfo as EXTRA_NETWORK_INFO
+06-01 00:59:06.065 V/WiDi    ( 2547): wifiP2pInfo instance created
+06-01 00:59:06.065 V/WiDi    ( 2547): groupOwnerAddress is Added to WifiP2pInfo
+06-01 00:59:06.065 V/WiDi    ( 2547): intent receives wifiP2pInfo as EXTRA_WIFI_P2P_INFO
+06-01 00:59:06.065 V/WiDi    ( 2547): sending Broadcast....
+Broadcast completed: result=0
+06-01 00:59:06.066 V/WiDi    ( 2547): Broadcast sent.
+[1212282001][new_ibpijda][New GPS location] 37.78847 -122.42183
+[1212282044][new_ibpijda][New GPS location] 37.78847 -122.42183
+[1212282070][new_ibpijda][New GPS location] 37.78847 -122.42183
+[1212282199][new_ibpijda][New GPS location] 37.79544 -122.42336
+[1212282252][new_ibpijda][New GPS location] 37.79544 -122.42336
+[1212282337][new_ibpijda][New GPS location] 37.8011 -122.42757
+[1212282432][new_ibpijda][New GPS location] 37.80076 -122.43289
+[1212282544][new_ibpijda][New GPS location] 37.80095 -122.43553
+[1212282561][new_ibpijda][New GPS location] 37.80095 -122.43553
+[1212282675][new_ibpijda][New GPS location] 37.8006 -122.43719
+[1212282774][new_ibpijda][New GPS location] 37.8006 -122.43719
+[1212282783][new_ibpijda][New GPS location] 37.80069 -122.43286
+[1212282999][new_ibpijda][New GPS location] 37.79778 -122.42391
+[1212283099][new_ibpijda][New GPS location] 37.79387 -122.42313
+[1212283129][new_ibpijda][New GPS location] 37.79231 -122.42283
+[1212283155][new_ibpijda][New GPS location] 37.79231 -122.42283
+[1212283166][new_ibpijda][New GPS location] 37.79003 -122.42238
+[1212283180][new_ibpijda][New GPS location] 37.79003 -122.42238
+[1212283215][new_ibpijda][New GPS location] 37.78926 -122.42232
+[1212283248][new_ibpijda][New GPS location] 37.78926 -122.42232
+[1212283257][new_ibpijda][New GPS location] 37.78726 -122.42181
+[1212283310][new_ibpijda][New GPS location] 37.78726 -122.42181
+[1212283328][new_ibpijda][New GPS location] 37.78653 -122.42168
+[1212283356][new_ibpijda][New GPS location] 37.78653 -122.42168
+[1212283401][new_ibpijda][New GPS location] 37.78653 -122.42168
+[1212283410][new_ibpijda][New GPS location] 37.78538 -122.42151
+[1212283427][new_ibpijda][New GPS location] 37.78538 -122.42151
+[1212283455][new_ibpijda][New GPS location] 37.78504 -122.42118
+[1212283494][new_ibpijda][New GPS location] 37.78504 -122.42118
+[1212283503][new_ibpijda][New GPS location] 37.78493 -122.42131
+[1212283540][new_ibpijda][New GPS location] 37.78493 -122.42131
+[1212283593][new_ibpijda][New GPS location] 37.78485 -122.42122
+[1212283627][new_ibpijda][New GPS location] 37.78485 -122.42122
+[1212283652][new_ibpijda][New GPS location] 37.78538 -122.4166
+[1212283679][new_ibpijda][New GPS location] 37.78633 -122.41152
+[1212283719][new_ibpijda][New GPS location] 37.78633 -122.41152
+[1212283745][new_ibpijda][New GPS location] 37.78631 -122.40998
+[1212283790][new_ibpijda][New GPS location] 37.78592 -122.41
+[1212283847][new_ibpijda][New GPS location] 37.78634 -122.40989
+[1212283895][new_ibpijda][New GPS location] 37.7871 -122.40813
+[1212283943][new_ibpijda][New GPS location] 37.7871 -122.40813
+[1212283952][new_ibpijda][New GPS location] 37.7884 -122.40848
+[1212283995][new_ibpijda][New GPS location] 37.78905 -122.40841
+[1212284014][new_ibpijda][New GPS location] 37.78905 -122.40841
+[1212284039][new_ibpijda][New GPS location] 37.78864 -122.41352
+[1212284069][new_ibpijda][New GPS location] 37.78864 -122.41352
+[1212284086][new_ibpijda][New GPS location] 37.78781 -122.41965
+[1212284105][new_ibpijda][New GPS location] 37.78781 -122.41965
+[1212284130][new_ibpijda][New GPS location] 37.78762 -122.42139
+[1212284157][new_ibpijda][New GPS location] 37.78762 -122.42139
+[1212284174][new_ibpijda][New GPS location] 37.78744 -122.42305
+[1212284217][new_ibpijda][New GPS location] 37.78737 -122.42334
+[1212284260][new_ibpijda][New GPS location] 37.78844 -122.42362
+[1212284286][new_ibpijda][New GPS location] 37.78844 -122.42362
+[1212284322][new_ibpijda][New GPS location] 37.79004 -122.4255
+[1212284339][new_ibpijda][New GPS location] 37.79004 -122.4255
+[1212284350][new_ibpijda][New GPS location] 37.79004 -122.42555
+[1212284425][new_ibpijda][New GPS location] 37.7896 -122.42878
+[1212284427][new_ibpijda][New GPS location] 37.78908 -122.43275
+[1212284439][new_ibpijda][New GPS location] 37.78898 -122.43367
+[1212284456][new_ibpijda][New GPS location] 37.78898 -122.43367
+[1212284458][new_ibpijda][New GPS location] 37.7888 -122.43499
+[1212284467][new_ibpijda][New GPS location] 37.7888 -122.43504
+[1212284506][new_ibpijda][New GPS location] 37.7888 -122.43504
+[1212284542][new_ibpijda][New GPS location] 37.78834 -122.4384
+[1212284544][new_ibpijda][New GPS location] 37.78813 -122.44013
+[1212284569][new_ibpijda][New GPS location] 37.7879 -122.44053
+[1212284594][new_ibpijda][New GPS location] 37.7879 -122.44053
+[1212284612][new_ibpijda][New GPS location] 37.7879 -122.44053
+[1212284624][new_ibpijda][New GPS location] 37.78536 -122.44
+[1212284729][new_ibpijda][New GPS location] 37.78062 -122.439
+[1212284782][new_ibpijda][New GPS location] 37.77767 -122.43845
+[1212284785][new_ibpijda][New GPS location] 37.77765 -122.43845
+[1212284845][new_ibpijda][New GPS location] 37.77479 -122.43777
+[1212284875][new_ibpijda][New GPS location] 37.77297 -122.43743
+[1212284940][new_ibpijda][New GPS location] 37.77152 -122.43714
+[1212284989][new_ibpijda][New GPS location] 37.76876 -122.43577
+[1212285049][new_ibpijda][New GPS location] 37.76705 -122.43569
+[1212285108][new_ibpijda][New GPS location] 37.76707 -122.43568
+[1212285171][new_ibpijda][New GPS location] 37.76707 -122.4357
+[1212285230][new_ibpijda][New GPS location] 37.76706 -122.43568
+[1212285290][new_ibpijda][New GPS location] 37.76707 -122.43567
+[1212285384][new_ibpijda][New GPS location] 37.76705 -122.43567
+[1212285419][new_ibpijda][New GPS location] 37.76421 -122.43537
+[1212285495][new_ibpijda][New GPS location] 37.76233 -122.43779
+[1212285565][new_ibpijda][New GPS location] 37.7627 -122.44197
+[1212285625][new_ibpijda][New GPS location] 37.76269 -122.44162
+[1212285658][new_ibpijda][New GPS location] 37.76273 -122.44161
+[1212285718][new_ibpijda][New GPS location] 37.76275 -122.44161
+[1212285778][new_ibpijda][New GPS location] 37.7628 -122.44095
+[1212285839][new_ibpijda][New GPS location] 37.76203 -122.44275
+[1212285899][new_ibpijda][New GPS location] 37.76166 -122.43828
+[1212285960][new_ibpijda][New GPS location] 37.76243 -122.43544
+[1212286021][new_ibpijda][New GPS location] 37.7626 -122.4329
+[1212286082][new_ibpijda][New GPS location] 37.76292 -122.42873
+[1212286142][new_ibpijda][New GPS location] 37.76315 -122.42428
