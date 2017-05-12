@@ -20,6 +20,7 @@ ENV ABI="x86" \
 
 RUN echo y | $ANDROID_HOME/tools/android update sdk --filter ${TARGET} --no-ui --force -a \
  && echo y | $ANDROID_HOME/tools/android update sdk --filter sys-img-${ABI}-${TARGET} --no-ui --force -a \
+ && echo y | $ANDROID_HOME/tools/android update sdk --filter platform-tools --no-ui --force -a \
  && echo no | $ANDROID_HOME/tools/android create avd -t ${TARGET} -n ${NAME} --abi ${ABI} \
  && mkdir -p $ANDROID_HOME/tools/keymaps \
  && touch $ANDROID_HOME/tools/keymaps/en-us
@@ -41,12 +42,13 @@ RUN apt-get update && apt-get -y install \
   unzip \
   ruby-full \
  && apt-get clean \
- && rm -rf /var/lib/apt/lists /var/cache/apt \
- && gem install calabash-android
+ && rm -rf /var/lib/apt/lists /var/cache/apt
+
+RUN gem install calabash-android
 
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
-  && tar xzf scala-2.11.8.tgz \
-  && rm -f scala-2.11.8.tgz
+ && tar xzf scala-2.11.8.tgz \
+ && rm -f scala-2.11.8.tgz
 
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin

@@ -57,4 +57,4 @@ if not os.path.exists(THIS + '/androfleet-servicediscovery-1.0.zip'):
     subprocess.call(['sbt', 'clean', 'universal:packageBin'])
     shutil.copy(SERVDISC + '/target/universal/androfleet-servicediscovery-1.0.zip', THIS)
 
-print(bcolors.OKGREEN ,"All is well.", bcolors.ENDC)
+print("[", bcolors.OKGREEN ,"success", bcolors.ENDC, "]")

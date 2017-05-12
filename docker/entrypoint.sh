@@ -35,7 +35,7 @@ case $MODE in
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
     /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 &
     echo 'Starting emulator[5554]...'
-     /usr/bin/supervisord
+     /usr/bin/supervisord &
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
     echo 'Waiting for emulator to start...'
     BOOT_COMPLETED=''
