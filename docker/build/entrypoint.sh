@@ -35,20 +35,64 @@ case $MODE in
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
     #/build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 &
     echo 'Starting emulator[5554]...'
-    #/usr/bin/supervisord &
+
     emulator64-x86 @nexus &
-    $ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
+
+    #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
+
+    echo 'killing adb server'
+    adb kill-server
+    redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
+    redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
+    echo 'ssh tunneling'
+    
+    FAIL=''
+    FAIL_COUNTER1=0
+    until [[ "$FAIL" =~ '1' ]]; do
+      echo 'Another try'
+      sshpass -p "meftah"  ssh -f -4 -o StrictHostKeyChecking=no lakhdar@10.32.0.2 -L 5039:127.0.0.1:5037 -N
+      sleep 1
+      FAIL='1'
+      if ! netstat -anp | grep -e "5039.*ssh" ; then
+        echo 'failed!!!!!!!!!!!!!!!!!!!!!!!!!'
+        FAIL=''
+        let 'FAIL_COUNTER1 += 1'
+        echo "5039 forward missing, bailing out"
+        if [[ $FAIL_COUNTER1 -gt 120 ]]; then
+          echo '  Failed to tunnel port'
+        fi
+      fi
+    done
+    sleep 5
+
+    FAIL2=''
+    FAIL_COUNTER2=0
+    until [[ "$FAIL2" =~ '1' ]]; do
+      adb connect $ME
+      sleep 5
+      FAIL2='1'
+      if ! adb devices | grep "$ME:5555.*device" ; then
+        echo "failed to connect device $FAIL_COUNTER2"
+        FAIL2=''
+        let 'FAIL_COUNTER2 += 1'
+        if [[ $FAIL_COUNTER2 -gt 120 ]]; then
+          echo ' Failed to connect device!!!!!!!!'
+        fi
+      fi
+    done
+
+    echo 'blabla bla'
     echo 'Waiting for emulator to start...'
     BOOT_COMPLETED=''
     FAIL_COUNTER=0
     until [[ "$BOOT_COMPLETED" =~ '1' ]]; do
-      BOOT_COMPLETED=`adb -s emulator-5554 shell getprop sys.boot_completed 2>&1`
+      BOOT_COMPLETED=`adb -s $ME:5555 shell getprop sys.boot_completed 2>&1`
       if [[ "$BOOT_COMPLETED" =~ 'not found' ]]; then
         let 'FAIL_COUNTER += 1'
         if [[ $FAIL_COUNTER -gt 120 ]]; then
           echo '  Failed to start emulator'
-          exit 1
+          #exit 1
         fi
       fi
       sleep 1
@@ -58,12 +102,17 @@ case $MODE in
     echo "" > ~/.emulator_console_auth_token
     (echo 'auth ""'; sleep 1; echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
     echo 'Installing the apk...'
-    adb -e install -r /build/app-debug.apk
-    adb -e logcat -c
+    
+    adb -s $ME:5555 -e install -r /build/app-debug.apk
+    adb -s $ME:5555 -e logcat -c
     echo 'Launching application...'
-    adb -e shell am start -n $2
+    adb -s $ME:5555 -e shell am start -n $2
     echo 'Running...'
-    adb -e logcat -v time Fougere:V APP:V WiDi:V *:S;;
+
+    tail -f /dev/null
+    
+    #adb -e logcat -v time Fougere:V APP:V WiDi:V *:S
+    ;;
 
   'servicediscovery' )
     /build/androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery ;;

@@ -6,11 +6,12 @@ RUN apt-get update && \
     apt-get clean
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
-ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools"
+ENV PATH="${PATH}:${ANDROID_SDK_HOME}/tools:${ANDROID_SDK_HOME}/platform-tools"
 RUN cd /tmp && \
     curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
-RUN echo "y" | android update sdk --no-ui --force -a --filter android-23,sys-img-x86-android-23
+RUN echo "y" | android update sdk --no-ui --force -a --filter android-23,sys-img-x86-android-23,platform-tools
+#build-tools-25.0.2
 RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
 COPY avd/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
 
@@ -28,6 +29,9 @@ RUN apt-get update && apt-get -y install \
   telnet \
   unzip \
   ruby-full \
+  openssh-client \
+  sshpass \
+  net-tools \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists /var/cache/apt
 
@@ -39,7 +43,7 @@ RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
 
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin
-
+ENV ANDROID_ADB_SERVER_PORT 5039
 #COPY entrypoint.sh /
 
 ENTRYPOINT ["/build/entrypoint.sh"]
