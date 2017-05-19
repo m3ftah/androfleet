@@ -132,6 +132,7 @@ class ServiceDiscovery extends Actor {
 
     // current range 180m (+-600 feet)
     distance <= 180
+    true
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {

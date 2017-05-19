@@ -35,7 +35,6 @@ RUN apt-get update && apt-get -y install \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists /var/cache/apt
 
-#RUN gem install calabash-android
 
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
  && tar xzf scala-2.11.8.tgz \

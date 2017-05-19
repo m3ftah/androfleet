@@ -13,7 +13,10 @@ NB_NODES = sys.argv[1]
 
 subprocess.call(['pwd'])
 print("Cleaning...")
-subprocess.call([home + '/ilab/androfleet/docker/cleanAll.py'])
+subprocess.call([home + '/ilab/androfleet/docker/cleanAndrofleet.py'])
+
+print("Launching Weave")
+subprocess.call(['weave', 'launch'])
 
 print("Launching Master")
 subprocess.call([home + '/ilab/androfleet/docker/master.py', NB_NODES])

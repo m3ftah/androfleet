@@ -26,7 +26,7 @@ object Main extends App {
 
   emulator.start(node)
 
-  while (! Emulator.isApplicationStarted(packageName)) {
+  while (! emulator.isApplicationStarted(packageName)) {
     Thread.sleep(3000)
   }
   Thread.sleep(30000)

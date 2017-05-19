@@ -12,34 +12,12 @@ import play.api.libs.json.{JsValue, Json}
 import scala.sys.process.{Process, ProcessLogger}
 
 object Emulator {
-  val adbPath = "/android-sdk-linux/platform-tools/adb"
 
-  def isApplicationStarted(packageName: String): Boolean = {
-    val isEmulatorStarted: Boolean = Process(s"$adbPath devices").!!.trim.contains("emulator-5554")
-
-    if (Process(s"$adbPath -e shell ps").!(ProcessLogger(out => ())) != 0)
-      return false
-
-    val isApplicationInPS = Process(s"$adbPath -e shell ps").!!.trim.contains(packageName)
-
-    isEmulatorStarted && isApplicationInPS
-  }
-
-  def setGPSLocation(name: String ,lon: Double, lat: Double, epoch: Int): Unit = {
-    println("[" + epoch + "][" + name + "][New GPS location] " + lon + " " + lat)
-    Process(s"$adbPath -e shell date -u $epoch").!!
-    val tn = new TelnetClient
-    tn.connect("localhost", 5554)
-
-    val out = new PrintStream(tn.getOutputStream)
-    out.println(s"geo fix $lat $lon")
-    out.flush()
-    out.close()
-    tn.disconnect()
-  }
 }
 
 class Emulator(val weaveIp: String) {
+  val adbPath = "adb" 
+  val adbEmulator = weaveIp + ":5555"
   var neighbors: List[Neighbor] = List()
   var services: List[Service] = List()
   var isDiscoverable = false
@@ -63,6 +41,29 @@ class Emulator(val weaveIp: String) {
     device = Device(nm, weaveIp)
   }
 
+  def isApplicationStarted(packageName: String): Boolean = {
+    val isEmulatorStarted: Boolean = Process(s"$adbPath devices").!!.trim.contains(adbEmulator)
+
+    if (Process(s"$adbPath -s $adbEmulator -e shell ps").!(ProcessLogger(out => ())) != 0)
+      return false
+
+    val isApplicationInPS = Process(s"$adbPath -s $adbEmulator -e shell ps").!!.trim.contains(packageName)
+
+    isEmulatorStarted && isApplicationInPS
+  }
+  def setGPSLocation(name: String ,lon: Double, lat: Double, epoch: Int): Unit = {
+    println("[" + epoch + "][" + name + "][New GPS location] " + lon + " " + lat)
+    Process(s"$adbPath -s $adbEmulator -e shell date -u $epoch").!!
+    val tn = new TelnetClient
+    tn.connect("localhost", 5554)
+
+    val out = new PrintStream(tn.getOutputStream)
+    out.println(s"geo fix $lat $lon")
+    out.flush()
+    out.close()
+    tn.disconnect()
+  }
+
   def updateNeighbors(nghbrs: List[Neighbor]) = {
     neighbors = nghbrs.filterNot(n => n.weaveIp == weaveIp)
     devices = List()
@@ -74,29 +75,29 @@ class Emulator(val weaveIp: String) {
   }
 
   def sendStateChangedIntent(): Unit = {
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
   }
 
   def sendThisDeviceChangedIntent(): Unit = {
     println(s"[${Calendar.getInstance().getTime}] Sending Device Address : " + weaveIp + "Device Name: " + name + "")
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
   }
 
   def sendPeersChangedIntent(): Unit = {
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}").run()
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}").run()
   }
 
   def sendConnectionChangedIntent(): Unit = {
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}").run()
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}").run()
   }
 
   def sendConnectIntent(isConnect: Boolean, isGroupOwner: Boolean, groupOwnerAddress: String): Unit = {
     if (isConnect) {
-      Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress").run()
+      Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress").run()
       return
     }
 
-    Process(s"${Emulator.adbPath} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
   }
 
   def start(nd: ActorRef): Unit = {

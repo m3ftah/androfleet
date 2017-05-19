@@ -68,7 +68,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     updateLocation(t.value)
   }
   private def getScenarios(nodeNumber : Int): Scenario = {
-    val dataFilePath = "/scenarios.txt"
+    val dataFilePath = "/build/scenarios.txt"
     val brutLines = scala.io.Source.fromFile(dataFilePath).mkString
 
     val splittedLines: List[String] = brutLines.split('\n').filterNot(l => l.isEmpty).toList
@@ -129,7 +129,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
   private def updateLocation(timestamp: Int): Unit = {
     if (ownLocation == null) {
       ownLocation = scenario.locations.filter(l => l.timestamp == getMinLocationTimestamp()).head
-      Emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon, timestamp)
+      emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon, timestamp)
       serviceDiscovery ! ownLocation
       return
     }
@@ -141,7 +141,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     }
 
     ownLocation = newLocation.head
-    Emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon,timestamp)
+    emulator.setGPSLocation(name, ownLocation.lat, ownLocation.lon,timestamp)
     serviceDiscovery ! ownLocation
   }
 

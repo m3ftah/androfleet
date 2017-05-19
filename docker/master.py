@@ -10,12 +10,8 @@ print('Master')
 NB_NODES = sys.argv[1]
 PATH = os.path.dirname(os.path.realpath(__file__))
 
-# launch weave
-print("Launching weave...")
-subprocess.call(['weave', 'launch'])
-
 # set weave env before launching containers
-print("Setting weave env...")
+#print("Setting weave env...")
 process = subprocess.Popen(['weave', 'env'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 env = output.split(' ')[1:]
