@@ -1,5 +1,5 @@
 FROM ubuntu:xenial
-MAINTAINER Pin <pinfake@hotmail.com>
+MAINTAINER Lakhdar Meftah <lakhdar.meftah@inria.fr>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
     apt-get install -y curl default-jre-headless libgl1-mesa-glx && \
@@ -29,8 +29,6 @@ RUN apt-get update && apt-get -y install \
   telnet \
   unzip \
   ruby-full \
-  openssh-client \
-  sshpass \
   net-tools \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists /var/cache/apt

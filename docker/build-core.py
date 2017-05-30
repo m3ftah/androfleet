@@ -29,6 +29,8 @@ class bcolors:
 # Android
 if not os.path.exists(THIS + '/app-debug.apk'):
     print(bcolors.WARNING ,"Rebuilding Android...", bcolors.ENDC)
+    os.chdir(ANDROID + '/../')
+    subprocess.call(['./fougere.py'])
     os.chdir(ANDROID)
     subprocess.call(['./gradlew', 'clean', 'assembleDebug'])
     shutil.copy(ANDROID + '/app/build/outputs/apk/app-debug.apk', THIS)

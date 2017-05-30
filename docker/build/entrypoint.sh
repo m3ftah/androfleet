@@ -33,6 +33,7 @@ case $MODE in
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
     redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
     redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
+    redir --cport 5037 --caddr 10.32.0.2 --lport 5039 --laddr localhost &
     
     
     echo 'Starting emulator[5554]...'
@@ -44,13 +45,14 @@ case $MODE in
 
 #Waiting for ssh to tunnel the adb port
     echo "Waiting for ssh to tunnel the adb port..."
-    FAIL=''
+    FAIL='1'
     FAIL_COUNTER1=0
     until [[ "$FAIL" =~ '1' ]]; do
       echo 'Another try'
-      sshpass -p "meftah"  ssh -f -4 -o StrictHostKeyChecking=no lakhdar@10.32.0.2 -L 5039:127.0.0.1:5037 -N
+      #sshpass -p "meftah"  ssh -f -4 -o StrictHostKeyChecking=no lakhdar@10.32.0.2 -L 5039:127.0.0.1:5037 -N
+      #socat TCP4-LISTEN:5039,fork TCP4:10.32.0.2:5039
       FAIL='1'
-      if ! netstat -anp | grep -e "5039.*ssh" ; then
+      if ! netstat -anp | grep -e "5039.*socat" ; then
         FAIL=''
         let 'FAIL_COUNTER1 += 1'
         echo "5039 forward missing, bailing out"

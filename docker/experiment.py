@@ -18,6 +18,15 @@ subprocess.call([home + '/ilab/androfleet/docker/cleanAndrofleet.py'])
 print("Launching Weave")
 subprocess.call(['weave', 'launch'])
 
+print("Exposing Weave")
+subprocess.call(['weave', 'expose'])
+
+print("Launching adb")
+subprocess.call(['adb', 'devices'])
+
+print("Rdirecting adb port to weave")
+subprocess.call(['redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '10.32.0.2', '&'])
+
 print("Launching Master")
 subprocess.call([home + '/ilab/androfleet/docker/master.py', NB_NODES])
 

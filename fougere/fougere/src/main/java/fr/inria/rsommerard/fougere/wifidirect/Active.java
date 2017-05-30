@@ -96,6 +96,12 @@ public class Active implements Runnable {
             return;
         }
 
+
+        if ( me != null) {
+            Log.e(Fougere.TAG, "[Active] " + Protocol.HELLO + "WifiP2pDevice is null");
+            return;
+        }
+
         this.send(me.deviceAddress);
 
         if ( ! Protocol.ACK.equals(this.receive())) {
