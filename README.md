@@ -1,6 +1,6 @@
 # androfleet
 
-AndroFleet is a large-scale emulation platform that supports WiFi-Direct interactions.
+AndroFleet is a WiFi Direct large-scale testing framework.
 
 ## Requirement
 
@@ -9,61 +9,29 @@ AndroFleet is a large-scale emulation platform that supports WiFi-Direct interac
 
 ## Default static Weave IP
 
-- DB: 10.32.0.41
 - Master: 10.32.0.42
 - ServiceDiscovery: 10.32.0.43
 - Social: 10.32.0.44
 
 ## Build
 
-### 1. Build android-emulator
+### 1. Build core
 
 ```bash
-cd docker/android-emulator
-./build.py
+cd docker
+./build-core.py
 ```
 
-### 2. Build androfleet-base
+### 2. Build androfleet image
 
 ```bash
-cd docker/androfleet-base
-./build.py
+cd docker
+./build-image.py
 ```
 
-### 3. Build androfleet
+## Launch Androfleet with 2 Android Emulators
 
 ```bash
-cd docker/androfleet
-./build.py
-```
-
-## Launch experiment
-
-```bash
-cd experiment
-./db.py
-```
-
-```bash
-cd experiment
-./master.py 2
-```
-
-```bash
-cd experiment
-./servicediscovery.py
-./node.py 2
-```
-
-### Launch ui
-
-```bash
-cd experiment
-./ui.py
-```
-
-```bash
-cd map
-npm install
-npm start
+cd docker
+./experiment.py 2
 ```
