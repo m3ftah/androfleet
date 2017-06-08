@@ -16,7 +16,7 @@ object Emulator {
 }
 
 class Emulator(val weaveIp: String) {
-  val adbPath = "adb" 
+  val adbPath = "adb"
   val adbEmulator = weaveIp + ":5555"
   var neighbors: List[Neighbor] = List()
   var services: List[Service] = List()
@@ -34,6 +34,10 @@ class Emulator(val weaveIp: String) {
   var dnsSdServiceResponse: DnsSdServiceResponse = _
   var dnsSdTxtRecord: DnsSdTxtRecord = _
   var wifiP2pConfig: WifiP2pConfig = _
+
+  var isConnect = true
+  var isGroupOwner = true
+  var groupOwnerAddress: String = weaveIp
 
   def setName(nm: String):Unit = {
     name = nm
@@ -75,28 +79,33 @@ class Emulator(val weaveIp: String) {
   }
 
   def sendStateChangedIntent(): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}")
     Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
   }
 
   def sendThisDeviceChangedIntent(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Sending Device Address : " + weaveIp + "Device Name: " + name + "")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name")
+    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR}   --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
   }
 
   def sendPeersChangedIntent(): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}")
     Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}").run()
   }
 
   def sendConnectionChangedIntent(): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}")
     Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}").run()
   }
 
   def sendConnectIntent(isConnect: Boolean, isGroupOwner: Boolean, groupOwnerAddress: String): Unit = {
     if (isConnect) {
+
+      println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress")
       Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress").run()
       return
     }
-
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false")
     Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
   }
 
@@ -123,6 +132,7 @@ class Emulator(val weaveIp: String) {
                 case Protocol.CANCEL_CONNECT => cancelConnect()
                 case Protocol.CONNECT => connect()
                 case Protocol.REQUEST_PEERS => requestPeers()
+                case Protocol.REQUEST_CONNECTION_INFO => requestConnectionInfo()
                 case Protocol.DISCOVER_SERVICES => discoverServices()
                 case u: Any => unknown(u)
               }
@@ -155,13 +165,26 @@ class Emulator(val weaveIp: String) {
   def hello()(implicit oOStream: ObjectOutputStream): Unit = {
     send(Protocol.ACK)
 
-    val isConnect = false
-    val isGroupOwner = false
-    val groupOwnerAddress: String = ""
+    isConnect = false
+    isGroupOwner = false
+    //groupOwnerAddress = ""
 
     sendStateChangedIntent()
     sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
-    
+
+  }
+
+  def requestConnectionInfo()(implicit oOStream: ObjectOutputStream): Unit = {
+    send(Protocol.ACK)
+    /*if (!isGroupOwner)
+      groupOwnerAddress = wifiP2pConfig.deviceAddress
+    else groupOwnerAddress = weaveIp*/
+    /*val isConnect = false
+    val isGroupOwner = false
+    val groupOwnerAddress: String = ""
+
+    sendStateChangedIntent()*/
+    sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
   }
 
   def carton()(implicit oIStream: ObjectInputStream, oOStream: ObjectOutputStream): Unit = {
@@ -196,9 +219,9 @@ class Emulator(val weaveIp: String) {
 
     isConnected = false
 
-    val isConnect = false
-    val isGroupOwner = false
-    val groupOwnerAddress: String = ""
+    isConnect = false
+    isGroupOwner = false
+    //groupOwnerAddress = ""
 
     sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
   }
@@ -226,9 +249,9 @@ class Emulator(val weaveIp: String) {
 
     send(Protocol.ACK)
 
-    val isConnect = true
-    var isGroupOwner = true
-    var groupOwnerAddress: String = weaveIp
+    isConnect = true
+    isGroupOwner = true
+    groupOwnerAddress = weaveIp
 
     if (wifiP2pConfig.groupOwnerIntent < 7) {
       sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
@@ -244,12 +267,12 @@ class Emulator(val weaveIp: String) {
   }
 
   def connectExt(weaveIpFrom: String, groupOwnerIp: String): Unit = {
-    val isConnect = true
-    val isGroupOwner =
+    isConnect = true
+    isGroupOwner =
       weaveIp == groupOwnerIp
 
     if (isConnected) {
-      
+
       return
     }
 
@@ -298,7 +321,7 @@ class Emulator(val weaveIp: String) {
     dnsSdTxtRecord.srcDevice = device
 
     send(Protocol.ACK)
-    
+
     if ( dnsSdTxtRecord.srcDevice == null){
       println("Device address and name are null");
       return;

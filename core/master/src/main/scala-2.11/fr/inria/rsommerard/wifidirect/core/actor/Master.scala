@@ -16,7 +16,7 @@ class Master(val nbNodes: Int) extends Actor {
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
-  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@10.32.0.43:2552/user/servicediscovery")
+  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@192.168.48.2:2552/user/servicediscovery")
   val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
   val interval = 1000

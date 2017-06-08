@@ -7,25 +7,30 @@ import time
 from os.path import expanduser
 home = expanduser("~")
 
-print('Launching docker')
 
-NB_NODES = sys.argv[1]
+
+NB_NODES = "2" if len(sys.argv) < 2 else sys.argv[1]
+print('Launching experiment with: ' + NB_NODES + ' nodes')
+
 
 subprocess.call(['pwd'])
 print("Cleaning...")
 subprocess.call([home + '/ilab/androfleet/docker/cleanAndrofleet.py'])
 
 print("Launching Weave")
-subprocess.call(['weave', 'launch'])
+subprocess.call(['weave', 'launch','--ipalloc-range','192.168.48.0/23'])
 
 print("Exposing Weave")
 subprocess.call(['weave', 'expose'])
+
+print("Exposing xhost")
+subprocess.call(['xhost', '+'])
 
 print("Launching adb")
 subprocess.call(['adb', 'devices'])
 
 print("Rdirecting adb port to weave")
-subprocess.call(['redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '10.32.0.2', '&'])
+subprocess.Popen(['redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '192.168.48.1', '&'])
 
 print("Launching Master")
 subprocess.call([home + '/ilab/androfleet/docker/master.py', NB_NODES])

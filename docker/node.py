@@ -11,7 +11,8 @@ NB_NODES = sys.argv[1]
 
 print("NB_NODES = " + str(NB_NODES))
 
-APP = 'fr.inria.rsommerard.fougereapp/.MainActivity'
+#APP = 'fr.inria.rsommerard.fougereapp/.MainActivity'
+APP = 'com.example.wifidirect'
 PATH = os.path.dirname(os.path.realpath(__file__))
 # set weave env before launching containers
 #print("Setting weave env...")
@@ -28,10 +29,11 @@ for i in range(int(NB_NODES)):
     time.sleep(3)
     process = subprocess.Popen(['docker', 'run',
     '--name','androfleet-node' + str(i),
-    '-d', 
+    '-d',
     '--privileged',
     #'--net','host' ,
     '-e', 'DISPLAY=' + os.environ['DISPLAY'],
+    '-e', 'WEAVE_CIDR=192.168.49.' +str(i+1) + '/23',
     '-v', '/tmp/.X11-unix:/tmp/.X11-unix',
     #'-v', '/usr/lib:/usr/lib',
     #'--device', '/dev/kvm',

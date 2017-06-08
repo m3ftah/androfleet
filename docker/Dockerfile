@@ -13,7 +13,7 @@ RUN cd /tmp && \
 RUN echo "y" | android update sdk --no-ui --force -a --filter android-23,sys-img-x86-android-23,platform-tools
 #build-tools-25.0.2
 RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
-COPY avd/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
+
 
 #COPY socat.sh /usr/local/bin/socat.sh
 

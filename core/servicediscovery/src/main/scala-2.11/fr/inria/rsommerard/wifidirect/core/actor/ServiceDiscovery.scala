@@ -12,7 +12,7 @@ class ServiceDiscovery extends Actor {
   var discoverables: Map[ActorRef, Boolean] = Map()
   var services: Map[ActorRef, Service] = Map()
 
-  val master = context.actorSelection("akka.tcp://MasterSystem@10.32.0.42:2552/user/master")
+  val master = context.actorSelection("akka.tcp://MasterSystem@192.168.48.3:2552/user/master")
 
   override def preStart() {
     master ! Hello("ServiceDiscovery")

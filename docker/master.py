@@ -24,4 +24,4 @@ for e in env:
 print("Launching androfleet as master container...")
 subprocess.call(['docker', 'run', '--name', 'androfleet-master',
 '-v',PATH + '/build:/build',
- '-d', '-e', 'WEAVE_CIDR=10.32.0.42/12', 'androfleet', 'master', NB_NODES])
+ '-d', '-e', 'WEAVE_CIDR=192.168.48.3/23', 'androfleet', 'master', NB_NODES])

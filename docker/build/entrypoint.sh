@@ -24,18 +24,21 @@ case $MODE in
       echo "Usage : $0 node Package/Activity"
       exit
     fi
-    ME=$(ip route | grep 'src 10.' | awk '{print $NF;exit}')
+    ME=$(ip route | grep 'src 192.168.49.' | awk '{print $NF;exit}')
+
     echo "WEAVE_IP: $ME"
     echo "Configuring redir for $ME..."
-    echo "Zero Argument $0"
-    echo "First Argument $1"
+    echo "First Argument $0"
+    echo "Second Argument $1"
 
     redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
+    redir --laddr=$ME --lport=8988 --caddr=127.0.0.1 --cport=8988 &
     redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
     redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
-    redir --cport 5037 --caddr 10.32.0.2 --lport 5039 --laddr localhost &
-    
-    
+    redir --cport 5037 --caddr 192.168.48.1 --lport 5039 --laddr localhost &
+
+    cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
+
     echo 'Starting emulator[5554]...'
 
     emulator64-x86 @nexus &
@@ -43,26 +46,6 @@ case $MODE in
     #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
 
-#Waiting for ssh to tunnel the adb port
-    echo "Waiting for ssh to tunnel the adb port..."
-    FAIL='1'
-    FAIL_COUNTER1=0
-    until [[ "$FAIL" =~ '1' ]]; do
-      echo 'Another try'
-      #sshpass -p "meftah"  ssh -f -4 -o StrictHostKeyChecking=no lakhdar@10.32.0.2 -L 5039:127.0.0.1:5037 -N
-      #socat TCP4-LISTEN:5039,fork TCP4:10.32.0.2:5039
-      FAIL='1'
-      if ! netstat -anp | grep -e "5039.*socat" ; then
-        FAIL=''
-        let 'FAIL_COUNTER1 += 1'
-        echo "5039 forward missing, bailing out"
-        if [[ $FAIL_COUNTER1 -gt 120 ]]; then
-          echo '  Failed to tunnel port'
-        fi
-        sleep 5
-      fi
-    done
-    sleep 5
 
 #Waiting for adb to connect to device
     echo "Waiting for adb to connect to device..."
@@ -83,7 +66,7 @@ case $MODE in
     done
 
 #Waiting for emulator to start
-    echo 'Waiting for emulator to compleet boot...'
+    echo 'Waiting for emulator to complete boot...'
     BOOT_COMPLETED=''
     FAIL_COUNTER=0
     until [[ "$BOOT_COMPLETED" =~ '1' ]]; do
@@ -102,20 +85,21 @@ case $MODE in
     echo 'Adding emulator redirections...'
     echo "" > ~/.emulator_console_auth_token
     (echo 'auth ""'; sleep 1; echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
+    (echo 'auth ""'; sleep 1; echo "redir add tcp:8988:8988"; sleep 1; echo 'exit') | telnet localhost 5554
     echo 'Installing the apk...'
-    
+
     adb -s $ME:5555 -e install -r /build/app-debug.apk
     adb -s $ME:5555 -e logcat -c
     echo 'Launching application...'
-    adb -s $ME:5555 -e shell am start -n $2
+    #adb -s $ME:5555 -e shell am start -n $2
     echo 'Running...'
 
 
     echo 'Starting Scala program'
     /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 &
-    
+
     tail -f /dev/null
-    
+
     #adb -e logcat -v time Fougere:V APP:V WiDi:V *:S
     ;;
 
