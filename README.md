@@ -1,6 +1,6 @@
 # androfleet
 
-AndroFleet is a WiFi Direct large-scale testing framework.
+AndroFleet is a WiFi Direct large-scale testing framework for Android apps.
 
 ## Requirement
 
@@ -9,9 +9,8 @@ AndroFleet is a WiFi Direct large-scale testing framework.
 
 ## Default static Weave IP
 
-- Master: 10.32.0.42
-- ServiceDiscovery: 10.32.0.43
-- Social: 10.32.0.44
+- Master: 192.168.48.3
+- ServiceDiscovery: 192.168.48.2
 
 ## Build
 
