@@ -31,10 +31,28 @@ case $MODE in
     echo "First Argument $0"
     echo "Second Argument $1"
 
-    redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
-    redir --laddr=$ME --lport=8988 --caddr=127.0.0.1 --cport=8988 &
-    redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
-    redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
+    apt-get update
+    apt-get -y  install iptables
+
+    #sysctl -w net.ipv4.conf.all.forwarding=1
+    #sysctl net.ipv4.ip_forward=1
+    sysctl -w net.ipv4.conf.ethwe.route_localnet=1
+
+    #iptables -t nat -A PREROUTING -p tcp --dport 1:65535 -i ethwe -d $ME -j REDIRECT --to-destination 127.0.0.1:5555
+
+    #iptables -t nat -A PREROUTING -p tcp --dport 1:65535 -j REDIRECT --to-destination 127.0.0.1:5555
+    #iptables -t nat -A POSTROUTING -p tcp --dport 1:65535 -d $ME -j REDIRECT --to-source 127.0.0.1:5555
+
+    iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
+
+
+    #iptables -t nat -A POSTROUTING -j MASQUERADE
+
+    #redir --laddr=$ME --lport=11131 --caddr=127.0.0.1 --cport=11131 &
+    #redir --laddr=$ME --lport=8988 --caddr=127.0.0.1 --cport=8988 &
+
+    #redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
+    #redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
     redir --cport 5037 --caddr 192.168.48.1 --lport 5039 --laddr localhost &
 
     cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
@@ -84,8 +102,20 @@ case $MODE in
 
     echo 'Adding emulator redirections...'
     echo "" > ~/.emulator_console_auth_token
-    (echo 'auth ""'; sleep 1; echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
-    (echo 'auth ""'; sleep 1; echo "redir add tcp:8988:8988"; sleep 1; echo 'exit') | telnet localhost 5554
+
+    #65535
+
+
+       #(
+       #for i in {1..65535}
+       #do
+       #echo "redir add tcp:$i:898$i"; sleep 1;
+       #done
+       #echo 'exit') | telnet localhost 5554
+
+
+    (echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
+    (echo "redir add tcp:8988:8988"; sleep 1; echo 'exit') | telnet localhost 5554
     echo 'Installing the apk...'
 
     adb -s $ME:5555 -e install -r /build/app-debug.apk
