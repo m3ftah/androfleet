@@ -34,3 +34,5 @@ cd docker
 cd docker
 ./experiment.py 2
 ```
+# Using Androfleet Gradle Plugin
+For faster integration with your app, you can use our Gradle Plugin available in this link : [android-p2p-androfleetplugin](https://github.com/rtoin/android-p2p-androfleetplugin)
