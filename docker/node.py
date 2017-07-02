@@ -8,6 +8,7 @@ import time
 print('Node')
 
 NB_NODES = sys.argv[1]
+PORT = "8888"
 
 print("NB_NODES = " + str(NB_NODES))
 
@@ -40,7 +41,7 @@ for i in range(int(NB_NODES)):
     #'-p', '555' + str(i*2 + 4) + ':5554',
     #'-p', '555' + str(i*2 + 5) + ':5555',
     '-v',PATH + '/build:/build',
-     'androfleet', 'node', APP, str(i)], stdout=subprocess.PIPE)
+     'androfleet', 'node', APP, str(i), PORT], stdout=subprocess.PIPE)
     #process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-node' + str(i), '-d','--log-driver=gelf','--log-opt' ,'gelf-address=udp://172.17.0.3:12201','--log-opt','tag="node"' ,'--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
     output = str(process.communicate()[0], 'UTF-8')
 

@@ -168,8 +168,9 @@ class Emulator(val weaveIp: String) {
     isConnect = false
     isGroupOwner = false
     //groupOwnerAddress = ""
-
+    Thread.sleep(10000)
     sendStateChangedIntent()
+    sendThisDeviceChangedIntent()
     sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
 
   }
@@ -288,7 +289,7 @@ class Emulator(val weaveIp: String) {
     implicit val deviceFormat = Json.format[Device]
 
     val json = Json.toJson(devices)
-    //println(json)
+    println(json)
     send(json.toString())
   }
 

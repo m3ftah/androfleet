@@ -23,8 +23,8 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     master ! Hello("Node")
     master ! IP(weaveIp)
     serviceDiscovery ! IP(weaveIp)
-    
-    
+
+
     //social ! IP(weaveIp)
     //contextual ! IP(weaveIp)
   }
@@ -83,7 +83,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     for (s <- names){
       if (i == nodeNumber) name = s
       i+=1
-    } 
+    }
     println("My Name is " + name)
 
     var locations: List[Location] = List()

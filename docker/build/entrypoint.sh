@@ -28,8 +28,11 @@ case $MODE in
 
     echo "WEAVE_IP: $ME"
     echo "Configuring redir for $ME..."
-    echo "First Argument $0"
-    echo "Second Argument $1"
+    echo "Argument 0 $0"
+    echo "Argument 1 $1"
+    echo "Argument 2 $2"
+    echo "Argument 3 $3"
+    echo "Argument 4 $4"
 
     apt-get update
     apt-get -y  install iptables
@@ -115,14 +118,15 @@ case $MODE in
 
 
     (echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
-    (echo "redir add tcp:8988:8988"; sleep 1; echo 'exit') | telnet localhost 5554
+    (echo "redir add tcp:$4:$4"; sleep 1; echo 'exit') | telnet localhost 5554
+
     echo 'Installing the apk...'
 
-    adb -s $ME:5555 -e install -r /build/app-debug.apk
-    adb -s $ME:5555 -e logcat -c
-    echo 'Launching application...'
+    #adb -s $ME:5555 -e install -r /build/app-debug.apk
+    #adb -s $ME:5555 -e logcat -c
+    #echo 'Launching application...'
     #adb -s $ME:5555 -e shell am start -n $2
-    echo 'Running...'
+    echo 'Waiting for App to start...'
 
 
     echo 'Starting Scala program'
