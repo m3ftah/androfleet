@@ -3,6 +3,7 @@ MAINTAINER Lakhdar Meftah <lakhdar.meftah@inria.fr>
 EXPOSE 5037 5554 5555
 RUN apt-get update && \
     apt-get install -y curl default-jre-headless libgl1-mesa-glx && \
+        apt-get install -y lib32z1 lib32ncurses5 lib32stdc++6 && \
     apt-get clean
 ENV ANDROID_HOME="/opt/android-sdk-linux"
 ENV ANDROID_SDK_HOME="${ANDROID_HOME}"
@@ -30,8 +31,7 @@ RUN apt-get update && apt-get -y install \
   unzip \
   ruby-full \
   net-tools \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists /var/cache/apt
+ && apt-get clean
 
 
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
@@ -41,6 +41,9 @@ RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin
 ENV ANDROID_ADB_SERVER_PORT 5039
+
+ADD build /build/
+
 #COPY entrypoint.sh /
 
 ENTRYPOINT ["/build/entrypoint.sh"]

@@ -62,7 +62,7 @@ case $MODE in
 
     echo 'Starting emulator[5554]...'
 
-    emulator64-x86 @nexus &
+    emulator64-x86 @nexus -no-window &
 
     #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &

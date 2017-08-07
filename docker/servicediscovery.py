@@ -23,7 +23,7 @@ for e in env:
 print("Launching androfleet as servicediscovery container...")
 
 process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-servicediscovery',
-'-v',PATH + '/build:/build',
+#'-v',PATH + '/build:/build',
  '-d', '-e', 'WEAVE_CIDR=192.168.48.2/23', 'androfleet', 'servicediscovery'], stdout=subprocess.PIPE)
 
 output = str(process.communicate()[0], 'UTF-8')

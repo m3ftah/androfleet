@@ -9,10 +9,11 @@ from os.path import expanduser
 
 
 NB_NODES = "2" if len(sys.argv) < 2 else sys.argv[1]
-APP = sys.argv[2]
-PORT = sys.argv[3]
-ADB_PATH = sys.argv[4]
-PYTHONS_PATH = sys.argv[5]
+APP = 'fr.inria.rsommerard.fougereapp/.MainActivity'
+PORT = '11131'
+ADB_PATH = '/home/lakhdar/Android/Sdk/platform-tools/adb'
+PYTHONS_PATH = '.'
+
 print('Launching experiment with: ' + NB_NODES + ' nodes')
 
 
