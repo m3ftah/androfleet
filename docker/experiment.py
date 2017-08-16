@@ -24,13 +24,13 @@ print("Exposing Weave")
 subprocess.call(['weave', 'expose'])
 
 print("Exposing xhost")
-subprocess.call(['xhost', '+'])
+subprocess.call(['docker-machine','ssh','machine-test','xhost', '+'])
 
 print("Launching adb")
-subprocess.call(['adb', 'devices'])
+subprocess.call(['docker-machine','ssh','machine-test','./platform-tools/adb', 'devices'])
 
 print("Rdirecting adb port to weave")
-subprocess.Popen(['redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '192.168.48.1', '&'])
+subprocess.Popen(['docker-machine','ssh','machine-test','redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '192.168.48.1', '&'])
 
 print("Launching Master")
 subprocess.call([home + '/ilab/androfleet/docker/master.py', NB_NODES])

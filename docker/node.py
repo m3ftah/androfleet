@@ -33,7 +33,7 @@ for i in range(int(NB_NODES)):
     '-d',
     '--privileged',
     #'--net','host' ,
-    '-e', 'DISPLAY=' + os.environ['DISPLAY'],
+    '-e', 'DISPLAY=:1.0',
     '-e', 'WEAVE_CIDR=192.168.49.' +str(i+1) + '/23',
     '-v', '/tmp/.X11-unix:/tmp/.X11-unix',
     #'-v', '/usr/lib:/usr/lib',

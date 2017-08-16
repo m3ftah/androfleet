@@ -30,8 +30,8 @@ RUN apt-get update && apt-get -y install \
   unzip \
   ruby-full \
   net-tools \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists /var/cache/apt
+ && apt-get clean
+ #&& rm -rf /var/lib/apt/lists /var/cache/apt
 
 
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
@@ -41,6 +41,7 @@ RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin
 ENV ANDROID_ADB_SERVER_PORT 5039
+ADD build /build
 #COPY entrypoint.sh /
 
 ENTRYPOINT ["/build/entrypoint.sh"]
