@@ -15,9 +15,9 @@ object Emulator {
 
 }
 
-class Emulator(val weaveIp: String) {
+class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePort: String) {
   val adbPath = "adb"
-  val adbEmulator = weaveIp + ":5555"
+  val adbEmulator = adbDeviceAddress + ":" + adbDevicePort
   var neighbors: List[Neighbor] = List()
   var services: List[Service] = List()
   var isDiscoverable = false

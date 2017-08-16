@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 MAINTAINER Lakhdar Meftah <lakhdar.meftah@inria.fr>
-EXPOSE 5037 5554 5555
+#EXPOSE 5037 5554 5555
 RUN apt-get update && \
     apt-get install -y curl default-jre-headless libgl1-mesa-glx && \
         apt-get install -y lib32z1 lib32ncurses5 lib32stdc++6 && \
@@ -31,6 +31,7 @@ RUN apt-get update && apt-get -y install \
   unzip \
   ruby-full \
   net-tools \
+  netcat\
  && apt-get clean
 
 
