@@ -34,6 +34,8 @@ subprocess.call(['weave', 'launch','--ipalloc-range','192.168.48.0/23'])
 print("Exposing Weave")
 subprocess.call(['weave', 'expose'])
 
+print("Exposing xhost")
+subprocess.call(['docker-machine','ssh','machine-test','export', 'DISPLAY=:1.0', '&&','xhost', '+'])
 #print("Connecting to  Weave")
 #subprocess.call(['weave', 'connect','172.20.192.1'])
 
