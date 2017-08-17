@@ -62,6 +62,7 @@ case $MODE in
 
     echo 'Starting emulator[5554]...'
 
+    export SDL_VIDEO_X11_VISUALID=0x022
     emulator64-x86 @nexus &
 
     #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio

@@ -24,7 +24,7 @@ print("Exposing Weave")
 subprocess.call(['weave', 'expose'])
 
 print("Exposing xhost")
-subprocess.call(['docker-machine','ssh','machine-test','xhost', '+'])
+subprocess.call(['docker-machine','ssh','machine-test','export', 'DISPLAY=:1.0', '&&','xhost', '+'])
 
 print("Launching adb")
 subprocess.call(['docker-machine','ssh','machine-test','./platform-tools/adb', 'devices'])
