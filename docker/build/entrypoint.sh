@@ -47,13 +47,15 @@ case $MODE in
 
     redir --cport 5037 --caddr $5 --lport 5039 --laddr localhost &
 
+    redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
+
     sleep 5
 
     cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
 
     echo 'Starting emulator...'
-
-    emulator64-x86 -partition-size 200 @nexus -no-window &
+    export SDL_VIDEO_X11_VISUALID=0x022
+    emulator64-x86 @nexus &
 
     #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
