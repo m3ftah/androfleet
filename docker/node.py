@@ -52,8 +52,10 @@ subprocess.Popen(['redir', '--cport', '5037', '--caddr', remoteAddress, '--lport
 
 print("Launching androfleet as node containers...")
 for i in range(int(NB_NODES)):
-    subprocess.Popen(['docker-machine','ssh','machine-test','redir', '--cport', '289' + str(i+1), '--caddr', 'localhost', '--lport', '289' + str(i+1), '--laddr', remoteAddress, '&'])
-    subprocess.Popen(['redir', '--cport', '289' + str(i+1), '--caddr', remoteAddress, '--lport', '289' + str(i+1), '--laddr', 'localhost', '&'])
+    nodePort = '289' + str(i+1)
+    subprocess.Popen(['fuser', '-k', '-n', 'tcp', nodePort]).wait()
+    subprocess.Popen(['docker-machine','ssh','machine-test','redir', '--cport', nodePort, '--caddr', 'localhost', '--lport', nodePort, '--laddr', remoteAddress, '&'])
+    subprocess.Popen(['redir', '--cport', nodePort, '--caddr', remoteAddress, '--lport', nodePort, '--laddr', 'localhost', '&'])
     #time.sleep(3)
     weaveAddress = '192.168.49.' +str(i+1)
     #remotePort = '3' + str(i).zfill(3)

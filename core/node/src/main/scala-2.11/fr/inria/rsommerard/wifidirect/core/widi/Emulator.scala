@@ -164,7 +164,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
 
   def hello()(implicit oOStream: ObjectOutputStream): Unit = {
     send(Protocol.ACK)
-
+    disconnect()
     isConnect = false
     isGroupOwner = false
 
