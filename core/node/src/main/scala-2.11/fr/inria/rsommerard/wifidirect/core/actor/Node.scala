@@ -55,7 +55,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     println("My name is : " +  name)
     //println("My scenario is : " + s)
     emulator.setName(name)
-    emulator.sendThisDeviceChangedIntent()
+    //emulator.sendThisDeviceChangedIntent()
   }
 
   private def services(s: Services): Unit = {

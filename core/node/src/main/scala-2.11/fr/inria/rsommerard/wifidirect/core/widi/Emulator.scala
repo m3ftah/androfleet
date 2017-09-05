@@ -167,6 +167,8 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
 
     isConnect = false
     isGroupOwner = false
+
+    node.tell(Discoverable(true), ActorRef.noSender)
     //groupOwnerAddress = ""
     Thread.sleep(10000)
     sendStateChangedIntent()
@@ -197,7 +199,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
 
     isDiscoverable = true
 
-    node.tell(Discoverable(true), ActorRef.noSender)
+
     node.tell(Request("Neighbors"), ActorRef.noSender)
   }
 
@@ -237,8 +239,9 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     wifiP2pConfig = Json.fromJson[WifiP2pConfig](jsonWifiP2pConfig).get
 
     if (isConnected) {
-      send(Protocol.CARTON)
-      return
+      println("Already connected, but proceeding with connect command ....");
+      //send(Protocol.CARTON)
+      //return
     }
 
     val deviceToConnect = neighbors.filter(n => n.weaveIp == wifiP2pConfig.deviceAddress && n.weaveIp != weaveIp)
@@ -251,14 +254,15 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     send(Protocol.ACK)
 
     isConnect = true
-    isGroupOwner = true
-    groupOwnerAddress = weaveIp
+    //isGroupOwner = true
+    //groupOwnerAddress = weaveIp
 
-    if (wifiP2pConfig.groupOwnerIntent < 7) {
+    /*if (wifiP2pConfig.groupOwnerIntent < 7) {
       sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
       node.tell(Connect(weaveIp, wifiP2pConfig.deviceAddress, groupOwnerAddress), ActorRef.noSender)
       return
-    }
+    }*/
+    //TODO define groupOwner from Androfleet Ui
 
     isGroupOwner = false
     groupOwnerAddress = wifiP2pConfig.deviceAddress
@@ -273,7 +277,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
       weaveIp == groupOwnerIp
 
     if (isConnected) {
-
+      println("Already connected ....");
       return
     }
 

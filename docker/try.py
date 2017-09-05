@@ -9,8 +9,12 @@ from os.path import expanduser
 
 
 NB_NODES = "2" if len(sys.argv) < 2 else sys.argv[1]
-APP = 'com.mobiperf'
-PORT = '11131'
+#APP = 'com.mobiperf'
+#PORT = '11131'
+#APP = 'anuj.wifidirect'
+#PORT = '8888'
+APP = 'com.colorcloud.wifichat'
+PORT = '1080'
 ADB_PATH = '/home/lakhdar/Android/Sdk/platform-tools/adb'
 PYTHONS_PATH = '.'
 

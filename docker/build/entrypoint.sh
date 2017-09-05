@@ -36,18 +36,20 @@ case $MODE in
     echo "remoteAddress: $5"
     echo "remotePort: $6"
 
-    apt-get update
-    apt-get -y  install iptables
+    #apt-get update
+    #apt-get -y  install iptables
 
-    sysctl -w net.ipv4.conf.ethwe.route_localnet=1
+    #sysctl -w net.ipv4.conf.ethwe.route_localnet=1
 
 
-    iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
+    #iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
 
 
     redir --cport 5037 --caddr $5 --lport 5039 --laddr localhost &
 
     redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
+
+    redir --cport $4 --caddr localhost --lport $4 --laddr $ME &
 
     sleep 5
 

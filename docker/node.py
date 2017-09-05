@@ -43,6 +43,7 @@ subprocess.Popen(['docker-machine','ssh','machine-test','redir', '--cport', '503
 time.sleep(3)
 print("kill Adb on this Machine: ")
 subprocess.Popen(['adb', 'kill-server']).wait()
+subprocess.Popen(['fuser', '-k', '-n', 'tcp', '5037']).wait()
 print("start Adb on remote Machine: ")
 subprocess.Popen(['docker-machine','ssh','machine-test','./platform-tools/adb','devices'])
 time.sleep(3)
@@ -51,6 +52,8 @@ subprocess.Popen(['redir', '--cport', '5037', '--caddr', remoteAddress, '--lport
 
 print("Launching androfleet as node containers...")
 for i in range(int(NB_NODES)):
+    subprocess.Popen(['docker-machine','ssh','machine-test','redir', '--cport', '289' + str(i+1), '--caddr', 'localhost', '--lport', '289' + str(i+1), '--laddr', remoteAddress, '&'])
+    subprocess.Popen(['redir', '--cport', '289' + str(i+1), '--caddr', remoteAddress, '--lport', '289' + str(i+1), '--laddr', 'localhost', '&'])
     #time.sleep(3)
     weaveAddress = '192.168.49.' +str(i+1)
     #remotePort = '3' + str(i).zfill(3)
@@ -70,6 +73,7 @@ for i in range(int(NB_NODES)):
     '-e', 'WEAVE_CIDR=192.168.49.' +str(i+1) + '/23',
     '-v', '/tmp/.X11-unix:/tmp/.X11-unix',
     '-v', '/usr/lib:/usr/lib',
+
     '--device', '/dev/kvm',
     #'-v', '/opt/android-sdk-linux/system-images:/opt/android-sdk-linux/system-images',
     #'-p', '5554:5554',
