@@ -16,6 +16,14 @@ case $MODE in
       echo "Usage : $0 master NbNodes"
       exit
     fi
+
+    #redir --cport 5037 --caddr $3 --lport 5037 --laddr androfleet-master &
+    ADDRESS=$(ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1)
+    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ADDRESS) &
+    redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-master &
+
+    adb devices
+
     /build/androfleet-master-1.0/bin/androfleet-master $2 ;;
 
   'node' )
@@ -28,13 +36,10 @@ case $MODE in
 
     echo "WEAVE_IP: $ME"
     echo "Configuring redir for $ME..."
-    echo "Argument 0 $0"
-    echo "Argument 1 $1"
-    echo "Argument 2 $2"
-    echo "Argument 3 $3"
-    echo "Argument 4 $4"
-    echo "remoteAddress: $5"
-    echo "remotePort: $6"
+    echo "role: $1"
+    echo "AppPackage $2"
+    echo "NodeNumber $3"
+    echo "AppPort: $4"
 
     #apt-get update
     #apt-get -y  install iptables
@@ -45,7 +50,7 @@ case $MODE in
     #iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
 
 
-    redir --cport 5037 --caddr $5 --lport 5039 --laddr localhost &
+    redir --cport 5039 --caddr androfleet-master --lport 5039 --laddr localhost &
 
     redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
 
@@ -56,8 +61,10 @@ case $MODE in
     cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
 
     echo 'Starting emulator...'
-    export SDL_VIDEO_X11_VISUALID=0x022
-    emulator64-x86 @nexus &
+    #export SDL_VIDEO_X11_VISUALID=0x022
+
+    #emulator64-x86 @nexus -noaudio -no-window -gpu off -verbose -qemu -usbdevice tablet -vnc :0 &
+    emulator64-x86 @nexus -noaudio -no-window -gpu off -qemu -usbdevice tablet -vnc :0 &
 
     #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
     #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &

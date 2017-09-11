@@ -32,26 +32,6 @@ subprocess.call([PYTHONS_PATH + '/build-core.py'])
 print("Building image...")
 subprocess.call([PYTHONS_PATH + '/build-image.py'])
 
-print("Launching Weave")
-subprocess.call(['weave', 'launch','--ipalloc-range','192.168.48.0/23'])
-
-print("Exposing Weave")
-subprocess.call(['weave', 'expose'])
-
-print("Exposing xhost")
-subprocess.call(['docker-machine','ssh','machine-test','export', 'DISPLAY=:1.0', '&&','xhost', '+'])
-#print("Connecting to  Weave")
-#subprocess.call(['weave', 'connect','172.20.192.1'])
-
-#print("Exposing xhost")
-#subprocess.call(['xhost', '+'])
-
-
-#print("Launching adb")
-#subprocess.call([ADB_PATH, 'devices'])
-
-#print("Redirecting adb port to weave")
-#subprocess.Popen(['redir', '--cport', '5037', '--caddr', '127.0.0.1', '--lport', '5037', '--laddr', '192.168.48.1', '&'])
 
 print("Launching Master")
 subprocess.call([PYTHONS_PATH + '/master.py', NB_NODES])

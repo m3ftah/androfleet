@@ -29,4 +29,4 @@ echo "00000000" >>/tmp/file  # note >> for append
 vncpasswd </tmp/file >/tmp/vncpasswd.1 2>/tmp/vncpasswd.2
 vnc4server -geometry 3840x2560 -depth 24 :1
 git clone https://github.com/novnc/noVNC.git
-./noVNC/utils/launch.sh --vnc localhost:5901
+./noVNC/utils/launch.sh --vnc localhost:5905

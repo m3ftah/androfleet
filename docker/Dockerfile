@@ -37,7 +37,8 @@ RUN apt-get update && apt-get -y install \
   ruby-full \
   net-tools \
   netcat\
- && apt-get clean
+  iputils-ping
+ #&& apt-get clean
 
 
 RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
@@ -46,10 +47,15 @@ RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
 
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin
-ENV ANDROID_ADB_SERVER_PORT 5039
 
 ADD build /build/
 
+RUN mkdir /opt/android-sdk-linux/tools/keymaps && \
+    touch /opt/android-sdk-linux/tools/keymaps/en-us
+
+ENV ANDROID_ADB_SERVER_PORT 5039
+EXPOSE 5039
+EXPOSE 2800-4000
 #COPY entrypoint.sh /
 
 ENTRYPOINT ["/build/entrypoint.sh"]
