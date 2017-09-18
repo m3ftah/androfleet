@@ -19,9 +19,6 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 remoteAddress = ''
 remotePort = '5555'
 
-print("Remote Address is: " + remoteAddress)
-
-
 print("Launching androfleet as node containers...")
 for i in range(int(NB_NODES)):
 
@@ -34,7 +31,7 @@ for i in range(int(NB_NODES)):
     '--net', 'my-net',
      '--ip', weaveAddress,
     '--device', '/dev/kvm',
-    '-p', '500' + str(i + 1) + ':5900',
+    '-p', '50' + str(i + 1).zfill(3) + ':5900',
     #'-v',PATH + '/build:/build',
     'androfleet', 'node', APP, str(i), PORT], stdout=subprocess.PIPE).wait()
     print('Node' + str(i))

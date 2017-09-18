@@ -17,10 +17,13 @@ case $MODE in
       exit
     fi
 
-    #redir --cport 5037 --caddr $3 --lport 5037 --laddr androfleet-master &
-    ADDRESS=$(ifconfig eth0 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1)
-    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ADDRESS) &
+    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
     redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-master &
+    for i in $(seq 1 $(($2)));
+    do
+      echo "$(($i + 2800))"
+      redir --cport $(($i + 2800)) --caddr localhost --lport $(($i + 2800)) --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
+    done
 
     adb devices
 

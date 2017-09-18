@@ -9,7 +9,7 @@ import os
 if len(sys.argv) > 1:
     nodeMaster = sys.argv[1]
 else:
-    nodeMaster = 'luxembourg-0'
+    nodeMaster = 'lyon-0'
 
 PYTHONS_PATH = '.'
 
@@ -41,5 +41,7 @@ for node in lines:
     subprocess.call([PYTHONS_PATH + '/build-core.py'])
 
     print("Building image...")
-    subprocess.Popen([PYTHONS_PATH + '/build-image.py'], shell=True,
+    process = subprocess.Popen([PYTHONS_PATH + '/build-image.py'], shell=True,
              stdin=None, stdout=None, stderr=None, close_fds=True)
+
+process.wait()
