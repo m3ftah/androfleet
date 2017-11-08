@@ -9,7 +9,7 @@ import os
 if len(sys.argv) > 1:
     nodeMaster = sys.argv[1]
 else:
-    nodeMaster = 'lyon-0'
+    nodeMaster = 'luxembourg-0'
 
 PYTHONS_PATH = '.'
 
@@ -20,6 +20,7 @@ process = subprocess.Popen(['docker-machine', 'ls','--filter','swarm=' + nodeMas
 output = str(process.communicate()[0], 'UTF-8')
 lines = output.split("\n")[:-1]
 print(lines)
+processes = []
 for node in lines:
     print("node: " + node)
     process = subprocess.Popen(['docker-machine', 'env',node], stdout=subprocess.PIPE)
@@ -43,5 +44,7 @@ for node in lines:
     print("Building image...")
     process = subprocess.Popen([PYTHONS_PATH + '/build-image.py'], shell=True,
              stdin=None, stdout=None, stderr=None, close_fds=True)
+    processes.append(process)
 
-process.wait()
+for processW in processes:
+    processW.wait()

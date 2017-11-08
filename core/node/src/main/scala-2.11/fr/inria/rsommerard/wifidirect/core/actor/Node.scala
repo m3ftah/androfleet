@@ -148,7 +148,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
   private def neighbors(nghbrs: Neighbors): Unit = {
     neighbors = nghbrs.values.filter(n => n.weaveIp != emulator.weaveIp)
 
-    //println(s"[${Calendar.getInstance().getTime}] ${neighbors.size} neighbors: $neighbors")
+    println(s"[${Calendar.getInstance().getTime}] ${neighbors.size} neighbors: $neighbors")
 
     emulator.updateNeighbors(neighbors)
     emulator.sendPeersChangedIntent()

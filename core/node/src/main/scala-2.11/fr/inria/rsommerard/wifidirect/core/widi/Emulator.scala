@@ -119,6 +119,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
           val socket = serverSocket.accept
           new Thread(new Runnable {
             override def run(): Unit = {
+              println(s"[${Calendar.getInstance().getTime}] Emulator accepted socket")
               // Warning: Order is important! First create output for the header!
               implicit val oOStream: ObjectOutputStream = new ObjectOutputStream(socket.getOutputStream)
               implicit val oIStream: ObjectInputStream = new ObjectInputStream(socket.getInputStream)
@@ -254,14 +255,14 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     send(Protocol.ACK)
 
     isConnect = true
-    //isGroupOwner = true
-    //groupOwnerAddress = weaveIp
+    isGroupOwner = true
+    groupOwnerAddress = weaveIp
 
-    /*if (wifiP2pConfig.groupOwnerIntent < 7) {
+    if (wifiP2pConfig.groupOwnerIntent > 7) {
       sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
       node.tell(Connect(weaveIp, wifiP2pConfig.deviceAddress, groupOwnerAddress), ActorRef.noSender)
       return
-    }*/
+    }
     //TODO define groupOwner from Androfleet Ui
 
     isGroupOwner = false
@@ -293,7 +294,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     implicit val deviceFormat = Json.format[Device]
 
     val json = Json.toJson(devices)
-    println(json)
+    println(s"[${Calendar.getInstance().getTime}] requestPeers: " + json.toString())
     send(json.toString())
   }
 
