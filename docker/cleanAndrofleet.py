@@ -3,19 +3,24 @@
 import os
 import subprocess
 
-print('Cleaning info file and log folder....')
-if os.path.exists('log'):
-    filelist = [ f for f in os.listdir('log') if f.endswith('.log') ]
-    for f in filelist:
-        os.remove('log/' + f)
+print("killing adb redir")
+subprocess.Popen(['fuser', '-k', '-n', 'tcp', '5037']).wait()
 
-if os.path.exists('log.zip'):
-    os.remove('log.zip')
-if os.path.exists('androfleet.info'):
-    os.remove('androfleet.info')
+
+
+# print('Cleaning info file and log folder....')
+# if os.path.exists('log'):
+#     filelist = [ f for f in os.listdir('log') if f.endswith('.log') ]
+#     for f in filelist:
+#         os.remove('log/' + f)
+#
+# if os.path.exists('log.zip'):
+#     os.remove('log.zip')
+# if os.path.exists('androfleet.info'):
+#     os.remove('androfleet.info')
 
 print('Stopping running containers...')
-process = subprocess.Popen(['docker', 'ps', '-a'], stdout=subprocess.PIPE)
+process = subprocess.Popen(['docker', 'ps'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 lines = output.strip().split('\n')
 for l in lines:
@@ -33,5 +38,8 @@ for l in lines:
         container_id = l.split()[0]
         process = subprocess.Popen(['docker', 'rm', container_id], stdout=subprocess.PIPE)
         process.wait()
+
+print("removing network...")
+subprocess.call(['docker','network','rm','my-net'])
 
 print('Done.')

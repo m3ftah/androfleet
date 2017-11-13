@@ -257,6 +257,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     isConnect = true
     isGroupOwner = true
     groupOwnerAddress = weaveIp
+    connectedTo = wifiP2pConfig.deviceAddress
 
     if (wifiP2pConfig.groupOwnerIntent > 7) {
       sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)

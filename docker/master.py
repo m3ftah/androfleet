@@ -29,18 +29,19 @@ subprocess.Popen(['docker', 'run',
 '-p', '5039:5039',#Adb port
 '--net', 'my-net',
  '--ip', '192.168.48.3',
- '-d', 'androfleet', 'master', NB_NODES]).wait()
+ '-d', 'm3ftah/androfleet', 'master', NB_NODES]).wait()
 
-
-print("killing adb on this machine ")
-subprocess.Popen(['fuser', '-k', '-n', 'tcp', '5037']).wait()
 
 #Redirect ports
 process = subprocess.Popen(['docker', 'inspect', '-f', "'{{.Node.IP}}'", 'androfleet-master'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 remoteAddress = output[1:-2]
-print("remoteAddress" + remoteAddress)
+print("remoteAddress: " + remoteAddress)
 #redirect adb port from Master to our machine
+
+print("killing adb redir")
+subprocess.Popen(['fuser', '-k', '-n', 'tcp', '5037']).wait()
+
 subprocess.Popen(['redir', '--cport', '5039', '--caddr', remoteAddress,'--lport', '5037', '--laddr', 'localhost', '&'])
 
 print("redirecting calabash ports")

@@ -8,13 +8,13 @@ import shutil
 
 APP = 'fougere'
 
-THIS = "/".join(os.path.realpath(__file__).split('/')[:-1]) + "/build"
-CORE = THIS + '/../../core'
+THIS = "/".join(os.path.realpath(__file__).split('/')[:-1]) + "/androfleet/build"
+CORE = THIS + '/../../../core'
 MASTER = CORE + '/master'
 SCENARIOS = MASTER + '/res/scenarios.txt'
 NODE = CORE + '/node'
 SERVDISC = CORE + '/servicediscovery'
-ANDROID = THIS + '/../../android/' + APP
+#ANDROID = THIS + '/../../android/' + APP
 
 class bcolors:
     HEADER = '\033[95m'
@@ -25,15 +25,15 @@ class bcolors:
     ENDC = '\033[0m'
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
-
-# Android
-if not os.path.exists(THIS + '/app-debug.apk'):
-    print(bcolors.WARNING ,"Rebuilding Android...", bcolors.ENDC)
-    os.chdir(ANDROID + '/../')
-    subprocess.call(['./fougere.py'])
-    os.chdir(ANDROID)
-    subprocess.call(['./gradlew', 'clean', 'assembleDebug'])
-    shutil.copy(ANDROID + '/app/build/outputs/apk/app-debug.apk', THIS)
+#
+# # Android
+# if not os.path.exists(THIS + '/app-debug.apk'):
+#     print(bcolors.WARNING ,"Rebuilding Android...", bcolors.ENDC)
+#     os.chdir(ANDROID + '/../')
+#     subprocess.call(['./fougere.py'])
+#     os.chdir(ANDROID)
+#     subprocess.call(['./gradlew', 'clean', 'assembleDebug'])
+#     shutil.copy(ANDROID + '/app/build/outputs/apk/app-debug.apk', THIS)
 
 # Master
 if not os.path.exists(THIS + '/androfleet-master-1.0'):
@@ -65,4 +65,4 @@ if not os.path.exists(THIS + '/androfleet-servicediscovery-1.0'):
     subprocess.call(['unzip', THIS + '/androfleet-servicediscovery-1.0.zip','-d', THIS])
     subprocess.call(['rm', THIS + '/androfleet-servicediscovery-1.0.zip'])
 
-print("[", bcolors.OKGREEN ,"success", bcolors.ENDC, "]")
+# print("[", bcolors.OKGREEN ,"Finished Building core", bcolors.ENDC, "]")

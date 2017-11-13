@@ -27,12 +27,9 @@ subprocess.call([PYTHONS_PATH + '/cleanAndrofleet.py'])
 #print("Building core...")
 #subprocess.call([PYTHONS_PATH + '/build-core.py'])
 
-#print("Building image...")
-#subprocess.call([PYTHONS_PATH + '/sites.py'])
+print("Rebuilding Androfleet...")
+subprocess.call([PYTHONS_PATH + '/rebuild.sh'])
 
-
-print("removing network...")
-subprocess.call(['docker','network','rm','my-net'])
 
 print("Creating network...")
 subprocess.Popen(['docker','network','create','--driver','overlay', '--subnet=192.168.48.0/23','my-net']).wait()

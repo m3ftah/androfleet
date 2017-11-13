@@ -81,15 +81,15 @@ class ServiceDiscovery extends Actor {
   }
 
   private def neighbors(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] Checking neighbors")
+    //println(s"[${Calendar.getInstance().getTime}] Checking neighbors")
     if (!discoverables(sender)) {
       println(s"[${Calendar.getInstance().getTime}] Warning: ${sender.path.address.host.get} is not discoverable")
       return
     }
 
     val loc: Option[Location] = locations.get(sender)
-    println("devices ip: " + locations.keys mkString );
-    println("devices location: " + locations.values mkString );
+    //println("devices ip: " + locations.keys mkString );
+    //println("devices location: " + locations.values mkString );
     if (loc.isEmpty) {
       println(s"[${Calendar.getInstance().getTime}] Warning: No Location found for ${sender.path.address.host.get}")
       return
@@ -101,11 +101,12 @@ class ServiceDiscovery extends Actor {
     var nghbrs: List[Neighbor] = List()
     for (a <- selection.keys) {
       val ip: String = ipNodes(a)
-      println(s"[${Calendar.getInstance().getTime}] Warning: Neighbor detected with ip: $ip for $sender")
+      //println(s"[${Calendar.getInstance().getTime}] Warning: Neighbor detected with ip: $ip for $sender")
 
       nghbrs = Neighbor(ip) :: nghbrs
     }
-    println(s"[${Calendar.getInstance().getTime}] Check complete with $nghbrs")
+    if (nghbrs.length > 1)
+    println(s"[${Calendar.getInstance().getTime}] Neighbors detected : $nghbrs for $sender")
 
     sender ! Neighbors(nghbrs)
   }
@@ -132,7 +133,7 @@ class ServiceDiscovery extends Actor {
 
     // current range 180m (+-600 feet)
     distance <= 180
-    true
+    //true
   }
 
   private def dealWithUnknown(state: String, name: String): Unit = {

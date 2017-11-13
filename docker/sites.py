@@ -9,7 +9,7 @@ import os
 if len(sys.argv) > 1:
     nodeMaster = sys.argv[1]
 else:
-    nodeMaster = 'luxembourg-0'
+    nodeMaster = 'nancy-0'
 
 PYTHONS_PATH = '.'
 

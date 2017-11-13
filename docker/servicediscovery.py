@@ -27,7 +27,7 @@ process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-servicediscov
  '-d',
  '--net', 'my-net',
   '--ip', '192.168.48.2',
- 'androfleet',
+ 'm3ftah/androfleet',
  'servicediscovery'], stdout=subprocess.PIPE)
 
 output = str(process.communicate()[0], 'UTF-8')

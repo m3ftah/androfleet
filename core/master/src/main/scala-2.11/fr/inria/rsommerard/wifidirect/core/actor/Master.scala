@@ -64,9 +64,13 @@ class Master(val nbNodes: Int) extends Actor {
     println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
 
     nbReadyNodes += 1
-    if (nbReadyNodes != nbNodes) {
-      return
-    }
+     if (nbReadyNodes < (nbNodes - 2) ) {
+       return
+     }
+    // if (nbReadyNodes > 0) {
+    //   return
+    // }
+    Thread.sleep(120000)
 
     context.become(process())
     println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
@@ -81,7 +85,8 @@ class Master(val nbNodes: Int) extends Actor {
     }
 
     tickValue += 1
-    //println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue ")
+    var percentage: Double = (tickValue.toDouble - firstTick.toDouble) / (lastTick.toDouble - firstTick.toDouble) * 100
+    println(s"[${Calendar.getInstance().getTime}] Tick: $tickValue, $lastTick, $percentage%")
 
     nodes.foreach(n => n ! Tick(tickValue))
     serviceDiscovery ! Tick(tickValue)
