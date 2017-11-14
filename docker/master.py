@@ -23,15 +23,14 @@ NB_NODES = sys.argv[1]
 
 # start master container
 print("Launching androfleet as master container...")
-subprocess.Popen(['docker', 'run',
-'--name', 'androfleet-master',
-'-p', '2800-4000:2800-4000',#Calabash ports
+process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-master',
+'-d',
+#'-p', '2800-4000:2800-4000',#Calabash ports
 '-p', '5039:5039',#Adb port
 '--volumes-from=androfleet-data',
 '--net', 'my-net',
- '--ip', '192.168.48.3',
- '-d', 'm3ftah/androfleet-base', 'master', NB_NODES])#.wait()
-
+'--ip', '192.168.48.3',
+'m3ftah/androfleet-base', 'master', NB_NODES], stdout=subprocess.PIPE)
 
 # #Redirect ports
 # process = subprocess.Popen(['docker', 'inspect', '-f', "'{{.Node.IP}}'", 'androfleet-master'], stdout=subprocess.PIPE)

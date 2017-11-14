@@ -26,17 +26,28 @@ for i in range(int(NB_NODES)):
     weaveAddress = '192.168.49.' +str(i+1)
 
     process = subprocess.Popen(['docker', 'run',
+    '--name','androfleet-emu' + str(i),
+    '-d',
+    #'--volumes-from=androfleet-data',
+    '--privileged',
+    '--net', 'my-net',
+    '--ip', weaveAddress,
+    '--device', '/dev/kvm',
+    '-p', '50' + str(i + 1).zfill(3) + ':5900',
+    #'-v',PATH + '/build:/build',
+    'm3ftah/androfleet-emulator', 'node', APP, str(i), PORT], stdout=subprocess.PIPE).wait()
+
+    weaveAddress = '192.168.50.' +str(i+1)
+
+    process = subprocess.Popen(['docker', 'run',
     '--name','androfleet-node' + str(i),
     '-d',
     '--volumes-from=androfleet-data',
     '--privileged',
     '--net', 'my-net',
      '--ip', weaveAddress,
-    '--device', '/dev/kvm',
-    '-p', '50' + str(i + 1).zfill(3) + ':5900',
-    #'-v',PATH + '/build:/build',
-    'm3ftah/androfleet-base', 'node', APP, str(i), PORT], stdout=subprocess.PIPE)#.wait()
+    'm3ftah/androfleet-base', 'node', APP, str(i), PORT], stdout=subprocess.PIPE).wait()
+
     print('Node' + str(i))
-    #process = subprocess.Popen(['docker', 'run', --name', 'androfleet-node' + str(i), '-d','--log-driver=gelf','--log-opt' ,'gelf-address=udp://172.17.0.3:12201','--log-opt','tag="node"' ,'--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
 
 print(str(i + 1) + ' nodes launched.')

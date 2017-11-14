@@ -46,37 +46,13 @@ case $MODE in
     echo "NodeNumber $3"
     echo "AppPort: $4"
 
-    #apt-get update
-    #apt-get -y  install iptables
-
-    #sysctl -w net.ipv4.conf.ethwe.route_localnet=1
+    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
+    redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-node$3 &
 
 
-    #iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
-
-
-    ##redir --cport 5039 --caddr androfleet-master --lport 5039 --laddr localhost &
-
-    ##redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
-
-    ##redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
-
-    ##redir --cport $4 --caddr localhost --lport $4 --laddr $ME &
+    adb devices
 
     sleep 5
-
-    cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
-
-    echo 'Starting emulator...'
-    #export SDL_VIDEO_X11_VISUALID=0x022
-
-    #emulator64-x86 @nexus -noaudio -no-window -gpu off -verbose -qemu -usbdevice tablet -vnc :0 &
-    emulator64-x86 @nexus -noaudio -no-window -gpu off -qemu -usbdevice tablet -vnc :0 &
-
-    #$ANDROID_HOME/tools/emulator${EMULATOR} -avd ${NAME} -no-window -no-audio
-    #emulator64-x86 -avd Androidx86 -no-skin -no-audio -no-window -no-boot-anim -noskin -gpu off -port 5554 -no-cache  -memory 512 -partition-size 200 &
-
-    if [ 0 -eq 0 ]; then
 
 #Waiting for adb to connect to device
     echo "Waiting for adb to connect to device..."
@@ -112,38 +88,12 @@ case $MODE in
       fi
       sleep 1
     done
-    echo 'Emulator started'
 
-    echo 'Adding emulator redirections...'
-    echo "" > ~/.emulator_console_auth_token
-
-    #65535
-
-
-       #(
-       #for i in {1..65535}
-       #do
-       #echo "redir add tcp:$i:898$i"; sleep 1;
-       #done
-       #echo 'exit') | telnet localhost 5554
-
-
-    (echo "redir add tcp:11131:11131"; sleep 1; echo 'exit') | telnet localhost 5554
-    (echo "redir add tcp:$4:$4"; sleep 1; echo 'exit') | telnet localhost 5554
-
-    #echo 'Installing the apk...'
-
-    #adb -s $ME:5555 -e install -r /build/app-debug.apk
-    #adb -s $ME:5555 -e logcat -c
-    #echo 'Launching application...'
-    #adb -s $ME:5555 -e shell am start -n $2
-    #echo 'Waiting for App to start...'
 
 
     echo 'Starting Scala program'
-    /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 'emulator-5554' '5555' &
+    /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 'emulator-5554' '5555'
 
-    fi
 
 
     tail -f /dev/null

@@ -32,7 +32,7 @@ subprocess.call([PYTHONS_PATH + '/rebuild.sh'])
 
 
 print("Creating network...")
-subprocess.Popen(['docker','network','create','--driver','overlay', '--subnet=192.168.48.0/23','my-net']).wait()
+subprocess.Popen(['docker','network','create','--driver','overlay', '--subnet=192.168.48.0/22','my-net']).wait()
 
 
 print("Launching Androfleet data container")
