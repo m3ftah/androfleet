@@ -8,11 +8,12 @@ NC='\033[0m' # No Color
 --g5k-username "$USERNAME" \
 --g5k-password "$PASSWORD" \
 --g5k-reserve-nodes "$CLUSTER:$MACHINES" \
---engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:graph=/tmp/docker" \
+--engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:data-root=/tmp/docker" \
 --g5k-walltime "$HOURS:00:00" \
 --swarm-standalone-enable \
---swarm-master "$CLUSTER-0"\
---g5k-image "ubuntu16.04-x64-min@gfieni"
+--swarm-master "$CLUSTER-0" \
+--g5k-image "ubuntu16.04-x64-min@gfieni" \
+--engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:storage-driver=overlay2"
 
 printf "${GREEN}Node reservation succeeded${NC}\n"
 
