@@ -23,12 +23,12 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 print("Launching androfleet as servicediscovery container...")
 
 process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-servicediscovery',
-#'-v',PATH + '/build:/build',
- '-d',
- '--net', 'my-net',
-  '--ip', '192.168.48.2',
- 'm3ftah/androfleet',
- 'servicediscovery'], stdout=subprocess.PIPE)
+'-d',
+'--net', 'my-net',
+'--ip', '192.168.48.2',
+'--volumes-from=androfleet-data',
+'m3ftah/androfleet-base',
+'servicediscovery'], stdout=subprocess.PIPE)
 
 output = str(process.communicate()[0], 'UTF-8')
 

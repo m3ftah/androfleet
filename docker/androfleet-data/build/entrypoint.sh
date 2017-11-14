@@ -1,5 +1,5 @@
 #!/bin/bash
-
+#v1
 if [ $# -lt 1 ]
 then
   echo "Usage : $0 ContainerType"
@@ -17,17 +17,19 @@ case $MODE in
       exit
     fi
 
-    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
-    redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-master &
-    for i in $(seq 1 $(($2)));
-    do
-      echo "$(($i + 2800))"
-      redir --cport $(($i + 2800)) --caddr localhost --lport $(($i + 2800)) --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
-    done
+    # redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
+    # redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-master &
+    # for i in $(seq 1 $(($2)));
+    # do
+    #   echo "$(($i + 2800))"
+    #   redir --cport $(($i + 2800)) --caddr localhost --lport $(($i + 2800)) --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
+    # done
+    #
+    # adb devices
 
-    adb devices
-
-    /build/androfleet-master-1.0/bin/androfleet-master $2 ;;
+    /build/androfleet-master-1.0/bin/androfleet-master $2 &
+    tail -f /dev/null
+    ;;
 
   'node' )
     if [ $# -lt 2 ]
@@ -53,11 +55,13 @@ case $MODE in
     #iptables -t nat -I PREROUTING -p tcp -d $ME/23 --dport 1:65535 -j DNAT --to-destination 127.0.0.1
 
 
-    redir --cport 5039 --caddr androfleet-master --lport 5039 --laddr localhost &
+    ##redir --cport 5039 --caddr androfleet-master --lport 5039 --laddr localhost &
 
-    redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
+    ##redir --cport 5555 --caddr localhost --lport 5555 --laddr $ME &
 
-    redir --cport $4 --caddr localhost --lport $4 --laddr $ME &
+    ##redir --cport 5554 --caddr localhost --lport 5554 --laddr $ME &
+
+    ##redir --cport $4 --caddr localhost --lport $4 --laddr $ME &
 
     sleep 5
 
@@ -76,7 +80,7 @@ case $MODE in
 
 #Waiting for adb to connect to device
     echo "Waiting for adb to connect to device..."
-    FAIL2=''
+    FAIL2='1'
     FAIL_COUNTER2=0
     until [[ "$FAIL2" =~ '1' ]]; do
       echo "$ME:5555"
@@ -137,7 +141,7 @@ case $MODE in
 
 
     echo 'Starting Scala program'
-    /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 $ME '5555' &
+    /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 'emulator-5554' '5555' &
 
     fi
 
@@ -148,7 +152,9 @@ case $MODE in
     ;;
 
   'servicediscovery' )
-    /build/androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery ;;
+    /build/androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery &
+    tail -f /dev/null
+    ;;
 
   * )
     echo "$MODE is not recognized as ContainerType"

@@ -52,4 +52,4 @@ EXPOSE 2800-4000
 
 
 # ADD build /build/
-# ENTRYPOINT ["/build/entrypoint.sh"]
+ENTRYPOINT ["/build/entrypoint.sh"]

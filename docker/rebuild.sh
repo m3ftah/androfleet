@@ -7,34 +7,34 @@ NC='\033[0m' # No Color
 
 eval "$(docker-machine env -u)"
 
-printf "[ ${RED}W'ont reBuilding m3ftah/androfleet-base${NC} ]\n"
-# cd ./androfleet-base
-# printf "[ ${WARN}Building m3ftah/androfleet-base${NC} ]\n"
-# docker build . -t m3ftah/androfleet-base && \
-# printf "[ ${OK}Image m3ftah/androfleet-base was built${NC} ]\n" ||\
-# exit 1
-#
-# printf "[ ${WARN}Pushing m3ftah/androfleet-base image${NC} ]\n"
-# docker push m3ftah/androfleet-base && \
-# printf "[ ${OK}Image m3ftah/androfleet-base was pushed${NC} ]\n"||\
-# exit 1
-# cd ..
+# printf "[ ${RED}W'ont reBuilding m3ftah/androfleet-base${NC} ]\n"
+cd ./androfleet-base
+printf "[ ${WARN}Building m3ftah/androfleet-base${NC} ]\n"
+docker build . -t m3ftah/androfleet-base && \
+printf "[ ${OK}Image m3ftah/androfleet-base was built${NC} ]\n" ||\
+exit 1
+
+printf "[ ${WARN}Pushing m3ftah/androfleet-base image${NC} ]\n"
+docker push m3ftah/androfleet-base && \
+printf "[ ${OK}Image m3ftah/androfleet-base was pushed${NC} ]\n"||\
+exit 1
+cd ..
 
 printf "[ ${WARN}Building core${NC} ]\n"
 ./build-core.py && \
 printf "[ ${OK}Core was built${NC} ]\n" ||\
 exit 1
 
-cd androfleet
-printf "[ ${WARN}Building m3ftah/androfleet${NC} ]\n"
-docker build  . -t m3ftah/androfleet -q && \
-printf "[ ${OK}Image m3ftah/androfleet was built${NC} ]\n" ||\
+cd androfleet-data
+printf "[ ${WARN}Building m3ftah/androfleet-data${NC} ]\n"
+docker build  . -t m3ftah/androfleet-data -q && \
+printf "[ ${OK}Image m3ftah/androfleet-data was built${NC} ]\n" ||\
 exit 1
 cd ..
 
-printf "[ ${WARN}Pushing m3ftah/androfleet image${NC} ]\n"
-docker push m3ftah/androfleet && \
-printf "[ ${OK}Image m3ftah/androfleet was pushed${NC} ]\n"||\
+printf "[ ${WARN}Pushing m3ftah/androfleet-data image${NC} ]\n"
+docker push m3ftah/androfleet-data && \
+printf "[ ${OK}Image m3ftah/androfleet-data was pushed${NC} ]\n"||\
 exit 1
 
 
@@ -45,7 +45,13 @@ exit 1
 
 
 
-printf "[ ${WARN}Pulling m3ftah/androfleet image for cluster: $CLUSTER${NC} ]\n"
-docker pull m3ftah/androfleet && \
-printf "[ ${OK}Image m3ftah/androfleet was pulled${NC} ]\n"||\
+printf "[ ${WARN}Pulling m3ftah/androfleet-data image for cluster: $CLUSTER${NC} ]\n"
+docker pull m3ftah/androfleet-data && \
+printf "[ ${OK}Image m3ftah/androfleet-data was pulled${NC} ]\n"||\
+exit 1
+
+
+printf "[ ${WARN}Pulling m3ftah/androfleet-base image for cluster: $CLUSTER${NC} ]\n"
+docker pull m3ftah/androfleet-base && \
+printf "[ ${OK}Image m3ftah/androfleet-base was pulled${NC} ]\n"||\
 exit 1

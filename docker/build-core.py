@@ -8,7 +8,7 @@ import shutil
 
 APP = 'fougere'
 
-THIS = "/".join(os.path.realpath(__file__).split('/')[:-1]) + "/androfleet/build"
+THIS = "/".join(os.path.realpath(__file__).split('/')[:-1]) + "/androfleet-data/build"
 CORE = THIS + '/../../../core'
 MASTER = CORE + '/master'
 SCENARIOS = MASTER + '/res/scenarios.txt'

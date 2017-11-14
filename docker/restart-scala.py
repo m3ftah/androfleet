@@ -21,7 +21,6 @@ remotePort = '5555'
 
 print("Launching androfleet as node containers...")
 for i in range(int(NB_NODES)):
-    time.sleep(2)
 
     weaveAddress = '192.168.49.' +str(i+1)
 
@@ -35,7 +34,7 @@ for i in range(int(NB_NODES)):
     '--device', '/dev/kvm',
     '-p', '50' + str(i + 1).zfill(3) + ':5900',
     #'-v',PATH + '/build:/build',
-    'm3ftah/androfleet-base', 'node', APP, str(i), PORT], stdout=subprocess.PIPE)#.wait()
+    'm3ftah/androfleet-base', 'node', APP, str(i), PORT], stdout=subprocess.PIPE).wait()
     print('Node' + str(i))
     #process = subprocess.Popen(['docker', 'run', --name', 'androfleet-node' + str(i), '-d','--log-driver=gelf','--log-opt' ,'gelf-address=udp://172.17.0.3:12201','--log-opt','tag="node"' ,'--privileged', 'rsommerard/androfleet', 'node', APP], stdout=subprocess.PIPE)
 
