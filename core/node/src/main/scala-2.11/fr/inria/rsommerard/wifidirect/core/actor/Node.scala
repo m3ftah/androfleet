@@ -9,10 +9,8 @@ import fr.inria.rsommerard.wifidirect.core.widi.Emulator
 import scala.util.Random
 
 class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) extends Actor {
-  val master = context.actorSelection("akka.tcp://MasterSystem@192.168.48.3:2552/user/master")
-  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@192.168.48.2:2552/user/servicediscovery")
-  //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
-  //val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
+  val master = context.actorSelection("akka.tcp://MasterSystem@androfleet-master:2552/user/master")
+  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@androfleet-servicediscovery:2552/user/servicediscovery")
 
   var neighbors: List[Neighbor] = List()
   var scenario: Scenario = getScenarios(nodeNumber)
@@ -23,10 +21,6 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     master ! Hello("Node")
     master ! IP(weaveIp)
     serviceDiscovery ! IP(weaveIp)
-
-
-    //social ! IP(weaveIp)
-    //contextual ! IP(weaveIp)
   }
 
   override def receive: Receive = {

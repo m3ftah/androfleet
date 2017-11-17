@@ -7,7 +7,8 @@ import time
 import socket
 import fcntl
 import struct
-
+from env import env
+env()
 # def get_ip_address(ifname):
 #     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #     return socket.inet_ntoa(fcntl.ioctl(
@@ -28,9 +29,9 @@ process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-master',
 #'-p', '2800-4000:2800-4000',#Calabash ports
 '-p', '5039:5039',#Adb port
 '--volumes-from=androfleet-data',
-'--net', 'my-net',
-'--ip', '192.168.48.3',
-'m3ftah/androfleet-base', 'master', NB_NODES], stdout=subprocess.PIPE)
+'--net', os.environ['NETWORK'],
+#'--ip', '192.168.48.3',
+'m3ftah/androfleet-base', 'master', NB_NODES], stdout=subprocess.PIPE).wait()
 
 # #Redirect ports
 # process = subprocess.Popen(['docker', 'inspect', '-f', "'{{.Node.IP}}'", 'androfleet-master'], stdout=subprocess.PIPE)

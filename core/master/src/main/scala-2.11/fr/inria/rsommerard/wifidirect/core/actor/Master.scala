@@ -16,9 +16,9 @@ class Master(val nbNodes: Int) extends Actor {
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
-  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@192.168.48.2:2552/user/servicediscovery")
-  val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
-  val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
+  val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@androfleet-servicediscovery:2552/user/servicediscovery")
+  //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
+  //val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
   val interval = 1000
   var nbReadyNodes: Int = 0
 
@@ -64,13 +64,10 @@ class Master(val nbNodes: Int) extends Actor {
     println(s"[${Calendar.getInstance().getTime}] Received Ready from ${sender.path.address.host.get} (${nbReadyNodes + 1}/$nbNodes)")
 
     nbReadyNodes += 1
-     if (nbReadyNodes < (nbNodes - 2) ) {
-       return
-     }
-    // if (nbReadyNodes > 0) {
-    //   return
-    // }
-    Thread.sleep(120000)
+    //return
+    if (nbReadyNodes != nbNodes) {
+      return
+    }
 
     context.become(process())
     println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")

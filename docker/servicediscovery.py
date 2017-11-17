@@ -3,7 +3,8 @@
 import subprocess
 import os
 import time
-
+from env import env
+env()
 print('ServiceDiscovery')
 
 
@@ -24,8 +25,8 @@ print("Launching androfleet as servicediscovery container...")
 
 process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-servicediscovery',
 '-d',
-'--net', 'my-net',
-'--ip', '192.168.48.2',
+'--net', os.environ['NETWORK'],
+#'--ip', '192.168.48.2',
 '--volumes-from=androfleet-data',
 'm3ftah/androfleet-base',
 'servicediscovery'], stdout=subprocess.PIPE)

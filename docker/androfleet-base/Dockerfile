@@ -16,7 +16,8 @@ RUN apt-get update && \
   netcat\
   iputils-ping \
   htop && \
-  apt-get clean
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
@@ -40,6 +41,8 @@ RUN wget http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz \
 ENV SCALA_HOME /scala-2.11.8
 ENV PATH ${PATH}:${SCALA_HOME}/bin
 
+ENV ANDROID_ADB_SERVER_PORT 5039
 
+EXPOSE 54421
 # ADD build /build/
 ENTRYPOINT ["/build/entrypoint.sh"]

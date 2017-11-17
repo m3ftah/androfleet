@@ -2,23 +2,8 @@
 
 import os
 import subprocess
-
-print("killing adb redir")
-subprocess.Popen(['fuser', '-k', '-n', 'tcp', '5037']).wait()
-
-
-
-# print('Cleaning info file and log folder....')
-# if os.path.exists('log'):
-#     filelist = [ f for f in os.listdir('log') if f.endswith('.log') ]
-#     for f in filelist:
-#         os.remove('log/' + f)
-#
-# if os.path.exists('log.zip'):
-#     os.remove('log.zip')
-# if os.path.exists('androfleet.info'):
-#     os.remove('androfleet.info')
-
+from env import env
+env()
 print('Stopping running containers...')
 process = subprocess.Popen(['docker', 'ps'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
@@ -40,6 +25,6 @@ for l in lines:
         process.wait()
 
 print("removing network...")
-subprocess.call(['docker','network','rm','my-net'])
+subprocess.call(['docker','network','rm',os.environ['NETWORK']])
 
 print('Done.')

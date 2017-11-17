@@ -12,7 +12,7 @@ class ServiceDiscovery extends Actor {
   var discoverables: Map[ActorRef, Boolean] = Map()
   var services: Map[ActorRef, Service] = Map()
 
-  val master = context.actorSelection("akka.tcp://MasterSystem@192.168.48.3:2552/user/master")
+  val master = context.actorSelection("akka.tcp://MasterSystem@androfleet-master:2552/user/master")
 
   override def preStart() {
     master ! Hello("ServiceDiscovery")
@@ -39,7 +39,7 @@ class ServiceDiscovery extends Actor {
   }
 
   private def tick(t: Tick): Unit = {
-    //println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
+    // println(s"[${Calendar.getInstance().getTime}] Tick: ${t.value}")
   }
 
   private def connect(c: Connect): Unit = {
@@ -69,6 +69,7 @@ class ServiceDiscovery extends Actor {
   }
 
   private def ip(i: IP): Unit = {
+    println(s"[${Calendar.getInstance().getTime}] Received IP from ${i.value}")
     ipNodes += (sender -> i.value)
   }
 

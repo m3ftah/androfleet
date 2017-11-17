@@ -31,18 +31,21 @@ RUN apt-get update && apt-get -y install \
   unzip \
   ruby-full \
   net-tools \
-  netcat\
-  iputils-ping
+  netcat \
+  iputils-ping \
+  htop &&\
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
 
 
 RUN mkdir /opt/android-sdk-linux/tools/keymaps && \
     touch /opt/android-sdk-linux/tools/keymaps/en-us
 
 ENV ANDROID_ADB_SERVER_PORT 5039
-EXPOSE 5039
-EXPOSE 2800-4000
+EXPOSE 5039 5554 5555
 
-ADD skins /data/skins
-ADD config.ini /data/
-ADD entrypoint.sh /data/
-ENTRYPOINT ["/data/entrypoint.sh"]
+ADD skins /build/skins
+ADD config.ini /build/
+ADD entrypoint.sh /build/
+#ADD build /build/
+ENTRYPOINT ["/build/entrypoint.sh"]

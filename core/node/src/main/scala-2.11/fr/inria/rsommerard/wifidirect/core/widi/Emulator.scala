@@ -15,9 +15,8 @@ object Emulator {
 
 }
 
-class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePort: String) {
+class Emulator(val weaveIp: String,val emulatorAddress: String,val emulatorName: String) {
   val adbPath = "adb"
-  val adbEmulator = adbDeviceAddress + ":" + adbDevicePort
   var neighbors: List[Neighbor] = List()
   var services: List[Service] = List()
   var isDiscoverable = false
@@ -41,25 +40,25 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
 
   def setName(nm: String):Unit = {
     name = nm
-    println("My name is " + name)
+    println("My name is :dsfdsafdsf  " + name)
     device = Device(nm, weaveIp)
   }
 
   def isApplicationStarted(packageName: String): Boolean = {
-    val isEmulatorStarted: Boolean = Process(s"$adbPath devices").!!.trim.contains(adbEmulator)
+    val isEmulatorStarted: Boolean = Process(s"$adbPath devices").!!.trim.contains(emulatorName)
 
-    if (Process(s"$adbPath -s $adbEmulator -e shell ps").!(ProcessLogger(out => ())) != 0)
+    if (Process(s"$adbPath -s $emulatorName -e shell ps").!(ProcessLogger(out => ())) != 0)
       return false
 
-    val isApplicationInPS = Process(s"$adbPath -s $adbEmulator -e shell ps").!!.trim.contains(packageName)
+    val isApplicationInPS = Process(s"$adbPath -s $emulatorName -e shell ps").!!.trim.contains(packageName)
 
     isEmulatorStarted && isApplicationInPS
   }
   def setGPSLocation(name: String ,lon: Double, lat: Double, epoch: Int): Unit = {
     println("[" + epoch + "][" + name + "][New GPS location] " + lon + " " + lat)
-    Process(s"$adbPath -s $adbEmulator -e shell date -u $epoch").!!
+    Process(s"$adbPath -s $emulatorName -e shell date -u $epoch").!!
     val tn = new TelnetClient
-    tn.connect("localhost", 5554)
+    tn.connect(s"$emulatorAddress", 5554)
 
     val out = new PrintStream(tn.getOutputStream)
     out.println(s"geo fix $lat $lon")
@@ -71,7 +70,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
   def updateNeighbors(nghbrs: List[Neighbor]) = {
     neighbors = nghbrs.filterNot(n => n.weaveIp == weaveIp)
     devices = List()
-    neighbors.foreach(n => devices = Device(s"N${n.weaveIp.replace(".", "")}", n.weaveIp) :: devices)
+    neighbors.foreach(n => devices = Device(s"${n.weaveIp}", n.weaveIp) :: devices)
   }
 
   def updateServices(srvcs: List[Service]) = {
@@ -79,34 +78,34 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
   }
 
   def sendStateChangedIntent(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}")
+    Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_STATE_CHANGED_ACTION} --ei ${Extra.EXTRA_WIFI_STATE} ${Extra.WIFI_P2P_STATE_ENABLED}").run()
   }
 
   def sendThisDeviceChangedIntent(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR}   --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR} --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name")
+    Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION_EMULATOR}   --es ${Extra.EXTRA_WIFI_P2P_DEVICE_IP} $weaveIp --es ${Extra.EXTRA_WIFI_P2P_DEVICE_NAME} $name").run()
   }
 
   def sendPeersChangedIntent(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}")
+    Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_PEERS_CHANGED_ACTION}").run()
   }
 
   def sendConnectionChangedIntent(): Unit = {
-    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}")
+    Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.WIFI_P2P_CONNECTION_CHANGED_ACTION}").run()
   }
 
   def sendConnectIntent(isConnect: Boolean, isGroupOwner: Boolean, groupOwnerAddress: String): Unit = {
     if (isConnect) {
 
-      println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress")
-      Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress").run()
+      println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress")
+      Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} true --ez ${Extra.EXTRA_GROUP_OWNER} $isGroupOwner --es ${Extra.EXTRA_GROUP_OWNER_ADDRESS} $groupOwnerAddress").run()
       return
     }
-    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false")
-    Process(s"${adbPath} -s ${adbEmulator} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
+    println(s"[${Calendar.getInstance().getTime}] ${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false")
+    Process(s"${adbPath} -s ${emulatorName} -e shell am broadcast -a ${Intent.CONNECT} --ez ${Extra.EXTRA_CONNECT_STATE} false").run()
   }
 
   def start(nd: ActorRef): Unit = {
@@ -340,7 +339,7 @@ class Emulator(val weaveIp: String,val adbDeviceAddress: String,val adbDevicePor
     var dnsSdTxtRecords: List[DnsSdTxtRecord] = List()
 
     for (s <- services) {
-      val srcDevice = Device(s"N${s.srcDevice.replace(".", "")}", s.srcDevice)
+      val srcDevice = Device(s"${s.srcDevice}", s.srcDevice)
       dnsSdServiceResponses = DnsSdServiceResponse(s.instanceName, s.registrationType, srcDevice) :: dnsSdServiceResponses
       dnsSdTxtRecords = DnsSdTxtRecord(s.fullDomainName, s.txtRecordMap, srcDevice) :: dnsSdTxtRecords
     }

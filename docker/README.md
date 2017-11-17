@@ -3,8 +3,8 @@ To run Androfleet on grid5000 cluster, you have to follow several steps:
 - Provision with `docker-g5k` driver
   - ```
   ./docker-g5k create-cluster \
-  --g5k-username "lmeftah" \
-  --g5k-password "L@;$<ma1" \
+  --g5k-username "$USERNAME" \
+  --g5k-password "$PASSWORD" \
   --g5k-reserve-nodes "lyon:4" \
   --engine-opt "lyon-{0..3}:graph=/tmp/docker" \
   --g5k-walltime "08:00:00" \
@@ -15,4 +15,4 @@ To run Androfleet on grid5000 cluster, you have to follow several steps:
 - Before running `Androfleet`, make sure you have the right `App Package Name` and `Connection PORT` configured in `try.py` script.
 - You can run the **Androfleet** using `./try.py 10` to run with 10 nodes, this will :
   - Create an `Overlay network` called `my-net`.
-  - 
+  -

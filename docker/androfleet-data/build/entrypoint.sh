@@ -7,7 +7,7 @@ then
 fi
 
 MODE=$1
-IP=$(ip addr list eth0 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1)
+#IP=$(ip addr list eth0 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1)
 
 case $MODE in
   'master' )
@@ -37,32 +37,38 @@ case $MODE in
       echo "Usage : $0 node Package/Activity"
       exit
     fi
-    ME=$(ip route | grep 'src 192.168.49.' | awk '{print $NF;exit}')
 
-    echo "WEAVE_IP: $ME"
-    echo "Configuring redir for $ME..."
+
+    emulatorName="emulator-5554"
+    #ipAddress=$(ip route | grep 'src 192.168.50.' | awk '{print $NF;exit}')
+    ipAddress=androfleet-node$2
+    emulatorAddress=androfleet-emu$2
+    #emulatorAddress=192.168.49.$(($2 +1))
+
     echo "role: $1"
-    echo "AppPackage $2"
-    echo "NodeNumber $3"
-    echo "AppPort: $4"
+    echo "NodeNumber $2"
+    echo "Emulator Name: $emulatorName"
+    echo "Emulator Address: $emulatorAddress"
+    echo "Ip Address: $ipAddress"
 
-    redir --cport 5039 --caddr localhost --lport 5039 --laddr $(ip addr list eth1 | grep 'inet ' | cut -d ' ' -f6 | cut -d/ -f1) &
-    redir --cport 5039 --caddr localhost --lport 5039 --laddr androfleet-node$3 &
+    sleep 15
 
+    redir --cport 5039 --caddr $emulatorAddress --lport 5039 --laddr localhost &
+
+
+    sleep 15
 
     adb devices
-
-    sleep 5
 
 #Waiting for adb to connect to device
     echo "Waiting for adb to connect to device..."
     FAIL2='1'
     FAIL_COUNTER2=0
     until [[ "$FAIL2" =~ '1' ]]; do
-      echo "$ME:5555"
-      adb connect "$ME:5555"
+      echo "$emulatorName"
+      adb connect "$emulatorName"
       FAIL2='1'
-      if ! adb devices | grep "$ME:5555.*device" ; then
+      if ! adb devices | grep "$emulatorName.*device" ; then
         #echo "failed to connect device $FAIL_COUNTER2"
         FAIL2=''
         let 'FAIL_COUNTER2 += 1'
@@ -78,7 +84,7 @@ case $MODE in
     BOOT_COMPLETED=''
     FAIL_COUNTER=0
     until [[ "$BOOT_COMPLETED" =~ '1' ]]; do
-      BOOT_COMPLETED=`adb -s $ME:5555 shell getprop sys.boot_completed 2>&1`
+      BOOT_COMPLETED=`adb -s $emulatorName shell getprop sys.boot_completed 2>&1`
       if [[ "$BOOT_COMPLETED" =~ 'not found' ]]; then
         let 'FAIL_COUNTER += 1'
         if [[ $FAIL_COUNTER -gt 120 ]]; then
@@ -92,7 +98,7 @@ case $MODE in
 
 
     echo 'Starting Scala program'
-    /build/androfleet-node-1.0/bin/androfleet-node $2 $ME $3 'emulator-5554' '5555'
+    /build/androfleet-node-1.0/bin/androfleet-node $2 $ipAddress $emulatorAddress $emulatorName
 
 
 
@@ -102,8 +108,7 @@ case $MODE in
     ;;
 
   'servicediscovery' )
-    /build/androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery &
-    tail -f /dev/null
+    /build/androfleet-servicediscovery-1.0/bin/androfleet-servicediscovery
     ;;
 
   * )

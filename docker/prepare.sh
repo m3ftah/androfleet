@@ -12,6 +12,7 @@ NC='\033[0m' # No Color
 --g5k-walltime "$HOURS:00:00" \
 --swarm-standalone-enable \
 --swarm-master "$CLUSTER-0" \
+--g5k-resource-properties "cluster = 'chifflet'" \
 --g5k-image "ubuntu16.04-x64-min@gfieni" \
 --engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:storage-driver=overlay2"
 
