@@ -5,3 +5,4 @@ reserve.txt
 .env
 logs
 *.pyc
+*.log

@@ -7,7 +7,7 @@ import json
 import shutil
 from env import env
 env()
-print("Used Network : " + os.environ['NETWORK'])
+#print("Used Network : " + os.environ['NETWORK'])
 APP = 'fougere'
 
 THIS = "/".join(os.path.realpath(__file__).split('/')[:-1]) + "/androfleet-data/build"

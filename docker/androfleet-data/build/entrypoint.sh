@@ -54,6 +54,7 @@ case $MODE in
     sleep 15
 
     redir --cport 5039 --caddr $emulatorAddress --lport 5039 --laddr localhost &
+    redir --cport 11131 --caddr androfleet-emu$2 --lport 11131 --laddr androfleet-node$2 &
 
 
     sleep 15
