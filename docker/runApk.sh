@@ -1,7 +1,7 @@
 source .env
 #./gradlew assemble clean
 #./gradlew assemble
-eval $(docker-machine env --swarm $CLUSTER-0)
+eval $(docker-machine env --swarm $SITE-0)
 
 for (( i=0; i< $NODES; ++i));
 do

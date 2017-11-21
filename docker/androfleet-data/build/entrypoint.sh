@@ -99,6 +99,7 @@ case $MODE in
 
 
     echo 'Starting Scala program'
+    JAVA_OPTS='-Xmx100m'
     /build/androfleet-node-1.0/bin/androfleet-node $2 $ipAddress $emulatorAddress $emulatorName
 
 

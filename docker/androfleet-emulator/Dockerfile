@@ -16,9 +16,11 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 RUN cd /tmp && \
     curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
-RUN echo "y" | android update sdk --no-ui --force -a --filter android-23,sys-img-x86-android-23,platform-tools
-
-RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
+RUN echo "y" | android update sdk --no-ui --force -a --filter android-15,sys-img-x86-android-15,platform-tools
+#-t android-19 --abi armeabi-v7a --skin WXGA720
+#RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
+RUN resize2fs /opt/android-sdk-linux/system-images/android-15/default/x86/userdata.img 50M
+RUN echo "n" | android create avd --force -n nexus -t android-15 -b default/x86
 
 
 
@@ -44,7 +46,7 @@ RUN mkdir /opt/android-sdk-linux/tools/keymaps && \
 ENV ANDROID_ADB_SERVER_PORT 5039
 EXPOSE 5039 5554 5555
 
-ADD skins /build/skins
+#ADD skins /build/skins
 ADD config.ini /build/
 ADD entrypoint.sh /build/
 #ADD build /build/

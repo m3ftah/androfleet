@@ -22,17 +22,12 @@ print("Launching androfleet as Emulator containers...")
 for i in range(int(NB_NODES)):
     time.sleep(2)
 
-    weaveAddress = '192.168.49.' +str(i+1)
     process = subprocess.Popen(['docker', 'run',
     '--name','androfleet-emu' + str(i),
     '-d',
-    #'--volumes-from=androfleet-data',
     '--privileged',
     '--net', os.environ['NETWORK'],
-    # '--ip', weaveAddress,
-    '--device', '/dev/kvm',
-    #'-p', '50' + str(i + 1).zfill(3) + ':5900',
-    #'-v',PATH + '/build:/build',
+    #'--device', '/dev/kvm',
     'm3ftah/androfleet-emulator', 'node', str(i), PORT], stdout=subprocess.PIPE).wait()
 
     print('Emulator' + str(i))

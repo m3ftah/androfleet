@@ -22,12 +22,15 @@ sleep 5
 
 
 
-cp /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/
+cp -f /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/config.ini
+
+resize2fs $ANDROID_HOME/.android/avd/nexus.avd/userdata.img 50M
 
 echo 'Starting emulator...'
 
 
-emulator64-x86 @nexus -noaudio -no-window -gpu off -qemu -usbdevice tablet -vnc :0 &
+#emulator64-x86 @nexus -noaudio -no-window -gpu off -partition-size 1024 &
+emulator64-x86 @nexus -noaudio -no-window -gpu off -partition-size 512 -no-skin -qemu -usbdevice tablet -vnc :0 &
 
 
 #Waiting for adb to connect to device
@@ -89,7 +92,7 @@ until [[ "$FAIL3" =~ '1' ]]; do
     echo "ping didn't work for androfleet-node$2..."
     FAIL3=''
     let 'FAIL_COUNTER3 += 1'
-    if [[ $FAIL_COUNTER3 -gt 120 ]]; then
+    if [[ $FAIL_COUNTER3 -gt 990 ]]; then
       echo "Failed to connect androfleet-node$2 !!!"
       exit 1
     fi

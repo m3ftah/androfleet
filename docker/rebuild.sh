@@ -33,18 +33,18 @@ docker push m3ftah/androfleet-emulator
 cd ..
 
 
-printf "[ ${WARN}Changing environment to $CLUSTER-0${NC} ]\n"
-eval $(docker-machine env --swarm $CLUSTER-0) && \
+printf "[ ${WARN}Changing environment to $SITE-0${NC} ]\n"
+eval $(docker-machine env --swarm $SITE-0) && \
 printf "[ ${OK}Environment changed${NC} ]\n"||\
 exit 1
 
 
 
-printf "[ ${WARN}Pulling m3ftah/androfleet-data image for cluster: $CLUSTER${NC} ]\n"
+printf "[ ${WARN}Pulling m3ftah/androfleet-data image for SITE: $SITE${NC} ]\n"
 docker pull m3ftah/androfleet-data
 
-printf "[ ${WARN}Pulling m3ftah/androfleet-base image for cluster: $CLUSTER${NC} ]\n"
+printf "[ ${WARN}Pulling m3ftah/androfleet-base image for SITE: $SITE${NC} ]\n"
 docker pull m3ftah/androfleet-base
 
-printf "[ ${WARN}Pulling m3ftah/androfleet-emulator image for cluster: $CLUSTER${NC} ]\n"
+printf "[ ${WARN}Pulling m3ftah/androfleet-emulator image for SITE: $SITE${NC} ]\n"
 docker pull m3ftah/androfleet-emulator

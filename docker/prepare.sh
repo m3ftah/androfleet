@@ -7,14 +7,14 @@ NC='\033[0m' # No Color
 ./docker-g5k create-cluster \
 --g5k-username "$USERNAME" \
 --g5k-password "$PASSWORD" \
---g5k-reserve-nodes "$CLUSTER:$MACHINES" \
---engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:data-root=/tmp/docker" \
+--g5k-reserve-nodes "$SITE:$MACHINES" \
+--engine-opt "$SITE-{0..$(($MACHINES-1))}:data-root=/tmp/docker" \
 --g5k-walltime "$HOURS:00:00" \
 --swarm-standalone-enable \
---swarm-master "$CLUSTER-0" \
---g5k-resource-properties "cluster = 'chifflet'" \
+--swarm-master "$SITE-0" \
+--g5k-resource-properties "cluster = '$CLUSTER'" \
 --g5k-image "ubuntu16.04-x64-min@gfieni" \
---engine-opt "$CLUSTER-{0..$(($MACHINES-1))}:storage-driver=overlay2"
+--engine-opt "$SITE-{0..$(($MACHINES-1))}:storage-driver=overlay2"
 
 printf "${GREEN}Node reservation succeeded${NC}\n"
 
@@ -23,8 +23,8 @@ printf "${GREEN}Node reservation succeeded${NC}\n"
 # printf "[ ${OK}Androfleet is ready${NC} ]\n" ||\
 # exit 1
 
-# printf "[ ${WARN}Changing environment to $CLUSTER-0${NC} ]\n"
-# eval $(docker-machine env --swarm $CLUSTER-0) && \
+# printf "[ ${WARN}Changing environment to $SITE-0${NC} ]\n"
+# eval $(docker-machine env --swarm $SITE-0) && \
 # printf "[ ${OK}Environment changed${NC} ]\n"||
 # exit 1
 

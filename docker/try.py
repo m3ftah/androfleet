@@ -45,6 +45,9 @@ os.environ['NETWORK']
 print("Launching Androfleet data container")
 subprocess.call([PYTHONS_PATH + '/data.py'])
 
+# print("Launching Androfleet dataEmulator container")
+# subprocess.call([PYTHONS_PATH + '/dataEmulator.py'])
+
 print("Launching Master")
 subprocess.call([PYTHONS_PATH + '/master.py', NB_NODES])
 # time.sleep(5)
