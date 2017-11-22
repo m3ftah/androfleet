@@ -118,7 +118,7 @@ class Emulator(val weaveIp: String,val emulatorAddress: String,val emulatorName:
           val socket = serverSocket.accept
           new Thread(new Runnable {
             override def run(): Unit = {
-              println(s"[${Calendar.getInstance().getTime}] Emulator accepted socket")
+              println(s"[${Calendar.getInstance().getTime}] Emulator accepted socket : " + message)
               // Warning: Order is important! First create output for the header!
               implicit val oOStream: ObjectOutputStream = new ObjectOutputStream(socket.getOutputStream)
               implicit val oIStream: ObjectInputStream = new ObjectInputStream(socket.getInputStream)
@@ -170,9 +170,11 @@ class Emulator(val weaveIp: String,val emulatorAddress: String,val emulatorName:
 
     node.tell(Discoverable(true), ActorRef.noSender)
     //groupOwnerAddress = ""
-    Thread.sleep(10000)
+    // Thread.sleep(10000)
     sendStateChangedIntent()
+    // Thread.sleep(10000)
     sendThisDeviceChangedIntent()
+    // Thread.sleep(10000)
     sendConnectIntent(isConnect, isGroupOwner, groupOwnerAddress)
 
   }

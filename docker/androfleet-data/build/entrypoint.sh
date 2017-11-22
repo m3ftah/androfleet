@@ -69,7 +69,7 @@ case $MODE in
       echo "$emulatorName"
       adb connect "$emulatorName"
       FAIL2='1'
-      if ! adb devices | grep "$emulatorName.*device" ; then
+      if ! adb devices 2>&1 | grep "$emulatorName.*device" ; then
         #echo "failed to connect device $FAIL_COUNTER2"
         FAIL2=''
         let 'FAIL_COUNTER2 += 1'

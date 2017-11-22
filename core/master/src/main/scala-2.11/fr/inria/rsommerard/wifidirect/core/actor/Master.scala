@@ -16,6 +16,7 @@ class Master(val nbNodes: Int) extends Actor {
   val firstTick: Int = Scenarios.getMinTimestamp - 60
   val lastTick: Int = Scenarios.getMaxTimestamp + 60
   var tickValue: Int = firstTick
+  var start: Boolean = false
   val serviceDiscovery = context.actorSelection("akka.tcp://ServiceDiscoverySystem@androfleet-servicediscovery:2552/user/servicediscovery")
   //val social = context.actorSelection("akka.tcp://SocialSystem@10.32.0.44:2552/user/social")
   //val contextual = context.actorSelection("akka.tcp://ContextualSystem@10.32.0.45:2552/user/contextual")
@@ -45,6 +46,8 @@ class Master(val nbNodes: Int) extends Actor {
     //val scenar: Scenario = scenarios(nodes.size)
     nodes += sender
     //sender ! scenar
+    start = (i.value == "androfleet-node0");
+
   }
 
   private def state(s: String): Unit = {
@@ -65,14 +68,20 @@ class Master(val nbNodes: Int) extends Actor {
 
     nbReadyNodes += 1
     //return
-    if (nbReadyNodes != nbNodes) {
-      return
+    // if (nbReadyNodes != nbNodes) {
+    //   return
+    // }
+    if (start){
+      Thread.sleep(15000)
+      context.become(process())
+      println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
+      println(s"[${Calendar.getInstance().getTime}] firstTick $firstTick, lastTick $lastTick")
+      context.system.scheduler.schedule(0 second, interval milliseconds, self, Tick)
     }
-
-    context.become(process())
-    println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
-    println(s"[${Calendar.getInstance().getTime}] firstTick $firstTick, lastTick $lastTick")
-    context.system.scheduler.schedule(0 second, interval milliseconds, self, Tick)
+    // context.become(process())
+    // println(s"[${Calendar.getInstance().getTime}] Starting process with $interval milliseconds between each tick")
+    // println(s"[${Calendar.getInstance().getTime}] firstTick $firstTick, lastTick $lastTick")
+    // context.system.scheduler.schedule(0 second, interval milliseconds, self, Tick)
   }
 
   private def tick(): Unit = {

@@ -1,0 +1,13 @@
+[
+  { "key": "PingTaskFromEmulatdServer",
+    "type": "ping",
+    "parameters":
+      { "target": "127.0.0.1" }
+    ,
+    "start_time": "2008-06-06T18:00:00.204589Z",
+    "end_time": "2008-06-09T18:00:00.204589Z",
+    "interval_sec": 60,
+    "count": 20,
+    "priority": 1
+  }
+]

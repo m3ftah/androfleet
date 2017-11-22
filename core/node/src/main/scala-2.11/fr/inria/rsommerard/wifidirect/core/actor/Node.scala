@@ -85,7 +85,7 @@ class Node(val weaveIp: String, val emulator: Emulator,val nodeNumber : Int) ext
     sel.foreach(s => {
       locations = locations :+ Location(s.split(',')(1).toDouble, s.split(',')(2).toDouble, s.split(',')(3).toInt)
     })
-    Scenario(name.split('.')(0), locations)
+    Scenario(name.split('\_.')(1), locations)
   }
 
   private def disconnect(d: Disconnect): Unit = {

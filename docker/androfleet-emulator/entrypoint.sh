@@ -24,13 +24,13 @@ sleep 5
 
 cp -f /build/config.ini $ANDROID_HOME/.android/avd/nexus.avd/config.ini
 
-resize2fs $ANDROID_HOME/.android/avd/nexus.avd/userdata.img 50M
+#resize2fs $ANDROID_HOME/.android/avd/nexus.avd/userdata.img 50M
 
 echo 'Starting emulator...'
 
 
-#emulator64-x86 @nexus -noaudio -no-window -gpu off -partition-size 1024 &
-emulator64-x86 @nexus -noaudio -no-window -gpu off -partition-size 512 -no-skin -qemu -usbdevice tablet -vnc :0 &
+emulator64-x86 @nexus -noaudio -no-window -no-skin -qemu &
+#emulator64-x86 @nexus -noaudio -no-window -gpu off -no-skin -qemu -usbdevice tablet -vnc :0 &
 
 
 #Waiting for adb to connect to device
@@ -41,7 +41,7 @@ until [[ "$FAIL2" =~ '1' ]]; do
   echo "$emulatorName"
   adb connect "$emulatorName"
   FAIL2='1'
-  if ! adb devices | grep "$emulatorName.*device" ; then
+  if ! adb devices 2>&1 | grep "$emulatorName.*device" ; then
     #echo "failed to connect device $FAIL_COUNTER2"
     FAIL2=''
     let 'FAIL_COUNTER2 += 1'
@@ -113,4 +113,4 @@ redir --cport 54421 --caddr androfleet-node$2 --lport 54421 --laddr localhost &
 #echo 'Waiting for App to start...'
 
 
-adb -e logcat -v time Fougere:V APP:V WiDi:V *:S
+adb -e logcat -v time Fougere:D APP:D WiDi:D Mobiperf:D *:S

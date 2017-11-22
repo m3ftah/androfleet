@@ -16,9 +16,8 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 
 
 print("Launching androfleet as node containers...")
-for i in range(int(NB_NODES)):
-    time.sleep(2)
-    weaveAddress = '192.168.50.' +str(i+1)
+for i in range(1,int(NB_NODES)):
+    #time.sleep(2)
 
     process = subprocess.Popen(['docker', 'run',
     '--name','androfleet-node' + str(i),
@@ -30,5 +29,14 @@ for i in range(int(NB_NODES)):
     'm3ftah/androfleet-base', 'node', str(i)], stdout=subprocess.PIPE).wait()
 
     print('Node' + str(i))
+#
+# process = subprocess.Popen(['docker', 'run',
+# '--name','androfleet-node0',
+# '-d',
+# '--volumes-from=androfleet-data',
+# '--privileged',
+# '--net', os.environ['NETWORK'],
+# #'--ip', weaveAddress,
+# 'm3ftah/androfleet-base', 'node', str(0)], stdout=subprocess.PIPE).wait()
 
 print(str(i + 1) + ' nodes launched.')

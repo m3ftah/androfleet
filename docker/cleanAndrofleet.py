@@ -9,7 +9,7 @@ process = subprocess.Popen(['docker', 'ps'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 lines = output.strip().split('\n')
 for l in lines:
-    if ('androfleet' in l):
+    if ('androfleet' in l or 'python-server' in l):
         container_id = l.split()[0]
         process = subprocess.Popen(['docker', 'kill', container_id], stdout=subprocess.PIPE)
         process.wait()
@@ -19,7 +19,7 @@ process = subprocess.Popen(['docker', 'ps', '-a'], stdout=subprocess.PIPE)
 output = str(process.communicate()[0], 'UTF-8')
 lines = output.strip().split('\n')
 for l in lines:
-    if ('androfleet' in l):
+    if ('androfleet' in l or 'python-server' in l):
         container_id = l.split()[0]
         process = subprocess.Popen(['docker', 'rm', container_id], stdout=subprocess.PIPE)
         process.wait()

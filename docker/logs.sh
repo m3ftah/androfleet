@@ -1,25 +1,32 @@
+#!/bin/bash
 source .env
-
+sleep 4200
 eval $(docker-machine env --swarm $CLUSTER-0)
+FOLDER=logs/$(date +%Y_%m_%d_%H_%M_%S)
+ mkdir $FOLDER
 
- mkdir logs
  for (( i=0; i< $NODES; ++i));
  do
    site="$(docker inspect --format='{{.Node.Name}}' androfleet-node$i)";
    echo "Getting log for $site/androfleet-node$i"
-   docker logs $site/androfleet-node$i > logs/androfleet-node$i.log;
+   docker logs $site/androfleet-node$i > $FOLDER/androfleet-node$i.log;
 
    site="$(docker inspect --format='{{.Node.Name}}' androfleet-emu$i)";
    echo "Getting log for $site/androfleet-emu$i"
-   docker logs $site/androfleet-emu$i > logs/androfleet-emu$i.log;
+   docker logs $site/androfleet-emu$i > $FOLDER/androfleet-emu$i.log;
  done
 
 
 site="$(docker inspect --format='{{.Node.Name}}' androfleet-master)";
 echo "Getting log for $site/androfleet-master"
-docker logs $site/androfleet-master > logs/androfleet-master.log;
+docker logs $site/androfleet-master > $FOLDER/androfleet-master.log;
 
 
 site="$(docker inspect --format='{{.Node.Name}}' androfleet-servicediscovery)";
 echo "Getting log for $site/androfleet-servicediscovery"
-docker logs $site/androfleet-servicediscovery > logs/androfleet-servicediscovery.log;
+docker logs $site/androfleet-servicediscovery > $FOLDER/androfleet-servicediscovery.log;
+
+docker-machine ls > $FOLDER/docker-machine.log
+
+git show --oneline -s > $FOLDER/git.log
+cp $APK $FOLDER/debug.apk

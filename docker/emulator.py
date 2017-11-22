@@ -20,14 +20,14 @@ PATH = os.path.dirname(os.path.realpath(__file__))
 
 print("Launching androfleet as Emulator containers...")
 for i in range(int(NB_NODES)):
-    time.sleep(2)
+    #time.sleep(2)
 
     process = subprocess.Popen(['docker', 'run',
     '--name','androfleet-emu' + str(i),
     '-d',
     '--privileged',
     '--net', os.environ['NETWORK'],
-    #'--device', '/dev/kvm',
+    '--device', '/dev/kvm',
     'm3ftah/androfleet-emulator', 'node', str(i), PORT], stdout=subprocess.PIPE).wait()
 
     print('Emulator' + str(i))
