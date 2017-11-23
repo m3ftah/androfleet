@@ -45,4 +45,4 @@ ENV ANDROID_ADB_SERVER_PORT 5039
 
 EXPOSE 54421
 # ADD build /build/
-ENTRYPOINT ["/build/entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]

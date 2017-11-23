@@ -118,12 +118,12 @@ class Emulator(val weaveIp: String,val emulatorAddress: String,val emulatorName:
           val socket = serverSocket.accept
           new Thread(new Runnable {
             override def run(): Unit = {
-              println(s"[${Calendar.getInstance().getTime}] Emulator accepted socket : " + message)
+              println(s"[${Calendar.getInstance().getTime}] WiDi accepted socket")
               // Warning: Order is important! First create output for the header!
               implicit val oOStream: ObjectOutputStream = new ObjectOutputStream(socket.getOutputStream)
               implicit val oIStream: ObjectInputStream = new ObjectInputStream(socket.getInputStream)
               val message: String  = receive()
-
+              println(s"[${Calendar.getInstance().getTime}] Received message from Emulator : " + message)
               message match {
                 case Protocol.HELLO => hello()
                 case Protocol.CARTON => carton()

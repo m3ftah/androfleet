@@ -1,7 +1,6 @@
-build/androfleet*
+androfleet-data/build/
 app-debug.apk
 androfleet.info
-reserve.txt
 .env
 logs
 *.pyc

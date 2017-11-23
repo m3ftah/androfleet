@@ -7,7 +7,7 @@ import os
 import shutil
 import subprocess
 
-BASE = '/home/romain/Lab/androfleet/sfcabs'
+BASE = '/home/lakhdar/ilab/androfleet/sfcabs'
 
 DATA = BASE + '/cabspottingdata'
 GEN = BASE + '/gen'
@@ -17,9 +17,9 @@ ZIP = SCENARIOS + '.zip'
 TXT = SCENARIOS + '.txt'
 
 # ./generate.py 30 20080606180000 20080606190000
-CABS = 30
+CABS = 538
 MIN = calendar.timegm(time.strptime(str(20080606180000), "%Y%m%d%H%M%S"))
-MAX = calendar.timegm(time.strptime(str(20080606190000), "%Y%m%d%H%M%S"))
+MAX = calendar.timegm(time.strptime(str(20080607180000), "%Y%m%d%H%M%S"))
 
 args = sys.argv[1:]
 if len(args) >= 1:
