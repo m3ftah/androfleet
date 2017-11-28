@@ -10,7 +10,7 @@ eval "$(docker-machine env -u)"
 # printf "[ ${RED}W'ont reBuilding m3ftah/androfleet-base${NC} ]\n"
 cd ./androfleet-base
 printf "[ ${WARN}Building m3ftah/androfleet-base${NC} ]\n"
-docker build . -t m3ftah/androfleet-base
+docker build . -t m3ftah/androfleet-base -q
 printf "[ ${WARN}Pushing m3ftah/androfleet-base image${NC} ]\n"
 docker push m3ftah/androfleet-base
 cd ..
@@ -18,12 +18,6 @@ cd ..
 printf "[ ${WARN}Building core${NC} ]\n"
 ./build-core.py
 
-cd androfleet-data
-printf "[ ${WARN}Building m3ftah/androfleet-data${NC} ]\n"
-docker build  . -t m3ftah/androfleet-data -q
-printf "[ ${WARN}Pushing m3ftah/androfleet-data image${NC} ]\n"
-docker push m3ftah/androfleet-data
-cd ..
 
 cd androfleet-emulator
 printf "[ ${WARN}Building m3ftah/androfleet-emulator${NC} ]\n"
@@ -32,6 +26,12 @@ printf "[ ${WARN}Pushing m3ftah/androfleet-emulator image${NC} ]\n"
 docker push m3ftah/androfleet-emulator
 cd ..
 
+cd mobiperf-server
+printf "[ ${WARN}Building m3ftah/python-server${NC} ]\n"
+docker build  . -t m3ftah/python-server -q
+printf "[ ${WARN}Pushing m3ftah/python-server image${NC} ]\n"
+docker push m3ftah/python-server
+cd ..
 
 printf "[ ${WARN}Changing environment to $SITE-0${NC} ]\n"
 eval $(docker-machine env --swarm $SITE-0) && \
@@ -48,3 +48,6 @@ docker pull m3ftah/androfleet-base
 
 printf "[ ${WARN}Pulling m3ftah/androfleet-emulator image for SITE: $SITE${NC} ]\n"
 docker pull m3ftah/androfleet-emulator
+
+printf "[ ${WARN}Pulling m3ftah/androfleet-emulator image for SITE: $SITE${NC} ]\n"
+docker pull m3ftah/python-server

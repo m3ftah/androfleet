@@ -26,34 +26,26 @@ print("Cleaning...")
 subprocess.call([PYTHONS_PATH + '/cleanAndrofleet.py'])
 
 
-print("Building core...")
-subprocess.call([PYTHONS_PATH + '/build-core.py'])
-
+# print("Building core...")
+# subprocess.call([PYTHONS_PATH + '/build-core.py'])
+#
 print("Rebuilding Androfleet...")
 subprocess.call([PYTHONS_PATH + '/rebuild.sh'])
 
-
+#docker network create --driver overlay --subnet=10.0.9.0/24 my-net
 print("Creating network...")
 subprocess.Popen(['docker','network','create',
 '--driver','overlay',
 '--subnet=192.168.0.0/16',
-#'--subnet=192.168.48.0/22',
 os.environ['NETWORK']
 ]).wait()
 
-
-print("Launching Androfleet data container")
-subprocess.call([PYTHONS_PATH + '/data.py'])
-
-# print("Launching Androfleet dataEmulator container")
-# subprocess.call([PYTHONS_PATH + '/dataEmulator.py'])
 
 print("Launching Mobiperf container")
 subprocess.call([PYTHONS_PATH + '/mobiperfServer.sh'])
 
 print("Launching Master")
 subprocess.call([PYTHONS_PATH + '/master.py', os.environ['NODES']])
-# time.sleep(5)
 
 print("Launching Service Discovery")
 subprocess.call([PYTHONS_PATH + '/servicediscovery.py'])

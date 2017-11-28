@@ -14,8 +14,10 @@ print('Running androfleet-node' + str(i))
 process = subprocess.Popen(['docker', 'run',
 '--name','androfleet-node' + str(i),
 '-d',
-'--volumes-from=androfleet-data',
+#'--volumes-from=androfleet-data',
 '--privileged',
+'-p','9011:9011',
+#'-e','constraint:node==lille-0',
 '--net', os.environ['NETWORK'],
 'm3ftah/androfleet-base', 'node', str(i)], stdout=subprocess.PIPE).wait()
 

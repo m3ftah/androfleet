@@ -28,9 +28,7 @@ process = subprocess.Popen(['docker', 'run', '--name', 'androfleet-master',
 '-d',
 #'-p', '2800-4000:2800-4000',#Calabash ports
 '-p', '5039:5039',#Adb port
-'--volumes-from=androfleet-data',
 '--net', os.environ['NETWORK'],
-#'--ip', '192.168.48.3',
 'm3ftah/androfleet-base', 'master', NB_NODES], stdout=subprocess.PIPE).wait()
 
 # #Redirect ports

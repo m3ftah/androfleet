@@ -54,5 +54,5 @@ do
   fi
 done
 
-site="$(docker inspect --format='{{.Node.Name}}' androfleet-emu0)";
-docker logs -f $site/androfleet-emu0 |less
+#site="$(docker inspect --format='{{.Node.Name}}' androfleet-emu0)";
+#docker logs -f $site/androfleet-emu0 |less

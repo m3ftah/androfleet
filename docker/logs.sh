@@ -7,6 +7,8 @@ FOLDER=logs/$(date +%Y_%m_%d_%H_%M_%S)
  read -p "Please enter a comment with the log: "  comment
  echo "comment: $comment!"
  echo "$comment" > $FOLDER/comment.log
+
+ #sleep 18000
  for (( i=0; i< $NODES; ++i));
  do
    site="$(docker inspect --format='{{.Node.Name}}' androfleet-node$i)";

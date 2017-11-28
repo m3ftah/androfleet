@@ -11,6 +11,7 @@ lines = output.strip().split('\n')
 for l in lines:
     if ('androfleet' in l or 'python-server' in l):
         container_id = l.split()[0]
+        print('Stopping ' + l + '...')
         process = subprocess.Popen(['docker', 'kill', container_id], stdout=subprocess.PIPE)
         process.wait()
 

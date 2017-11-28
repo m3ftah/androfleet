@@ -98,9 +98,16 @@ case $MODE in
 
 
 
-    echo 'Starting Scala program with -J-Xmx50m -J-Xms50m'
+    echo 'Starting Scala program' # with -J-Xmx50m -J-Xms50m'
 
-    /build/androfleet-node-1.0/bin/androfleet-node $2 $ipAddress $emulatorAddress $emulatorName -J-Xmx50m -J-Xms50m
+    /build/androfleet-node-1.0/bin/androfleet-node $2 $ipAddress $emulatorAddress $emulatorName -Dcom.sun.management.jmxremote \
+    -Dcom.sun.management.jmxremote.port=9011 \
+    -Dcom.sun.management.jmxremote.local.only=false \
+    -Dcom.sun.management.jmxremote.authenticate=false \
+    -Dcom.sun.management.jmxremote.ssl=false \
+    -Dcom.sun.management.jmxremote.rmi.port=9011 \
+    -Djava.rmi.server.hostname=chifflet-1.lille.grid5000.fr \
+    -J-Xmx1000m
 
 
 
