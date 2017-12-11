@@ -17,7 +17,7 @@ RUN cd /tmp && \
     curl -O https://dl.google.com/android/android-sdk_r24.4.1-linux.tgz && \
     cd /opt && tar xzf /tmp/*.tgz && rm /tmp/*.tgz
 RUN echo "y" | android update sdk --no-ui --force -a --filter android-15,sys-img-x86-android-15,platform-tools
-#-t android-19 --abi armeabi-v7a --skin WXGA720
+#-t android-15 --abi armeabi-v7a --skin WXGA720
 #RUN echo "n" | android create avd --force -n nexus -t android-23 -b default/x86
 RUN resize2fs /opt/android-sdk-linux/system-images/android-15/default/x86/userdata.img 100M
 RUN echo "n" | android create avd --force -n nexus -t android-15 -b default/x86

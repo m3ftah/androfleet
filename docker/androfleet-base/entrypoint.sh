@@ -27,7 +27,7 @@ case $MODE in
     #
     # adb devices
 
-    /build/androfleet-master-1.0/bin/androfleet-master $2 &
+    /build/androfleet-master-1.0/bin/androfleet-master $2 -J-Xmx1500m &
     tail -f /dev/null
     ;;
 
